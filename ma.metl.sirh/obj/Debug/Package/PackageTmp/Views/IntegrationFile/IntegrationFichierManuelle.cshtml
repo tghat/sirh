@@ -1,0 +1,44 @@
+﻿@model ma.metl.sirh.Model.ProgrammeModel
+
+
+<div class="row">
+    <div class="col-md-0 col-md-offset-0">
+
+        @Html.Label("msgInfo", "", new { @class = "form-control" }) @Html.ValidationMessage("msgInfo", new { @style = "color:green" })
+        @Html.Label("msgError", "", new { @class = "form-control" }) @Html.ValidationMessage("msgError", new { @style = "color:red" })
+
+    </div>
+</div>
+
+<fieldset class="col-md-10 col-md-offset-1">
+
+    <!--<legend>Intégration</legend>-->
+    <form name="form-integrationManuelle" id="form-integrationManuelle" action="IntegrationM" method="post" class="form-horizontal" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="type"> Type de flux :</label>
+            </div>
+            <div class="col-md-4">
+                @Html.CustomEnumDropDownListFor(x => x.TypeFlux, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.TypeFlux, null, new { @style = "color:red" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="fichier"> Fichier:</label>
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" name="flux" type="file" />
+
+            </div>
+        </div>
+
+        <div class="col-md-offset-4">
+            <input type="submit" value="Intégrer" class="btn btn-custom btn-lg" />
+        </div>
+    </form>
+</fieldset>
+
+
+<!-- ******* Popups ****** -->

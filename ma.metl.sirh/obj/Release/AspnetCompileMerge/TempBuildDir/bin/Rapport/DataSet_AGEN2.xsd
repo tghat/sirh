@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_AGEN2" targetNamespace="http://tempuri.org/DataSet_AGEN2.xsd" xmlns:mstns="http://tempuri.org/DataSet_AGEN2.xsd" xmlns="http://tempuri.org/DataSet_AGEN2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_AGEN2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_AGEN2" msprop:Generator_UserDSName="DataSet_AGEN2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable_AGEN2" msprop:Generator_TableClassName="DataTable_AGEN2DataTable" msprop:Generator_TableVarName="tableDataTable_AGEN2" msprop:Generator_TablePropName="DataTable_AGEN2" msprop:Generator_RowDeletingName="DataTable_AGEN2RowDeleting" msprop:Generator_RowChangingName="DataTable_AGEN2RowChanging" msprop:Generator_RowEvHandlerName="DataTable_AGEN2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable_AGEN2RowDeleted" msprop:Generator_UserTableName="DataTable_AGEN2" msprop:Generator_RowChangedName="DataTable_AGEN2RowChanged" msprop:Generator_RowEvArgName="DataTable_AGEN2RowChangeEvent" msprop:Generator_RowClassName="DataTable_AGEN2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IntituleGrade" msprop:Generator_ColumnVarNameInTable="columnIntituleGrade" msprop:Generator_ColumnPropNameInRow="IntituleGrade" msprop:Generator_ColumnPropNameInTable="IntituleGradeColumn" msprop:Generator_UserColumnName="IntituleGrade" type="xs:string" minOccurs="0" />
+              <xs:element name="nbrTotalannee" msprop:Generator_ColumnVarNameInTable="columnnbrTotalannee" msprop:Generator_ColumnPropNameInRow="nbrTotalannee" msprop:Generator_ColumnPropNameInTable="nbrTotalanneeColumn" msprop:Generator_UserColumnName="nbrTotalannee" type="xs:string" minOccurs="0" />
+              <xs:element name="Formule" msprop:Generator_ColumnVarNameInTable="columnFormule" msprop:Generator_ColumnPropNameInRow="Formule" msprop:Generator_ColumnPropNameInTable="FormuleColumn" msprop:Generator_UserColumnName="Formule" type="xs:string" minOccurs="0" />
+              <xs:element name="Remarque" msprop:Generator_ColumnVarNameInTable="columnRemarque" msprop:Generator_ColumnPropNameInRow="Remarque" msprop:Generator_ColumnPropNameInTable="RemarqueColumn" msprop:Generator_UserColumnName="Remarque" type="xs:string" minOccurs="0" />
+              <xs:element name="AnneeExam" msprop:Generator_ColumnVarNameInTable="columnAnneeExam" msprop:Generator_ColumnPropNameInRow="AnneeExam" msprop:Generator_ColumnPropNameInTable="AnneeExamColumn" msprop:Generator_UserColumnName="AnneeExam" type="xs:string" minOccurs="0" />
+              <xs:element name="NbrPosteOuvrir" msprop:Generator_ColumnVarNameInTable="columnNbrPosteOuvrir" msprop:Generator_ColumnPropNameInRow="NbrPosteOuvrir" msprop:Generator_ColumnPropNameInTable="NbrPosteOuvrirColumn" msprop:Generator_UserColumnName="NbrPosteOuvrir" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

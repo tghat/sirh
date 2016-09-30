@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+  
+
+  <siteMapNode url="Fr/engagement/RechercheEngagement.aspx" title="Relations avec le FEC"  description="Relations avec le FEC" />
+  <siteMapNode url="Fr/suiviDemandes/SuiviDemandes.aspx" title="Suivi des demandes"  description="Suivi des demandes" />
+  <siteMapNode url="Fr/capaciteEmprunt/CapaciteEmprunt.aspx" title="Capacité d'emprunt"  description="Capacité d'emprunt" />
+
+  
+  <siteMapNode url="Fr/echeance/Echeances.aspx" title="Avis d’échéance"  description="Avis d’échéance" />
+  <siteMapNode url="Fr/echeance/RetardPaiement.aspx" title="Retard de paiement"  description="Retard de paiement" />
+  <siteMapNode url="Fr/infoClient/InfoClient.aspx" title="Identification client"  description="Identification client" />
+  <siteMapNode url="Fr/relances/Relances.aspx" title="Correspondances"  description="Correspondances" />
+
+
+  <siteMapNode url="Fr/monCompte/MonCompte.aspx" title="Mon compte"  description="Mon compte" />
+  <siteMapNode url="Fr/contacts/Contacts.aspx" title="Contactez-nous"  description="Contactez-nous" />
+ 
+</siteMap>

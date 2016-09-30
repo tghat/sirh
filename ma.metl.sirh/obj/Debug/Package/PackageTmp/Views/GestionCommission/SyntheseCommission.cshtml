@@ -1,0 +1,30 @@
+﻿
+
+@{
+    Layout = null;
+
+}
+
+
+<div class="row">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="~/GestionCommission/ParametrageCap?onglet=membre">Membres de la commission</a>
+        </li>
+        <li>
+            <a href="~/GestionCommission/ParametrageCap?onglet=observation">Observations et Décisions</a>
+        </li>
+        <li>
+            <a href="~/GestionCommission/ParametrageCap?onglet=historique">Historique des réunion</a>
+        </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade  in active" id="manage-integrationFE">
+            @RenderPage("MembresCommission.cshtml")
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,455 @@
+﻿@model Tuple<ma.metl.sirh.Model.ProgrammeModel, ma.metl.sirh.Model.Dto.EventDto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+
+<script src="../components/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // $(document).ready(function () {
+    function LoadCalendar() {
+        var annee = $("#Annee option:selected").val();
+        var grade = $("#Grades option:selected").val();
+        var commission = $("#Commission option:selected").val();
+        var ecritOuOral = $("#grade option:selected").val();
+        if ($('#calendar').children().length > 0) {
+            $('#calendar').fullCalendar('destroy');
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultView: 'month',
+                editable: true,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 15,
+                events: '@Url.Action("GetCommissionEvents","GestionCommission")?annee=' + annee + '&grade=' + grade + '&commission=' + commission + '&examType=' + ecritOuOral,
+                eventClick: function (calEvent) {
+                    $('#eventIdM').val(calEvent.id);
+                    $('#eventTitleM').val(calEvent.title);
+                    $('#eventDateM').val(calEvent.startAffiche);
+                    $('#eventDurationM').val(calEvent.dureeS);
+                    $('#eventTimeM').val(calEvent.heure);
+                    $('#commissionM').val(calEvent.comId);
+                    $('#StatutsReunionM').val(calEvent.className);
+                    $('#UpdateEvent').modal();
+                },
+
+                /* eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc) {
+                     if (confirm("Confirm move?")) {
+                         UpdateEvent(event.id, event.start);
+                     }
+                     else {
+                         revertFunc();
+                     }
+                 },
+
+                 eventResize: function (event, dayDelta, minuteDelta, revertFunc) {
+
+                     if (confirm("Confirm change appointment length?")) {
+                         UpdateEvent(event.id, event.start, event.end);
+                     }
+                     else {
+                         revertFunc();
+                     }
+                 },*/
+
+                dayClick: function (date, allDay, jsEvent, view) {
+                    $('#eventTitle').val();
+                    $('#eventDate').val($.fullCalendar.formatDate(date, 'dd/MM/yyyy'));
+                    $('#eventTime').val($.fullCalendar.formatDate(date, 'HH:mm'));
+                    $('#eventDuration').val("00:00");
+                    $.validator.unobtrusive.parse("#AddEvent");
+                    $('#AddEvent').modal();
+                    $('#eventTitle').focus();
+                },
+            });
+        } else {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultView: 'month',
+                editable: true,
+                allDaySlot: false,
+                selectable: true,
+                slotMinutes: 15,
+                events: '/GestionCommission/GetCommissionEvents/?annee=' + annee + '&&grade=' + grade + '&&commission=' + commission + '&&examType=' + ecritOuOral,
+                eventClick: function (calEvent) {
+                    $('#eventIdM').val(calEvent.id);
+                    $('#eventTitleM').val(calEvent.title);
+                    $('#eventDateM').val(calEvent.startAffiche);
+                    $('#eventDurationM').val(calEvent.dureeS);
+                    $('#eventTimeM').val(calEvent.heure);
+                    $('#commissionM').val(calEvent.comId);
+                    $('#StatutsReunionM').val(calEvent.className);
+                    $('#UpdateEvent').modal();
+                },
+
+                /* eventDrop: function (event, dayDelta, minuteDelta, allDay, revertFunc) {
+                     if (confirm("Confirm move?")) {
+                         UpdateEvent(event.id, event.start);
+                     }
+                     else {
+                         revertFunc();
+                     }
+                 },
+
+                 eventResize: function (event, dayDelta, minuteDelta, revertFunc) {
+
+                     if (confirm("Confirm change appointment length?")) {
+                         UpdateEvent(event.id, event.start, event.end);
+                     }
+                     else {
+                         revertFunc();
+                     }
+                 },*/
+
+                dayClick: function (date, allDay, jsEvent, view) {
+                    $('#eventTitle').val();
+                    $('#eventDate').val($.fullCalendar.formatDate(date, 'dd/MM/yyyy'));
+                    $('#eventTime').val($.fullCalendar.formatDate(date, 'HH:mm'));
+                    $('#eventDuration').val("00:00");
+                    $.validator.unobtrusive.parse("#AddEvent");
+                    $('#AddEvent').modal();
+                    $('#eventTitle').focus();
+                },
+            });
+        }
+        // });
+    }
+
+     function LoadCalendar1() {
+         var annee = $("#Annee option:selected").val();
+         var grade = $("#Grades option:selected").val();
+         var commission = $("#Commission option:selected").val();
+         var url = '@Url.Action("GetCommissionEvents", "GestionCommission")';
+         $.getJSON(url, { annee: annee, grade: grade, commission: commission }, function (data) {
+
+
+         });
+     }
+
+     function ShowEventPopup(date) {
+         ClearPopupFormValues();
+         $('#AddEvent').modal();
+         $('#eventTitle').focus();
+     }
+
+     function ClearPopupFormValues() {
+         $('#eventID').val("");
+         $('#eventTitle').val("");
+         $('#eventDateTime').val("");
+         $('#eventDuration').val("");
+     }
+
+     function UpdateEvent(EventID, EventStart, EventEnd) {
+
+         var dataRow = {
+             'ID': EventID,
+             'NewEventStart': EventStart,
+             'NewEventEnd': EventEnd
+         }
+
+         $.ajax({
+             type: 'POST',
+             url: "/GestionCommission/UpdateEvent",
+             dataType: "json",
+             contentType: "application/json",
+             data: JSON.stringify(dataRow)
+         });
+     }
+
+
+
+    </script>
+
+
+<fieldset class="col-md-10 col-md-offset-1">
+
+    <legend>Critères de Recherche</legend>
+
+    <form name="form-paramQuota" id="form-paramQuota" action="" method="post" class="form-horizontal">
+        
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="annee"> Année :</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("Annee", null, "Sélectionnez",new { @class = "form-control"})
+
+                </div>
+                <div class="col-md-3">
+                    <label for="grade"> Grade d'accès:</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownList("Grades", null, "Sélectionnez", new { @class = "form-control"})
+
+                </div>
+            </div>
+       
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="commission"> Commission :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownList("Commission", null, "Sélectionnez", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                <label>Examen : </label>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" name="grade" id="grade">
+                    <option value="">---- S&eacute;lectionnez ----</option>
+                    <option value="Ecrit">Ecrit</option>
+                    <option value="Oral">Orale</option>
+                </select>
+            </div>
+        </div>
+       
+    </form>
+    <div class="b-right">
+
+        <a class="btn btn-custom" href="javascript:LoadCalendar()">
+            <i class="fa fa-search"></i>
+            Afficher
+        </a>
+    </div>
+    
+</fieldset>
+<fieldset class="col-md-10 col-md-offset-1">
+    <legend>Résultats</legend>
+    <div id="divresultats" class="row">
+        <div id="calendar" style="width:65%"></div>
+    </div>
+</fieldset>
+
+
+
+<!-- **** AddEvent **** -->
+
+<div id="AddEvent" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nouvelle réunion</h4>
+            </div>
+            <div class="modal-body">
+                <form name="form-AddEvent" id="form-AddEvent" action="EnregistrerEvent" method="post" class="form-horizontal">
+                      <div class="form-group">
+                        <div class="col-md-5">
+                            <label for="commission"> Commission :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownList("Commission", null,"Sélectionnez", new {id="commissionL", @class = "form-control"})
+
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <label>Ordre du jour :</label>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.Item2.Title, new { id = "eventTitle", @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <label>Date :</label>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.Item2.StartDateString, DateTime.Now.ToString("d"), new { id = "eventDate", @class = "form-control datepicker" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <label>Heure :</label>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.Item2.Heure, new { id = "eventTime", Mask = "99:99", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Item2.Heure, null, new { style = "color: red" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <label>Durée (minutes) : </label>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.Item2.Duree, new { id = "eventDuration", Mask = "99:99", @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Item2.Duree, null, new { style = "color: red" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-5">
+                                <label for="statut"> Statut :</label>
+                            </div>
+                            <div class="col-md-4">
+                                @Html.DropDownList("StatutsReunion",null, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <input type="submit" value="Enregistrer" class="btn btn-custom btn-lg" />
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        </div>
+</form>
+            </div>
+            </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- **** AddEvent **** -->
+
+<div id="ShowEvent" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Consulter réunion</h4>
+            </div>
+            <div class="modal-body">
+                <form name="form-ShowEvent" id="form-ShowEvent" action="" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label for="commission"> Commission :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownList("Commission", null, "Sélectionnez", new { id = "commissionC", @class = "form-control", @readonly = "readonly" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Ordre du jour :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.Title, new { id = "eventTitleC", @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Date :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.StartDateString, "{0:yyyy-MM-dd}", new { id = "eventDateC", @class = "form-control datepicker", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Heure :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.Heure, new { id = "eventTimeC", Mask = "99:99", @class = "form-control", @readonly = "readonly" })
+                            @Html.ValidationMessageFor(model => model.Item2.Heure, null, new { style = "color: red" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Durée (minutes) : </label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.Duree, new { id = "eventDurationC", Mask = "99:99", @class = "form-control", @readonly = "readonly" })
+                            @Html.ValidationMessageFor(model => model.Item2.Duree, null, new { style = "color: red" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label for="statut"> Statut :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownList("StatutsReunion", null, new { id = "StatutsReunionC", @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- **** UpdateEvent **** -->
+
+<div id="UpdateEvent" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Détail réunion</h4>
+            </div>
+            <div class="modal-body">
+                <form name="form-UpdateEvent" id="form-UpdateEvent" action="ModifierEvent" method="post" class="form-horizontal">
+                    @Html.Hidden("eventIdM")
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label for="commission"> Commission :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownList("CommissionM", null, "Sélectionnez", new { id = "commissionM", @class = "form-control" })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Ordre du jour :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.Title, new { id = "eventTitleM", @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Date :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.StartDateString, DateTime.Now.ToString("d"), new { id = "eventDateM", @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Heure :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.Heure, new { id = "eventTimeM", Mask = "99:99", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Item2.Heure, null, new { style = "color: red" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label>Durée (minutes) : </label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.Item2.Duree, new { id = "eventDurationM", Mask = "99:99", @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Item2.Duree, null, new { style = "color: red" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-5">
+                            <label for="statut"> Statut :</label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.DropDownList("StatutsReunionM", null, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" value="Enregistrer" class="btn btn-custom btn-lg" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

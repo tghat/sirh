@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Interfaçage GipeOrd - Rapports";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">Interfaçage GipeOrd</h1>
+    </div>
+    <!-- /.col-md-12 -->
+</div>
+
+<ul class="nav nav-tabs">
+    <li>
+        <a href=@Url.Action("PreparationActe","InterfacageGipeOrd")>Préparation Acte</a>
+    </li>
+    <li class="active">
+        <a href="#" data-toggle="tab">Rapports</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div class="tab-pane fade  in active" id="Rapports">
+        @RenderPage("RapportsContent.cshtml")
+    </div>
+</div>
+
+
+

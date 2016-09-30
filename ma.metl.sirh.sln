@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ma.metl.sirh", "ma.metl.sirh\ma.metl.sirh.csproj", "{1CAE3387-10C6-49F3-9FE5-65808CFE690C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ma.metl.sirh.Model", "ma.metl.sirh.Model\ma.metl.sirh.Model.csproj", "{AFC9D48B-D6FA-41E6-84BC-A43713B5E8B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ma.metl.sirh.Repository", "ma.metl.sirh.Repository\ma.metl.sirh.Repository.csproj", "{AFC7D5EC-1324-49D5-B1E6-7239DC54220B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ma.metl.sirh.Service", "ma.metl.sirh.Service\ma.metl.sirh.Service.csproj", "{47285FC7-3A39-41DB-A30C-BBB386F37636}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ma.metl.sirh.Test", "ma.metl.sirh.Test\ma.metl.sirh.Test.csproj", "{D0C4A3AE-33FD-44BD-9E82-6F37C5628ED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ma.metl.sirh.Model.Ora", "ma.metl.sirh.Model.Ora\ma.metl.sirh.Model.Ora.csproj", "{F5796E22-DCF4-496C-B37D-58D4E7371227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ma.metl.sirh.Model.Oracle", "ma.metl.sirh.Model.Oracle\ma.metl.sirh.Model.Oracle.csproj", "{2C6951E3-8139-455C-8AAC-0F7792D81E02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DF1960A5-789E-49BA-822F-9BF39A17FEA4}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CAE3387-10C6-49F3-9FE5-65808CFE690C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CAE3387-10C6-49F3-9FE5-65808CFE690C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CAE3387-10C6-49F3-9FE5-65808CFE690C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CAE3387-10C6-49F3-9FE5-65808CFE690C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC9D48B-D6FA-41E6-84BC-A43713B5E8B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC9D48B-D6FA-41E6-84BC-A43713B5E8B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC9D48B-D6FA-41E6-84BC-A43713B5E8B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC9D48B-D6FA-41E6-84BC-A43713B5E8B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC7D5EC-1324-49D5-B1E6-7239DC54220B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC7D5EC-1324-49D5-B1E6-7239DC54220B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC7D5EC-1324-49D5-B1E6-7239DC54220B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC7D5EC-1324-49D5-B1E6-7239DC54220B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47285FC7-3A39-41DB-A30C-BBB386F37636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47285FC7-3A39-41DB-A30C-BBB386F37636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47285FC7-3A39-41DB-A30C-BBB386F37636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47285FC7-3A39-41DB-A30C-BBB386F37636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0C4A3AE-33FD-44BD-9E82-6F37C5628ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0C4A3AE-33FD-44BD-9E82-6F37C5628ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0C4A3AE-33FD-44BD-9E82-6F37C5628ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0C4A3AE-33FD-44BD-9E82-6F37C5628ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5796E22-DCF4-496C-B37D-58D4E7371227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5796E22-DCF4-496C-B37D-58D4E7371227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5796E22-DCF4-496C-B37D-58D4E7371227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5796E22-DCF4-496C-B37D-58D4E7371227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6951E3-8139-455C-8AAC-0F7792D81E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6951E3-8139-455C-8AAC-0F7792D81E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6951E3-8139-455C-8AAC-0F7792D81E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6951E3-8139-455C-8AAC-0F7792D81E02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

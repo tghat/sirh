@@ -1,0 +1,600 @@
+﻿@model ma.metl.sirh.Model.ViewModel
+
+       
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+
+    function ModifierCap(id)
+    {
+        $('#commissionIdM').val(id);
+        var url = '@Url.Action("getCommissionById", "GestionCommission")';
+        $.getJSON(url, { comissionId: id }, function (data) {
+          
+            $('#TitreM').val(data.Titre);
+            $('#AnneeM').val(data.Annee);
+            $('#TypeAvancementM').val(data.TypeAvancement);
+            $('#GradesM').val(data.GradeId);
+            if(data.EcritOrOral == "Ecrit")
+            {
+                document.getElementById("EcritM").checked = "checked";
+            }
+            if (data.EcritOrOral == "Oral") {
+                document.getElementById("OralM").checked = "checked";
+            }
+            
+            if ($("#TypeAvancementM").val() == 'Sur examen') {
+                $("#divfluxEditCap").show();
+            }
+            else {
+                $("#divfluxEditCap").hide();
+            }
+            });
+      
+        $('#EditCAP').modal();
+    }
+
+    function ClonerCap(id) {
+        $('#commissionIdC').val(id);
+        var url = '@Url.Action("getCommissionById", "GestionCommission")';
+        $.getJSON(url, { comissionId: id }, function (data) {
+
+            $('#TitreC').val(data.Titre);
+            $('#AnneeC').val(data.Annee);
+            $('#TypeAvancementC').val(data.TypeAvancement);
+            $('#GradesC').val(data.GradeId);
+            if (data.EcritOrOral == "Ecrit") {
+                document.getElementById("EcritC").checked = "checked";
+            }
+            if (data.EcritOrOral == "Oral") {
+                document.getElementById("OralC").checked = "checked";
+            }
+            if ($("#TypeAvancementC").val() == 'Sur examen') {
+                $("#divfluxClonerCap").show();
+            }
+            else {
+                $("#divfluxClonerCap").hide();
+            }
+        });
+
+
+        $('#ClonerCAP').modal();
+    }
+
+    function DeleteAskToConfirm(commissionId) {
+        $('#Testlbl').html(commissionId);
+        $('#deleteCAP').modal();
+
+    }
+
+    function deleteCommission() {
+        var id = document.getElementById('Testlbl').innerHTML;
+        window.location = '@Url.Action("SupprimerCommission", "GestionCommission")' + '?commissionId=' + id;
+    }
+
+    function GenererRapport(id)
+    {
+        window.location = '@Url.Action("GenerateAndDisplayReport", "GestionCommission")' + '?commissionId=' + id;
+    }
+
+    function Enregistrer()
+    {
+        var error = 0;
+        var valeurAnnee = document.getElementById("AnneeA").value;
+        if (valeurAnnee == "Sélectionnez")
+        {
+            document.getElementById("msgErrorAnnee").style.display = "block";
+            error++;
+        }
+        else 
+        {
+            document.getElementById("msgErrorAnnee").style.display = "hidden";
+            
+        }
+
+        var valeurTypeAvancement = document.getElementById("TypeAvancementA").value;
+        if (valeurAnnee == "Sélectionnez") {
+            document.getElementById("msgErrorTypeAvancementA").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorTypeAvancementA").style.display = "hidden";
+
+        }
+
+        var valeurTitre = document.getElementById("TitreA").value;
+        if (valeurTitre == "") {
+            document.getElementById("msgErrorTitre").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorTitre").style.display = "hidden";
+        }
+
+        var valeurGrade = document.getElementById("GradesA").value;
+        if (valeurGrade == "") {
+            document.getElementById("msgErrorGrade").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorGrade").style.display = "hidden";
+        }
+        if (error == 0)
+        {
+            document.getElementById("form-newCAP").submit();
+        }
+    }
+
+    function Modifier() {
+        var error = 0;
+        var valeurAnnee = document.getElementById("AnneeM").value;
+        if (valeurAnnee == "Sélectionnez") {
+            document.getElementById("msgErrorAnneeM").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorAnneeM").style.display = "hidden";
+
+        }
+
+        var valeurTypeAvancement = document.getElementById("TypeAvancementM").value;
+        if (valeurAnnee == "Sélectionnez") {
+            document.getElementById("msgErrorTypeAvancementM").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorTypeAvancementM").style.display = "hidden";
+
+        }
+
+        var valeurTitre = document.getElementById("TitreM").value;
+        if (valeurTitre == "") {
+            document.getElementById("msgErrorTitreM").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorTitreM").style.display = "hidden";
+        }
+
+        var valeurGrade = document.getElementById("GradesM").value;
+        if (valeurGrade == "") {
+            document.getElementById("msgErrorGradeM").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorGradeM").style.display = "hidden";
+        }
+        if (error == 0) {
+            document.getElementById("form-editCAP").submit();
+        }
+    }
+
+    function Cloner() {
+        var error = 0;
+        var valeurAnnee = document.getElementById("AnneeC").value;
+        if (valeurAnnee == "Sélectionnez") {
+            document.getElementById("msgErrorAnneeC").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorAnneeC").style.display = "hidden";
+
+        }
+
+        var valeurTypeAvancement = document.getElementById("TypeAvancementC").value;
+        if (valeurAnnee == "Sélectionnez") {
+            document.getElementById("msgErrorTypeAvancementC").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorTypeAvancementC").style.display = "hidden";
+
+        }
+
+        var valeurTitre = document.getElementById("TitreC").value;
+        if (valeurTitre == "") {
+            document.getElementById("msgErrorTitreC").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorTitreC").style.display = "hidden";
+        }
+
+        var valeurGrade = document.getElementById("GradesC").value;
+        if (valeurGrade == "") {
+            document.getElementById("msgErrorGradeC").style.display = "block";
+            error++;
+        }
+        else {
+            document.getElementById("msgErrorGradeC").style.display = "hidden";
+        }
+        if (error == 0) {
+            document.getElementById("form-clonerCAP").submit();
+        }
+    }
+</script>
+@{var roles = Session["listRoles"] as List<string>;}
+
+<div class="col-md-3" style="display:none">
+    <label id="Testlbl"></label>
+</div>
+    <div class="table-responsive">
+        <table class="table table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Désignation</th>
+                    <th>Grade</th>
+                    <th>Année</th>
+                    <th width="12%">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.ListCommission)
+                {
+                    <tr>
+                        <td><a href="@Url.Action("ParametrageCap", "GestionCommission", new { commissionId = item.Id })">@Html.DisplayFor(modelItem => item.Titre)</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.EcritOrOral)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Annee)</td>
+                        <td>
+                      @if (roles.Contains("Gestion_Commission_Modification"))
+                         {
+                            <a class="btn btn-custom btn-xs" href="javascript:ModifierCap(@item.Id)" title="Consulter / Editer">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                         }   
+                      @if (roles.Contains("Gestion_Commission_Suppression"))
+                        {
+                            <a class="btn btn-custom btn-xs" href="javascript:DeleteAskToConfirm(@item.Id)" title=" supprimer">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        }
+                      @if (roles.Contains("Gestion_Commission_Impression"))
+                        {
+                            <a class="btn btn-custom btn-xs" href="javascript:GenererRapport(@item.Id)" title="Imprimer">
+                                <i class="fa fa-print"></i>
+                            </a>
+                        }
+                     @if (roles.Contains("Gestion_Commission_Clonage"))
+                        {
+                            <a class="btn btn-custom btn-xs" href="javascript:ClonerCap(@item.Id,'@item.Titre','@item.Annee','@item.EcritOrOral')" title=" cloner">
+                                <i class="fa fa-plus-square"></i>
+                            </a>
+                        }
+                        </td>
+
+                    </tr> }
+            </tbody>
+               
+</table>
+    </div>
+    <div class="b-right">
+     @if (roles.Contains("Gestion_Commission_Creation"))
+            {
+        <a class="btn btn-custom" href="javascript:popup('newCAP')">
+            <i class="fa fa-plus"></i>
+            Nouvelle Commission
+        </a>   
+            }
+    </div>
+
+@if(ViewBag.showSynthese == "membre")
+{
+   <div class="tab-content">
+        <div class="tab-pane fade  in active" id="manage-integrationFE">
+            @RenderPage("SyntheseCommission.cshtml")
+
+        </div>
+
+    </div>
+}
+@if (ViewBag.showSynthese == "observation")
+{
+    <div class="tab-content">
+        <div class="tab-pane fade  in active" id="manage-integrationFE">
+            @RenderPage("SyntheseCommissionObservation.cshtml")
+
+        </div>
+
+    </div>
+}
+@if (ViewBag.showSynthese == "historique")
+{
+    <div class="tab-content">
+        <div class="tab-pane fade  in active" id="manage-integrationFE">
+            @RenderPage("SyntheseCommissionHistorique.cshtml")
+
+        </div>
+
+    </div>
+}
+
+<!-- **************** Popups **************** -->
+<!-- **** newCAP **** -->
+
+<div id="newCAP" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Nouvelle Commission</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form name="form-newCAP" id="form-newCAP" action="CreerCommission" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label for="titre">Titre de la commission :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.Commission.Titre, new { id="TitreA",@class = "form-control" })
+                                    @Html.Label("Le champ Titre est obligatoire!", new { id = "msgErrorTitre", @style = "color:red;display:none;font-weight: normal;" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label for="annee">Type d'avancement :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(model => model.Commission.TypeAvancement, ViewBag.TypeAvancement as SelectList, "Sélectionnez", new { id = "TypeAvancementA", @class = "form-control" })
+                                    @Html.Label("Le champ Type d'avancement est obligatoire!", new { id = "msgErrorTypeAvancementA", @style = "color:red;display:none;font-weight: normal;" })
+
+                                </div>
+                            </div>
+                            <div id="divfluxNewCap" class="form-group">
+                                <div class="col-md-4">
+                                    <label>Examen : </label>
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.RadioButtonFor(model => model.Commission.EcritOrOral, "Ecrit")
+                                    @Html.Label("Ecrit", "Ecrit")
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.RadioButtonFor(model => model.Commission.EcritOrOral, "Oral")
+                                    @Html.Label("Oral", "Oral")
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label for="annee">Année :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(model => model.Commission.Annee, ViewBag.Annee as SelectList, "Sélectionnez", new { id = "AnneeA", @class = "form-control" })
+                                    @Html.Label("Le champ Année est obligatoire!", new { id = "msgErrorAnnee", @style = "color:red;display:none;font-weight: normal;" })
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label for="grade">Grade :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(model => model.Commission.GradeId, ViewBag.Grades as SelectList, "Sélectionnez", new { id="GradesA", @class = "form-control" })
+                                    @Html.Label("Le champ Grade est obligatoire!", new { id = "msgErrorGrade", @style = "color:red;display:none;font-weight: normal;" })
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <input value="Enregistrer" class="btn btn-custom btn-lg" onclick="javascript:Enregistrer()"/>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+<!-- **************** Popups **************** -->
+<!-- **** newCAP **** -->
+
+<div id="EditCAP" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modifier Commission</h4>
+            </div>
+            <div class="modal-body">
+                <form name="form-editCAP" id="form-editCAP" action="ModifierCommission" method="post" class="form-horizontal">
+                    @Html.Hidden("commissionIdM")
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="titre">Titre de la commission :</label>
+                        </div>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Commission.Titre, new { id = "TitreM", @class = "form-control" })
+                            @Html.Label("Le champ Titre est obligatoire!", new { id = "msgErrorTitreM", @style = "color:red;display:none;font-weight: normal;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="annee">Type d'avancement :</label>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DropDownListFor(model => model.Commission.TypeAvancement, ViewBag.TypeAvancementM as SelectList, "Sélectionnez", new { id = "TypeAvancementM", @class = "form-control" })
+                            @Html.Label("Le champ Type d'avancement est obligatoire!", new { id = "msgErrorTypeAvancementM", @style = "color:red;display:none;font-weight: normal;" })
+
+                        </div>
+                    </div>
+                    <div id="divfluxEditCap" class="form-group">
+                        <div class="col-md-4">
+                            <label>Examen : </label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.RadioButtonFor(model => model.Commission.EcritOrOral, "Ecrit", new { id = "EcritM" })
+                            @Html.Label("Ecrit", "Ecrit")
+
+                        </div>
+                        <div class="col-md-4">
+                            @Html.RadioButtonFor(model => model.Commission.EcritOrOral, "Oral", new { id = "OralM" })
+                            @Html.Label("Oral", "Oral")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="annee">Année :</label>
+                        </div>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.Commission.Annee, ViewBag.Annee as SelectList, "Sélectionnez", new { id = "AnneeM", @class = "form-control" })
+                            @Html.Label("Le champ Année est obligatoire!", new { id = "msgErrorAnneeM", @style = "color:red;display:none;font-weight: normal;" })
+                        </div>
+                       
+                        </div>
+                        <div class="form-group">
+                           
+                            <div class="col-md-4">
+                                <label for="grade">Grade :</label>
+                            </div>
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(model => model.Commission.GradeId, ViewBag.Grades as SelectList, "Sélectionnez", new {id="GradesM", @class = "form-control" })
+                                @Html.Label("Le champ Grade est obligatoire!", new { id = "msgErrorGradeM", @style = "color:red;display:none;font-weight: normal;" })
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <input value="Modifier" class="btn btn-custom btn-lg" onclick="javascript:Modifier()"/>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- **** deleteCAP **** -->
+
+<div id="deleteCAP" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Suppression d&#146;une commision </h4>
+            </div>
+            <div class="modal-body">
+                <p>Etes vous sûr de vouloir supprimer cette commission ?</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-custom btn-xs" href="javascript:deleteCommission()" title="Supprimer">
+                    <i class="fa fa-trash-o">Oui</i>
+                </a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- **** ClonerCAP **** -->
+
+<div id="ClonerCAP" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Dupliquer Commission</h4>
+            </div>
+            <div class="modal-body">
+                <form name="form-clonerCAP" id="form-clonerCAP" action="ClonerCommission" method="post" class="form-horizontal">
+                    @Html.Hidden("commissionIdC")
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="titre">Titre de la commission :</label>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.Commission.Titre, new { id = "TitreC", @class = "form-control" })
+                            @Html.Label("Le champ Titre est obligatoire!", new { id = "msgErrorTitreC", @style = "color:red;display:none;font-weight: normal;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="annee">Type d'avancement :</label>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DropDownListFor(model => model.Commission.TypeAvancement, ViewBag.TypeAvancementC as SelectList, "Sélectionnez", new { id = "TypeAvancementC", @class = "form-control" })
+                            @Html.Label("Le champ Type d'avancement est obligatoire!", new { id = "msgErrorTypeAvancementC", @style = "color:red;display:none;font-weight: normal;" })
+
+                        </div>
+                    </div>
+                    <div id="divfluxClonerCap" class="form-group">
+                        <div class="col-md-4">
+                            <label>Examen : </label>
+                        </div>
+                        <div class="col-md-3">
+                            @Html.RadioButtonFor(model => model.Commission.EcritOrOral, "Ecrit", new { id = "EcritC" })
+                            @Html.Label("Ecrit", "Ecrit")
+
+                        </div>
+                        <div class="col-md-3">
+                            @Html.RadioButtonFor(model => model.Commission.EcritOrOral, "Oral", new { id = "OralC" })
+                            @Html.Label("Oral", "Oral")
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="annee">Année :</label>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DropDownListFor(model => model.Commission.Annee, ViewBag.Annee as SelectList, "Sélectionnez", new { id = "AnneeC", @class = "form-control" })
+                            @Html.Label("Le champ Année est obligatoire!", new { id = "msgErrorAnneeC", @style = "color:red;display:none;font-weight: normal;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label for="grade">Grade :</label>
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DropDownListFor(model => model.Commission.GradeId, ViewBag.Grades as SelectList, "Sélectionnez", new {id="GradesC", @class = "form-control" })
+                            @Html.Label("Le champ Grade est obligatoire!", new { id = "msgErrorGradeC", @style = "color:red;display:none;font-weight: normal;" })
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input value="Enregistrer" class="btn btn-custom btn-lg" onclick="javascript:Cloner()" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        if ($("#TypeAvancementA").value == 'Sur examen') {
+            $("#divfluxNewCap").show();
+        }
+        else {
+            $("#divfluxNewCap").hide();
+        }
+
+        $('#TypeAvancementA').on('change', function () {
+            if (this.value == 'Sur examen') {
+                $("#divfluxNewCap").show();
+            }
+            else {
+                $("#divfluxNewCap").hide();
+            }
+        });
+
+        $('#TypeAvancementM').on('change', function () {
+            if (this.value == 'Sur examen') {
+                $("#divfluxEditCap").show();
+            }
+            else {
+                $("#divfluxEditCap").hide();
+            }
+        });
+
+        $('#TypeAvancementC').on('change', function () {
+            if (this.value == 'Sur examen') {
+                $("#divfluxClonerCap").show();
+            }
+            else {
+                $("#divfluxClonerCap").hide();
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Gestion des fichiers en provenance de GipeOrd";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Gestion des fichiers en provenance de GipeOrd</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="~/IntegrationFile/IntegrationM">Intégration Manuelle</a>
+        </li>
+        <li class="active">
+            <a href="#">Fichiers en entrée</a>
+        </li>
+       
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade  in active" id="manage-integrationFE">
+            @RenderPage("RechercherFichier.cshtml")
+
+        </div>
+
+    </div>
+</div>
+

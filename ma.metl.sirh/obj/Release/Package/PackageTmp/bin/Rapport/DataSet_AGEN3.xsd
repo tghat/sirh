@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_AGEN3" targetNamespace="http://tempuri.org/DataSet_AGEN3.xsd" xmlns:mstns="http://tempuri.org/DataSet_AGEN3.xsd" xmlns="http://tempuri.org/DataSet_AGEN3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="sirhContext" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="sirhContext (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.sirhContext.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_AGEN3" msdata:IsDataSet="true" msdata:Locale="ar-AE" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_AGEN3" msprop:Generator_UserDSName="DataSet_AGEN3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable_AGEN3" msprop:Generator_TableClassName="DataTable_AGEN3DataTable" msprop:Generator_TableVarName="tableDataTable_AGEN3" msprop:Generator_TablePropName="DataTable_AGEN3" msprop:Generator_RowDeletingName="DataTable_AGEN3RowDeleting" msprop:Generator_RowChangingName="DataTable_AGEN3RowChanging" msprop:Generator_RowEvHandlerName="DataTable_AGEN3RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable_AGEN3RowDeleted" msprop:Generator_UserTableName="DataTable_AGEN3" msprop:Generator_RowChangedName="DataTable_AGEN3RowChanged" msprop:Generator_RowEvArgName="DataTable_AGEN3RowChangeEvent" msprop:Generator_RowClassName="DataTable_AGEN3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IntituleGrade" msprop:Generator_ColumnVarNameInTable="columnIntituleGrade" msprop:Generator_ColumnPropNameInRow="IntituleGrade" msprop:Generator_ColumnPropNameInTable="IntituleGradeColumn" msprop:Generator_UserColumnName="IntituleGrade" type="xs:string" minOccurs="0" />
+              <xs:element name="nbrTotalannee" msprop:Generator_ColumnVarNameInTable="columnnbrTotalannee" msprop:Generator_ColumnPropNameInRow="nbrTotalannee" msprop:Generator_ColumnPropNameInTable="nbrTotalanneeColumn" msprop:Generator_UserColumnName="nbrTotalannee" type="xs:string" minOccurs="0" />
+              <xs:element name="nbrTotalDate" msprop:Generator_ColumnVarNameInTable="columnnbrTotalDate" msprop:Generator_ColumnPropNameInRow="nbrTotalDate" msprop:Generator_ColumnPropNameInTable="nbrTotalDateColumn" msprop:Generator_UserColumnName="nbrTotalDate" type="xs:string" minOccurs="0" />
+              <xs:element name="AnneeExam" msprop:Generator_ColumnVarNameInTable="columnAnneeExam" msprop:Generator_ColumnPropNameInRow="AnneeExam" msprop:Generator_ColumnPropNameInTable="AnneeExamColumn" msprop:Generator_UserColumnName="AnneeExam" type="xs:string" minOccurs="0" />
+              <xs:element name="DateExamen" msprop:Generator_ColumnVarNameInTable="columnDateExamen" msprop:Generator_ColumnPropNameInRow="DateExamen" msprop:Generator_ColumnPropNameInTable="DateExamenColumn" msprop:Generator_UserColumnName="DateExamen" type="xs:string" minOccurs="0" />
+              <xs:element name="nbrRestant" msprop:Generator_ColumnVarNameInTable="columnnbrRestant" msprop:Generator_ColumnPropNameInRow="nbrRestant" msprop:Generator_ColumnPropNameInTable="nbrRestantColumn" msprop:Generator_UserColumnName="nbrRestant" type="xs:string" minOccurs="0" />
+              <xs:element name="pourcentageRestant" msprop:Generator_ColumnVarNameInTable="columnpourcentageRestant" msprop:Generator_ColumnPropNameInRow="pourcentageRestant" msprop:Generator_ColumnPropNameInTable="pourcentageRestantColumn" msprop:Generator_UserColumnName="pourcentageRestant" type="xs:string" minOccurs="0" />
+              <xs:element name="pourcentageDateExamen" msprop:Generator_ColumnVarNameInTable="columnpourcentageDateExamen" msprop:Generator_ColumnPropNameInRow="pourcentageDateExamen" msprop:Generator_ColumnPropNameInTable="pourcentageDateExamenColumn" msprop:Generator_UserColumnName="pourcentageDateExamen" type="xs:string" minOccurs="0" />
+              <xs:element name="DateExamenString" msprop:Generator_ColumnVarNameInTable="columnDateExamenString" msprop:Generator_ColumnPropNameInRow="DateExamenString" msprop:Generator_ColumnPropNameInTable="DateExamenStringColumn" msprop:Generator_UserColumnName="DateExamenString" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

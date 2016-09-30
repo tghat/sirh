@@ -1,0 +1,170 @@
+﻿
+@{
+    Layout = null;
+}
+@{var user = Session["Users"] as ma.metl.sirh.Model.Users;
+var roles = Session["listRoles"] as List<string>;}
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a href="~/Home/Index"
+                       @*<?php echo $menu[0]['class']; ?>*@>
+
+
+                        <i class="fa fa-home fa-fw"></i>
+                        Accueil
+                    </a>
+                </li>
+                <li> 
+
+                    <a href="~/Users/MonCompte?Login=@user.Login">
+                       <i class="fa fa-user fa-fw"></i>
+                        Mon Compte
+                       </a>
+               @*  <a>@Html.ActionLink("Mon Compte", "MonCompte", "Users", new { Login = user.Login, @class = "fa fa-user fa-fw" }, null)</a>*@
+                </li>
+                @if (roles.Contains("Adm_Profil_Creation") || roles.Contains("Adm_Profil_Modification")
+                      || roles.Contains("Adm_Profil_Consultation") || roles.Contains("Adm_Profil_Suppression")
+                      || roles.Contains("Adm_User_Creation") || roles.Contains("Adm_User_Creation")
+                      || roles.Contains("Adm_User_Consultation") || roles.Contains("Adm_User_Suppression"))
+                { 
+                <li>
+                    
+                    <a href="~/Users/Administration"
+                       @*<?php echo $menu[2]['class']; ?>*@>
+                        <i class="fa fa-gears fa-fw"></i>
+                        Administration
+                    </a>
+                   
+                </li>
+                }
+                @if ( roles.Contains("Param_Avc_Consultation")|| roles.Contains("Param_Ave_Consultation"))
+                {
+                <li>
+                    <a href="#">
+                       @*<?php echo $menu[3]['class']; ?>*@
+                        <i class="fa fa-wrench fa-fw"></i>
+                        Param&eacute;trage<span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level collapse">
+                            @if (roles.Contains("Param_Avc_Consultation"))
+                            {
+                                <li>
+                                    <a href="~/parametrage/Parametragequota"> Avancement au choix</a>
+                                </li>
+                            }
+                            @if (roles.Contains("Param_Ave_Consultation"))
+                            {
+                                <li>
+                                    <a href="~/parametrage/ParametragequotaE"> Avancement sur examen</a>
+                                </li>
+                            }
+                    </ul>
+                </li>
+                }
+                @*@if (roles.Contains("Integration_File_Consultation") || roles.Contains("Integration_File_Integration"))
+                {*@
+                <li>
+                    <a href="~/IntegrationFile/integrationM"
+                       @*<?php echo $menu[3]['class']; ?>*@>
+                        <i class="fa fa-files-o"></i>
+                        Gestion des fichiers GipeOrd
+                    </a>
+                </li>
+               @* }*@
+                
+                <li>
+               @if (roles.Contains("Gestion_Commission_Consultation") || roles.Contains("Gestion_Calendrier_Consultation"))
+                {
+                    <a href="~/GestionCommission/ParametrageCap"
+                        @*<?php echo $menu[3]['class']; ?>*@>
+                        <i class="fa fa-files-o"></i>
+                        Gestion des commissions
+                    </a>
+                 }
+                </li>
+
+                @if (roles.Contains("AvChoix_Candidat_Creation") || roles.Contains("AvChoix_Candidat_Suppression")
+                              || roles.Contains("AvChoix_Candidat_Actualisation") || roles.Contains("AvChoix_Candidat_Decision")
+                              || roles.Contains("AvChoix_Candidat_Verification") || roles.Contains("AvChoix_Candidat_Validation")
+                              || roles.Contains("AvChoix_Quota_Editer") || roles.Contains("AvChoix_Quote_Imprimer"))
+                {
+                <li>
+                    <a href="#">
+                        <i class="fa fa-folder-o"></i>
+                        Avancement au choix
+                        <span class="fa arrow" />
+                    </a>
+                    <ul class="nav nav-second-level collapse">
+                       @if (roles.Contains("AvChoix_Candidat_Creation") || roles.Contains("AvChoix_Candidat_Suppression")
+                            || roles.Contains("AvChoix_Candidat_Actualisation") || roles.Contains("AvChoix_Candidat_Decision")
+                            || roles.Contains("AvChoix_Candidat_Verification") || roles.Contains("AvChoix_Candidat_Validation"))
+                        {
+                        <li>
+                            <a href="~/AvancementChoix/AvChoixGestionCandidats"> Gestion des candidats</a>
+                        </li>
+                        }
+                        @if (roles.Contains("AvChoix_Quota_Editer") || roles.Contains("AvChoix_Quote_Imprimer"))
+                        {
+                        <li>
+                            <a href="~/AvancementChoix/AvChoixGestionQuota"> Tableau des quotas</a>
+                        </li>
+                        }
+                    </ul>
+                </li>
+                }
+                <li>
+                    <a href="#">
+                        <i class="fa fa-folder-o"></i>
+                        Avancement sur Examen
+                        <span class="fa arrow" />
+                    </a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="~/AvancementExamen/AvExamenGestionCandidats"> Gestion des candidats</a>
+                        </li>
+                        <li>
+                            <a href="~/AvancementExamen/AvExamenGestionExamens"> Gestion des examens</a>
+                        </li>
+                        <li>
+                            <a href="~/AvancementExamen/AvExamenGestionQuota"> Tableau des quotas</a>
+                        </li>
+                        <li>
+                            <a href="~/AvancementExamen/AvExamenGestionCandidatures"> Gestion des candidatures</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href=@Url.Action("Index","InterfacageGipeOrd")
+                       @*<?php echo $menu[3]['class']; ?>*@>
+                        <i class="fa fa-files-o"></i>
+                        Interfaçage GipeOrd
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="~/Deliberation/AvExamenDeliberation"
+                       @*<?php echo $menu[7]['class']; ?>*@>
+                        <i class="fa fa-dashboard"></i>
+                        Délibération
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="~/Publication/PublicationAve"
+                       @*<?php echo $menu[7]['class']; ?>*@>
+                        <i class="fa fa-folder"></i>
+                        Publication
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+    </nav>
+    <!-- prochain numero menu 8 -->

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ma.metl.sirh.Model.Profil>
+<fieldset class="col-md-10 col-md-offset-1">
+    <legend>
+        Liste des profils
+    </legend>
+    @{var roles = Session["listRoles"] as List<string>;}
+    <div class="">
+        <div class="table-responsive">
+            <table class="table table table-bordered table-hover">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Libelle) </td>
+                        <td width="110">
+                            @if (roles.Contains("Adm_Profil_Consultation"))
+                            {
+                            <a class="btn btn-custom btn-xs" href="~/Users/ConsulterProfil?Id=@item.Id" title="Consulter">
+                                <i class="fa fa-folder-open-o"></i>
+                            </a>
+                            }
+                            @if (roles.Contains("Adm_Profil_Modification"))
+                            {
+                            <a class="btn btn-custom btn-xs" href="~/Users/ModifierProfil?Id=@item.Id" title="Editer">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            }
+                            @if (roles.Contains("Adm_Profil_Suppression"))
+                            {
+                            <a class="btn btn-custom btn-xs" href="SupprimerProfil?Id=@item.Id" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ?');" title="Supprimer">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                            }
+                        </td>
+                    </tr>
+
+                    <div id="supprimer" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Suppression</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Êtes-vous sûr de vouloir supprimer l'élément sélectionné ?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="btn btn-custom btn-xs" href="SupprimerProfil?Id=@item.Id" title="Supprimer">
+                                        <i class="fa fa-trash-o">Oui</i>
+                                    </a>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Non</button>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
+                }
+
+            </table>
+        </div>
+       @if (roles.Contains("Adm_Profil_Creation"))
+       {
+        <div class="b-right">
+            <a class="btn btn-custom" href="~/Users/CreateProfil">
+                <i class="fa fa-plus"></i>
+                Nouveau Profil
+            </a>
+        </div>
+       }
+    </div>
+</fieldset>
+
+

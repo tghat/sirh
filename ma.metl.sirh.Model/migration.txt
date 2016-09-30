@@ -1,0 +1,13 @@
+﻿enable-migrations -ContextTypeName ma.metl.sirh.Model.sirhContext -MigrationsDirectory:sirhContextMigrations
+Add-Migration -configuration ma.metl.sirh.Model.sirhContextMigrations.Configuration Initial
+Update-Database -configuration ma.metl.sirh.Model.sirhContextMigrations.Configuration -Verbose
+
+
+
+PM> Add-Migration -configuration ma.metl.sirh.Model.sirhContextMigrations.Configuration Initial
+Scaffolding migration 'Initial'.
+The Designer Code for this migration file includes a snapshot of your current Code First model. This snapshot 
+is used to calculate the changes to your model when you scaffold the next migration. 
+If you make additional changes to your model that you want to include in this migration, 
+then you can re-scaffold it by running 'Add-Migration Initial' again.
+PM>

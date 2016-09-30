@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFC7D5EC-1324-49D5-B1E6-7239DC54220B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ma.metl.sirh.Repository</RootNamespace>
+    <AssemblyName>ma.metl.sirh.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.6.2.0\lib\Net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.1\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Mvc5">
+      <HintPath>..\packages\Unity.Mvc5.1.1\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CandidatGORepository.cs" />
+    <Compile Include="CandidatRepository.cs" />
+    <Compile Include="CandidatureRepository.cs" />
+    <Compile Include="CentreExamenRepository.cs" />
+    <Compile Include="CommissionMembreRepository.cs" />
+    <Compile Include="CommissionRepository.cs" />
+    <Compile Include="Common\IUnitOfWorkOrd.cs" />
+    <Compile Include="Common\UnitOfWorkOrd.cs" />
+    <Compile Include="DetailAvancementRepository.cs" />
+    <Compile Include="ExamenCentreExamenRepository.cs" />
+    <Compile Include="ExamenRepository.cs" />
+    <Compile Include="FluxRepository.cs" />
+    <Compile Include="GradeRepository.cs" />
+    <Compile Include="HistoriqueRepository.cs" />
+    <Compile Include="ICandidatGORepository.cs" />
+    <Compile Include="ICandidatRepository.cs" />
+    <Compile Include="ICandidatureRepository.cs" />
+    <Compile Include="ICentreExamenRepository.cs" />
+    <Compile Include="ICommissionMembreRepository.cs" />
+    <Compile Include="ICommissionRepository.cs" />
+    <Compile Include="IDetailAvancementRepository.cs" />
+    <Compile Include="IExamenCentreExamenRepository.cs" />
+    <Compile Include="IExamenRepository.cs" />
+    <Compile Include="IFluxRepository.cs" />
+    <Compile Include="IGradeRepository.cs" />
+    <Compile Include="IHistoriqueRepository.cs" />
+    <Compile Include="ILigneRejeteeRepository.cs" />
+    <Compile Include="ILocaliteRepository.cs" />
+    <Compile Include="IMatiereExamenRepository.cs" />
+    <Compile Include="IMatiereRepository.cs" />
+    <Compile Include="IMembreCommissionRepository.cs" />
+    <Compile Include="IMvtSitAdmRepository.cs" />
+    <Compile Include="INotationRepository.cs" />
+    <Compile Include="IParametrageClassementRepository.cs" />
+    <Compile Include="IParametrageQuotaRepository.cs" />
+    <Compile Include="IPublicationRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IReunionRepository.cs" />
+    <Compile Include="ISanctionRepository.cs" />
+    <Compile Include="ISpecialiteRepository.cs" />
+    <Compile Include="LigneRejeteeRepository.cs" />
+    <Compile Include="LocaliteRepository.cs" />
+    <Compile Include="MatiereExamenRepository.cs" />
+    <Compile Include="MatiereRepository.cs" />
+    <Compile Include="MembreCommissionRepository.cs" />
+    <Compile Include="MvtSitAdmRepository.cs" />
+    <Compile Include="NotationRepository.cs" />
+    <Compile Include="ParametrageClassementRepository.cs" />
+    <Compile Include="ParametrageQuotaRepository.cs" />
+    <Compile Include="PublicationRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReunionRepository.cs" />
+    <Compile Include="SanctionRepository.cs" />
+    <Compile Include="SpecialiteRepository.cs" />
+    <Compile Include="ModuleRepository.cs" />
+    <Compile Include="AutorisationRepository.cs" />
+    <Compile Include="Common\GenericRepository.cs" />
+    <Compile Include="Common\IGenericRepository.cs" />
+    <Compile Include="Common\IUnitOfWork.cs" />
+    <Compile Include="IModuleRepository .cs" />
+    <Compile Include="IAutorisationRepository.cs" />
+    <Compile Include="IAutorisationServiceRepository.cs" />
+    <Compile Include="ServiceRepository.cs" />
+    <Compile Include="IServiceRepository.cs" />
+    <Compile Include="IDirectionRepository.cs" />
+    <Compile Include="IProfilRepository.cs" />
+    <Compile Include="DirectionRepository.cs" />
+    <Compile Include="ProfilRepository.cs" />
+    <Compile Include="AutorisationServiceRepository.cs" />
+    <Compile Include="UsersRepository.cs" />
+    <Compile Include="IUsersRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ma.metl.sirh.Model\ma.metl.sirh.Model.csproj">
+      <Project>{afc9d48b-d6fa-41e6-84bc-a43713b5e8b7}</Project>
+      <Name>ma.metl.sirh.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ma.metl.sirh.Model.Ora\ma.metl.sirh.Model.Ora.csproj">
+      <Project>{f5796e22-dcf4-496c-b37d-58d4e7371227}</Project>
+      <Name>ma.metl.sirh.Model.Ora</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

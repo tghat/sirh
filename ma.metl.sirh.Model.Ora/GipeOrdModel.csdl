@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GipeOrdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+    <EntityType Name="AGENT">
+      <Key>
+        <PropertyRef Name="COD_AG" />
+      </Key>
+      <Property Name="COD_AG" Type="Int32" Nullable="false" />
+      <Property Name="COD_S_AF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+      <Property Name="COD_POS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_NIV" Type="Int16" />
+      <Property Name="COD_LOC" Type="Int16" />
+      <Property Name="COD_DEP" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_ART" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+      <Property Name="COD_SRV" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_NAT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="SIT_F_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="TYP_MVT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="SS_TYP_MVT" Type="Int16" />
+      <Property Name="COD_USR" Type="Int16" />
+      <Property Name="COD_PAYS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="NUM_PB" Type="Int32" />
+      <Property Name="DAT_SIT_PB" Type="DateTime" />
+      <Property Name="COD_S_AF_FTF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+      <Property Name="COD_SRV_S_ANT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="NOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="PRENOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="NOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="PRENOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="ANC_ADM" Type="DateTime" />
+      <Property Name="CIN_A_AG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="CIN_N_AG" Type="Int32" />
+      <Property Name="JOU_N_AG" Type="Int16" />
+      <Property Name="MOI_N_AG" Type="Int16" />
+      <Property Name="ANN_N_AG" Type="Int16" />
+      <Property Name="SEX_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="DAT_REC" Type="DateTime" />
+      <Property Name="ETAPE" Type="Int16" />
+      <Property Name="LOT" Type="Int16" />
+      <Property Name="ADRESSE" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+      <Property Name="COD_ELO_REC" Type="Int16" />
+      <Property Name="ANC_ELO_REC" Type="DateTime" />
+      <Property Name="NOTE_AV" Type="Int16" />
+      <Property Name="DAT_S_AF" Type="DateTime" />
+      <Property Name="DAT_POS" Type="DateTime" />
+      <Property Name="DAT_SS_TYP_MVT" Type="DateTime" />
+      <Property Name="DAT_S_AF_FTF" Type="DateTime" />
+      <Property Name="COD_LIEU_NAISS" Type="Int16" />
+      <Property Name="ADRESSE_ARAB" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+      <Property Name="COD_S_ORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    </EntityType>
+    <EntityContainer Name="GipeOrdContext" annotation:LazyLoadingEnabled="true">
+      <EntitySet Name="AGENT" EntityType="Self.AGENT" />
+      <EntitySet Name="TAB_SRV" EntityType="Self.TAB_SRV" />
+      <EntitySet Name="MVT_SIT_ADM" EntityType="Self.MVT_SIT_ADM" />
+      <EntitySet Name="TAB_LOC" EntityType="Self.TAB_LOC" />
+      <EntitySet Name="TAB_TYP_MVT" EntityType="Self.TAB_TYP_MVT" />
+      <EntitySet Name="TAB_GRADE" EntityType="Self.TAB_GRADE" />
+      <EntitySet Name="TAB_SS_TYP_MVT" EntityType="Self.TAB_SS_TYP_MVT" />
+      <EntitySet Name="SIT_ADM" EntityType="Self.SIT_ADM" />
+    </EntityContainer>
+    <EntityType Name="TAB_SRV">
+      <Key>
+        <PropertyRef Name="COD_DEP" />
+        <PropertyRef Name="COD_ART" />
+        <PropertyRef Name="COD_SRV" />
+      </Key>
+      <Property Name="COD_DEP" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_ART" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+      <Property Name="COD_SRV" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="LIB_SRV" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+      <Property Name="LIB_SRV_A" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+    </EntityType>
+    <EntityType Name="MVT_SIT_ADM">
+      <Key>
+        <PropertyRef Name="M_NUM_ID" />
+      </Key>
+      <Property Name="M_NUM_ID" Type="Int32" Nullable="false" />
+      <Property Name="M_TYP_MVT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="M_SS_TYP_MVT" Type="Int16" />
+      <Property Name="M_DAT_EFF_MVT" Type="DateTime" />
+      <Property Name="M_REF_ARRETE" Type="Int32" />
+      <Property Name="M_ANN_VISA" Type="Int16" />
+      <Property Name="M_COD_AG" Type="Int32" />
+      <Property Name="M_REP_SAL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="M_COD_USR" Type="Int16" />
+      <Property Name="AGT_COD_S_AF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_COD_POS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_COD_NIV" Type="Int16" />
+      <Property Name="AGT_COD_LOC" Type="Int16" />
+      <Property Name="AGT_COD_DEP" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_COD_ART" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_COD_SRV" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_COD_NAT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_SIT_F_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_TYP_MVT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_SS_TYP_MVT" Type="Int16" />
+      <Property Name="AGT_COD_PAYS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_NUM_PB" Type="Int32" />
+      <Property Name="AGT_COD_S_AF_FTF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_COD_SRV_S_ANT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_NOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_PRENOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_NOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_PRENOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_ANC_ADM" Type="DateTime" />
+      <Property Name="AGT_CIN_A_AG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_CIN_N_AG" Type="Int32" />
+      <Property Name="AGT_JOU_N_AG" Type="Int16" />
+      <Property Name="AGT_MOI_N_AG" Type="Int16" />
+      <Property Name="AGT_ANN_N_AG" Type="Int16" />
+      <Property Name="AGT_SEX_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_DAT_REC" Type="DateTime" />
+      <Property Name="AGT_DAT_S_AF" Type="DateTime" />
+      <Property Name="AGT_DAT_POS" Type="DateTime" />
+      <Property Name="AGT_DAT_SS_TYP_MVT" Type="DateTime" />
+      <Property Name="AGT_DAT_S_AF_FTF" Type="DateTime" />
+      <Property Name="AGT_ADRESSE" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_COD_ELO_REC" Type="Int16" />
+      <Property Name="AGT_ANC_ELO_REC" Type="DateTime" />
+      <Property Name="AGT_NOTE_AV" Type="Int16" />
+      <Property Name="AGT_ADRESSE_ARAB" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_CATEG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_CORPS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_CADRE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_GRADE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_ELO" Type="Int16" />
+      <Property Name="ADM_COD_FCT" Type="Int16" />
+      <Property Name="ADM_COD_S_ST" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_ORG_DET" Type="Int16" />
+      <Property Name="ADM_MOD_AV_GRADE" Type="Int16" />
+      <Property Name="ADM_COD_ECH" Type="Int16" />
+      <Property Name="ADM_DAT_FIN_C" Type="DateTime" />
+      <Property Name="ADM_TAUX_PRIME" Type="Int16" />
+      <Property Name="ADM_SPECIALITE" Type="Int16" />
+      <Property Name="ADM_DAT_EFF_GR" Type="DateTime" />
+      <Property Name="ADM_ANC_GRADE" Type="DateTime" />
+      <Property Name="ADM_DAT_EFF_ELO" Type="DateTime" />
+      <Property Name="ADM_ANC_ELO" Type="DateTime" />
+      <Property Name="ADM_DAT_FCT" Type="DateTime" />
+      <Property Name="ADM_DAT_S_ST" Type="DateTime" />
+      <Property Name="ADM_ANC_CADRE" Type="DateTime" />
+      <Property Name="ADM_COD_CATEG_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_CORPS_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_CADRE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ADM_COD_GRADE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="INT_DAT_DEB" Type="DateTime" />
+      <Property Name="INT_TYP_INT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="INT_SS_TYP_INT" Type="Int16" />
+      <Property Name="INT_DAT_FIN" Type="DateTime" />
+      <Property Name="ANT_DAT_DEB" Type="DateTime" />
+      <Property Name="ANT_COD_SRV_S_ANT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ANT_COD_CATEG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ANT_COD_CORPS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ANT_COD_CADRE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ANT_COD_GRADE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ANT_DAT_FIN" Type="DateTime" />
+      <Property Name="ANT_TYP_DEP_S_ANT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+      <Property Name="CNJ_NUM_CONJ" Type="Int32" />
+      <Property Name="CNJ_SIT_CONJ" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="CNJ_PRF_CONJ" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="CNJ_NAT_CONJ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="CNJ_NOM_PR_CONJ" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+      <Property Name="CNJ_DOTI_CONJ" Type="Int32" />
+      <Property Name="CNJ_CIN_A_CONJ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="CNJ_CIN_N_CONJ" Type="Int32" />
+      <Property Name="CNJ_DAT_SIT_CONJ" Type="DateTime" />
+      <Property Name="ENF_NUM_PAC" Type="Int16" />
+      <Property Name="ENF_NUM_CONJ" Type="Int32" />
+      <Property Name="ENF_PRF_GARDE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_SIT_PAC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_COD_GARDE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_LIEN_PAR" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_DAT_N_PAC" Type="DateTime" />
+      <Property Name="ENF_NOM_PAC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_PRENOM_PAC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_ANN_SCOL1" Type="Int16" />
+      <Property Name="ENF_ANN_SCOL2" Type="Int16" />
+      <Property Name="ENF_NOM_PR_GARDE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_CIN_A_GARDE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="ENF_CIN_N_GARDE" Type="Int32" />
+      <Property Name="ENF_DOTI_GARDE" Type="Int32" />
+      <Property Name="ENF_DAT_SIT_PAC" Type="DateTime" />
+      <Property Name="DIPL_COD_PAYS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="DIPL_COD_DIP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+      <Property Name="DIPL_DAT_OBT_DIPL" Type="DateTime" />
+      <Property Name="DIPL_REF_ARRETE" Type="Int32" />
+      <Property Name="DIPL_ANN_VISA" Type="Int16" />
+      <Property Name="M_INDICE_REC" Type="Int16" />
+      <Property Name="M_INDICE" Type="Int16" />
+      <Property Name="M_INDEMNITE" Type="Int32" />
+      <Property Name="M_IMP_BUDG" Type="Decimal" Precision="20" Scale="0" />
+      <Property Name="M_ZONE_SUD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="M_PHASE_MVT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="M_SALAIRE" Type="Int32" />
+      <Property Name="M_DECISION" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="M_ORDRE_MVT" Type="Int32" />
+      <Property Name="M_OBSERV" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+      <Property Name="M_REMB_SAL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+      <Property Name="M_DEP_GARDE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="M_DEP_CONJ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="M_NUM_ORD" Type="Int32" />
+      <Property Name="M_NUM_MENTION" Type="Int32" />
+      <Property Name="M_REF_ARRETE_AN" Type="Int32" />
+      <Property Name="M_ANN_VISA_AN" Type="Int16" />
+      <Property Name="M_CONDITION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+      <Property Name="M_DAT_LIB_PB" Type="DateTime" />
+      <Property Name="M_LIB_ORG_DET" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+      <Property Name="M_IMP_BUD_ACCEUIL" Type="Decimal" Precision="20" Scale="0" />
+      <Property Name="M_COD_SPC" Type="Int16" />
+      <Property Name="IND_REF_ARRETE" Type="Int32" />
+      <Property Name="IND_ANN_VISA" Type="Int16" />
+      <Property Name="IND_DAT_ATTRIB" Type="DateTime" />
+      <Property Name="IND_DAT_FIN" Type="DateTime" />
+      <Property Name="IND_COD_AG" Type="Int32" />
+      <Property Name="IND_COD_IND" Type="Int16" />
+      <Property Name="DIPL_COD_SPEC" Type="Int16" />
+      <Property Name="AGT_COD_S_ORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+      <Property Name="AGT_LOT" Type="Int16" />
+      <Property Name="AGT_ETAPE" Type="Int16" />
+      <Property Name="AGT_COD_LIEU_NAISS" Type="Int16" />
+    </EntityType>
+    <EntityType Name="TAB_LOC">
+      <Key>
+        <PropertyRef Name="COD_LOC" />
+      </Key>
+      <Property Name="COD_LOC" Type="Int16" Nullable="false" />
+      <Property Name="LIB_LOC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+      <Property Name="LIB_LOC_A" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    </EntityType>
+    <EntityType Name="TAB_TYP_MVT">
+      <Key>
+        <PropertyRef Name="TYP_MVT" />
+      </Key>
+      <Property Name="TYP_MVT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="LIB_TYP_MVT" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+      <Property Name="LIB_TYP_MVT_A" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+      <Property Name="ORDRE" Type="Int16" />
+      <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    </EntityType>
+    <EntityType Name="TAB_GRADE">
+      <Key>
+        <PropertyRef Name="COD_CATEG" />
+        <PropertyRef Name="COD_CORPS" />
+        <PropertyRef Name="COD_CADRE" />
+        <PropertyRef Name="COD_GRADE" />
+      </Key>
+      <Property Name="COD_CATEG" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_CORPS" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_CADRE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_GRADE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+      <Property Name="COD_ECH" Type="Int16" />
+      <Property Name="LIB_GRADE" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+      <Property Name="LIB_GRADE_A" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+    </EntityType>
+  <EntityType Name="TAB_SS_TYP_MVT">
+    <Key>
+      <PropertyRef Name="TYP_MVT" />
+      <PropertyRef Name="SS_TYP_MVT" />
+    </Key>
+    <Property Name="TYP_MVT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="SS_TYP_MVT" Type="Int16" Nullable="false" />
+    <Property Name="COD_POS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="LIB_SS_TYP_MVT" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="LIB_ABREGE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TYP_INT" Type="Int16" />
+    <Property Name="TYP_POS" Type="Int16" />
+    <Property Name="LIB_SS_TYP_MVT_A" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SIT_ADM">
+    <Key>
+      <PropertyRef Name="COD_AG" />
+      <PropertyRef Name="COD_CATEG" />
+      <PropertyRef Name="COD_CORPS" />
+      <PropertyRef Name="COD_CADRE" />
+      <PropertyRef Name="COD_GRADE" />
+    </Key>
+    <Property Name="COD_AG" Type="Int32" Nullable="false" />
+    <Property Name="COD_CATEG" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CORPS" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CADRE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_GRADE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_ELO" Type="Int16" />
+    <Property Name="COD_FCT" Type="Int16" />
+    <Property Name="COD_S_ST" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_ORG_DET" Type="Int16" />
+    <Property Name="MOD_AV_GRADE" Type="Int16" />
+    <Property Name="COD_ECH" Type="Int16" />
+    <Property Name="DAT_FIN_C" Type="DateTime" />
+    <Property Name="TAUX_PRIME" Type="Int16" />
+    <Property Name="SPECIALITE" Type="Int16" />
+    <Property Name="DAT_EFF_GR" Type="DateTime" />
+    <Property Name="ANC_GRADE" Type="DateTime" />
+    <Property Name="DAT_EFF_ELO" Type="DateTime" />
+    <Property Name="ANC_ELO" Type="DateTime" />
+    <Property Name="DAT_FCT" Type="DateTime" />
+    <Property Name="DAT_S_ST" Type="DateTime" />
+    <Property Name="COD_CATEG_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CORPS_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CADRE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="COD_GRADE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ANC_CADRE" Type="DateTime" />
+  </EntityType>
+  </Schema>

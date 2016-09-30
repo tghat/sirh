@@ -1,0 +1,111 @@
+﻿@model IEnumerable<ma.metl.sirh.Model.Autorisation> 
+
+@{
+     ViewBag.Title = "ConsulterProfil";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">Consulter Profil</h1>
+    </div>
+    <!-- /.col-md-12 -->
+</div>
+
+<div class="row">
+    <form name="form1" id="form1" action="" method="post" class='form-horizontal'>
+        <div class="form-group">
+            <div class="col-md-2 col-md-offset-3">
+                <label for="libelle">Libell&eacute; :</label>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control" name="libelle" type="text" value="@ViewBag.Profil" disabled="disabled" />
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-12">
+                <h1 class="page-header">Autorisations</h1>
+            </div>
+        </div>
+
+        <div class="panel-group col-md-10 col-md-offset-1" id="accordion">
+            @foreach (var item in Model.Select(x => x.Module).Distinct())
+            {
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#@item.Id">@item.Description</a>
+                        </h4>
+                    </div>
+                    @{ string Module = item.Description;}
+                    <div id="@item.Id" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table table table-bordered table-striped  table-hover">
+                                <tr>
+                                    <th width="20">&nbsp;</th>
+                                    <th width="180">&nbsp;</th>
+                                </tr>
+
+                                @foreach (var t in Model.Where(m => m.Module.Description.Equals(Module)))
+                                {
+                                <tr>
+                                    @{int i=0;}
+
+                                    @if (ViewBag.AutorisationProfil.Count == 0)
+                                    {
+                                        {
+                                            <td>
+
+                                                @Html.CheckBox(@t.Id.ToString(), new { @disabled = "disabled" })
+                                            </td>
+                                            <td>@t.Description </td> ;
+                                        }
+
+                                    }
+                                    @foreach (var v in ViewBag.AutorisationProfil) 
+                                    { i++;
+                                        if (@t.Id == @v.Autorisation_Id) {
+                                            
+                                      <td>
+
+                                        @Html.CheckBox(@t.Id.ToString(), new {@checked="checked",@disabled="disabled"})
+                                    </td>
+                                    <td>@t.Description </td>  break;
+                                        }
+                                        else if (ViewBag.AutorisationProfil.Count == i)
+                                        {  
+                                                              <td>
+
+                                        @Html.CheckBox(@t.Id.ToString(), new {@disabled="disabled"})
+                                    </td>
+                                    <td>@t.Description </td>  break;
+                                    }
+                                                              
+                                                              
+                                    }
+                                </tr>
+                                    
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div> }
+
+        </div>
+        <div class="col-md-11 b-right">
+            <p>
+                <a class="btn btn-custom" href="~/Users/Administration">
+                    <i class="fa  fa-arrow-left"></i>
+                    Retour
+                </a>
+                @*<a class="btn btn-custom" href="~/Users/ModifierProfil?Id=@Request["Id"]">
+                    <i class="fa fa-edit"></i>
+                    Modifier
+                </a>*@
+            </p>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,138 @@
+﻿
+@{
+    
+}
+
+<fieldset class="col-md-10 col-md-offset-1">
+    <legend>Critères de recherche</legend>
+
+    <form name="form-recherche" id="form-recherche" action="" method="post" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="annee"> Utilisateur</label>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" name="annee" id="annee">
+                    <option value="0">---- S&eacute;lectionnez ----</option>
+                    <option value="1">Utilisateur 1</option>
+                    <option value="2">Utilisateur 2</option>
+                    <option value="3">Utilisateur 3</option>
+                    <option value="4">Utilisateur 4</option>
+                    <option value="5">Utilisateur 5</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="grade">Grade :</label>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" name="grade" id="grade">
+                    <option value="0">---- S&eacute;lectionnez ----</option>
+                    <option value="1">Grade A</option>
+                    <option value="2">Grade B</option>
+                    <option value="3">Grade C</option>
+                    <option value="4">Grade D</option>
+                    <option value="5">Grade E</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="annee">Opération :</label>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" name="annee" id="annee">
+                    <option value="0">---- S&eacute;lectionnez ----</option>
+                    <option value="1">Création</option>
+                    <option value="2">Modification</option>
+                    <option value="3">Suppression</option>
+
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label>Ref Arrété</label>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control" name="Année" type="text" value="" />
+            </div>
+        </div>
+        <div class="form-group">
+
+
+            <div class="col-md-3">
+                <label for="dateNaissance">Date Operation:</label>
+            </div>
+            <div class="col-md-3">
+                <input class="form-control datepicker" name="dateNaissance" type="text" value="" />
+            </div>
+        </div>
+    </form>
+    <div class="b-right">
+        <a class="btn btn-custom" href="#">
+            <i class="fa fa-search"></i>
+            Rechercher
+        </a>
+    </div>
+
+</fieldset>
+
+<fieldset class="col-md-10 col-md-offset-1">
+
+
+    <legend>R&eacute;sultats de Recherche</legend>
+    <div class="table-responsive">
+        <table class="table table table-bordered table-striped  table-hover">
+            <tr>
+                <th><div align="center">Acte</div></th>
+                <th><div align="center">Action</div></th>
+                <th><div align="center">Message</div></th>
+                <th><div align="center">Utilisateur</div></th>
+                <th><div align="center">Date action</div></th>
+            </tr>
+            <tr>
+                <td>Acte 1</td>
+                <td>Création</td>
+                <td></td>
+                <td>System</td>
+                <td>10/02/2015</td>
+
+            </tr>
+            <tr class="">
+                <td>Acte 2</td>
+                <td>Modification</td>
+                <td></td>
+                <td>Gestionnaire C</td>
+                <td>10/03/2015</td>
+
+            </tr>
+            <tr>
+                <td>Acte 2</td>
+                <td>Suppression</td>
+                <td></td>
+                <td>Gestionnaire A</td>
+                <td>20/04/2015</td>
+
+            </tr>
+
+        </table>
+        <div class="col-md-offset-3">
+            <ul class="pagination">
+                <li><a href=""> <i class="fa fa-step-backward"></i> Pr&eacute;c&eacute;dent</a></li>
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">... </a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#"><i class="fa fa-step-forward"></i> Suivant</a></li>
+            </ul>
+        </div>
+    </div>
+</fieldset>
+
+<!-- Détail References actes -->
+<!----->
+@*</div>*@
+
+
+<!-- ******* Popups ****** -->

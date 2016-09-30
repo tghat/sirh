@@ -1,0 +1,133 @@
+﻿@model Tuple<ma.metl.sirh.Model.Dto.CandidatCritereRechDto, IEnumerable<ma.metl.sirh.Model.Dto.QuotaDto>>
+@{var roles = Session["listRoles"] as List<string>;}
+
+<script type="text/javascript">
+
+    function EditerQuota(index) {
+        $('#tblGipeOrdList_' + index + '__StatutTQ').removeAttr('disabled');
+    }
+
+    function ValiderQuota(index, id)
+    {
+        var statut = document.getElementById('tblGipeOrdList_' + index + '__StatutTQ').value;
+        var url = '@Url.Action("setStatutTableauQuota", "AvancementChoix")';
+        $.getJSON(url, { id: id, statut: statut }, function (data) {
+            $('#tblGipeOrdList_' + index + '__StatutTQ').attr('disabled', 'disabled');
+            alert(data);
+        });
+
+    }
+</script>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">Tableau des quotas</h1>
+    </div>
+    <div class="col-md-0 col-md-offset-0">
+
+        @Html.Label("msgError", "", new { @class = "form-control" }) @Html.ValidationMessage("msgError", new { @style = "color:red" })
+
+    </div>
+    <!-- /.col-md-12 -->
+</div>
+<div class="row">
+
+    <fieldset class="col-md-10 col-md-offset-1">
+
+        @*<legend>Critère de recherche</legend>*@
+        <form name="form-recherche" id="form-recherche" action="" method="post" class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3">
+                    <label for="annee">Année :</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownListFor(x => x.Item1.AnneeProm, ViewBag.Annee as SelectList, new { @class = "form-control" })
+                </div>
+                <div class="col-md-3">
+                    <label for="grade">Grade d'accès :</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.DropDownListFor(x => x.Item1.GradeId, ViewBag.Grades as SelectList, "Sélectionnez", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="b-right">
+                <input type="submit" value="générer" class="btn btn-custom btn-xs" />
+            </div>
+</form>
+    </fieldset>
+@if(ViewBag.affiche == true )
+{
+    <fieldset id="tabResultat" class="col-md-10 col-md-offset-1">
+        <legend>R&eacute;sultat</legend>
+        <div class="table-responsive">
+            <table class="table table table-bordered table-striped  table-hover">
+                <thead>
+                    <tr>
+                        <th><div align="center">Grade</div></th>
+                        <th><div align="center">Quota</div></th>
+                        <th><div align="center">Nombre de poste à ouvrir</div></th>
+                        <th><div align="center">Commentaire</div></th>
+                        <th><div align="center">Statut</div></th>
+                        <th></th>
+                    </tr>
+                 </thead>
+                <tbody>
+                       @{
+                        var tblGipeOrdList = Model.Item2.ToList();
+                        for (int i = 0; i < tblGipeOrdList.Count(); i++)
+                        {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => tblGipeOrdList[i].Grade)</td>
+                            <td>@Html.DisplayFor(modelItem => tblGipeOrdList[i].Quota)</td>
+                            <td>@Html.DisplayFor(modelItem => tblGipeOrdList[i].NbrPosteOuvrir)</td>
+                            <td>@Html.DisplayFor(modelItem => tblGipeOrdList[i].Commentaire)</td>
+                            <td>
+                              @Html.DropDownListFor(modelItem => tblGipeOrdList[i].StatutTQ, tblGipeOrdList[i].Statut, new { @class = "form-control", @disabled="disabled"})
+                            </td>
+
+                          
+                            <td>
+                                @if (roles.Contains("AvChoix_Quota_Editer"))
+{
+    <a class="btn btn-custom btn-xs" href="javascript:ValiderQuota(@i,@tblGipeOrdList[i].id)" title="Valider">
+        <i class="fa  fa-check"></i>
+    </a>
+
+                                    <a class="btn btn-custom btn-xs" href="javascript:EditerQuota(@i)" title="Editer">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                    }
+                    </tbody>
+</table>
+        </div>
+        <div class="b-right">
+            @if (roles.Contains("AvChoix_Quote_Imprimer"))
+            {
+                <a class="btn btn-custom" href="javascript:GenererRapport(@Model.Item1.AnneeProm,@Model.Item1.GradeId)" target="_blank">
+                    <i class="fa fa-print"></i>
+                    Imprimer
+                </a>
+            }
+        </div>
+    </fieldset>
+}
+</div>
+
+
+<!-- ******* Popups ****** -->
+<!-- ************* consulterDemande ***************************** -->
+
+
+<script type="text/javascript">
+
+    function GenererRapport(annee, gradeid) {
+        window.location = '@Url.Action("GenerateAndDisplayReport", "AvancementChoix")' + '?annee=' + annee + '&gradeId=' + gradeid;
+    }
+
+</script>

@@ -1,0 +1,130 @@
+﻿@model Tuple<ma.metl.sirh.Model.Dto.InterfacageActeCandidatRechercheVM, List<ma.metl.sirh.Model.Dto.InterfacageActeCandidatResultatVM>>
+
+@{
+    
+}
+
+<fieldset class="col-md-10 col-md-offset-1">
+    <legend>Critères de recherche</legend>
+
+    @*<form name="form-recherche" id="form-recherche" action="" method="post" class="form-horizontal">*@
+    @using (Html.BeginForm("RechercherCandidats", "InterfacageGipeOrd", FormMethod.Post, new { name = "form-recherche", id = "form-recherche", @class = "form-horizontal"}))
+    {
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="annee">Année :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(x => x.Item1.Annee, ViewBag.Annees as SelectList, "---- Sélectionnez ----", new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                <label for="grade">Grade :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(x => x.Item1.GradeId, ViewBag.Grades as SelectList, "Sélectionnez", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <label for="statutacte">Statut :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(x => x.Item1.Statut, ViewBag.Status as SelectList, "---- Sélectionnez ----", new { @class = "form-control" })
+            </div>
+        </div>
+    }
+    @*</form>*@
+    <div class="b-right">
+        <a class="btn btn-custom" href="#" onclick="$('#form-recherche').submit()">
+            <i class="fa fa-search"></i>
+            Rechercher
+        </a>
+    </div>
+
+</fieldset>
+
+<fieldset class="col-md-10 col-md-offset-1">
+
+
+    <legend>R&eacute;sultats de Recherche</legend>
+    <div class="table-responsive">
+        <table class="table table table-bordered table-striped  table-hover" id="myTable">
+            <thead>
+                <tr>
+                    <th><input id="chkSelectAll" name="case" type="checkbox" /></th>
+                    <th><div align="center">N°DOTI </div></th>
+                    <th><div align="center">Nom</div></th>
+                    <th><div align="center">Prénom</div></th>
+                    <th><div align="center">Statut</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Item2)
+                {
+                    <tr>
+                        <td align="center"><input name="case" type="checkbox" class="chkSelect" /></td>
+                        <td><a href="#">@item.NumDoti</a></td>
+                        <td>@item.CandidatNom</td>
+                        <td>@item.CandidatPrenom</td>
+                        <td>@item.Statut</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+
+<!-- Détail References actes -->
+<fieldset class="col-md-10 col-md-offset-1">
+    <legend>Synthèse</legend>
+    @RenderPage("SyntheseActe.cshtml")
+
+    <div class="b-right" style="margin-top: 10px;">
+        <a class="btn btn-custom" href="#" id="btngenerer">
+            <i class="fa fa-legal"></i>
+            Générer
+        </a>
+        <a class="btn btn-custom" href="#">
+            <i class="fa fa-legal"></i>
+            Editer
+        </a>
+        <a class="btn btn-custom" href="#">
+            <i class="fa fa-check"></i>
+            Sauvegarder
+        </a>
+        <a class="btn btn-custom" href="#">
+            <i class="fa fa-send"></i>
+            Envoyer
+        </a>
+    </div>
+</fieldset>
+<!----->
+@*</div>*@
+
+
+<!-- ******* Popups ****** -->
+
+<script type="text/javascript">
+
+    
+
+
+    $("#chkSelectAll").bind("change", function () {
+        $(".chkSelect").prop("checked", $(this).prop("checked"));
+    });
+
+    $(".chkSelect").bind("change", function () {
+        if (!$(this).prop("checked"))
+            $("#chkSelectAll").prop("checked", false);
+    });
+
+    $(".paginate_button").click(function () {
+        if ($('#chkSelectAll').is(":checked")) {
+            $(".chkSelect").prop("checked", "true");
+        }
+        else {
+            $(".chkSelect").removeAttr('checked');
+        }
+    });
+
+</script>

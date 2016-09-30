@@ -1,0 +1,1209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GipeOrdModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.AGENT' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="COD_AG" />
+          </Key>
+          <Property Name="COD_AG" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="COD_S_AF" Type="varchar2" MaxLength="8" />
+          <Property Name="COD_POS" Type="varchar2" MaxLength="2" />
+          <Property Name="COD_NIV" Type="number" Precision="2" Scale="0" />
+          <Property Name="COD_LOC" Type="number" Precision="4" Scale="0" />
+          <Property Name="COD_DEP" Type="varchar2" MaxLength="2" />
+          <Property Name="COD_ART" Type="varchar2" MaxLength="4" />
+          <Property Name="COD_SRV" Type="varchar2" MaxLength="2" />
+          <Property Name="COD_NAT" Type="varchar2" MaxLength="2" />
+          <Property Name="SIT_F_AG" Type="varchar2" MaxLength="1" />
+          <Property Name="TYP_MVT" Type="varchar2" MaxLength="2" />
+          <Property Name="SS_TYP_MVT" Type="number" Precision="2" Scale="0" />
+          <Property Name="COD_USR" Type="number" Precision="5" Scale="0" />
+          <Property Name="COD_PAYS" Type="varchar2" MaxLength="2" />
+          <Property Name="NUM_PB" Type="number" Precision="10" Scale="0" />
+          <Property Name="DAT_SIT_PB" Type="date" />
+          <Property Name="COD_S_AF_FTF" Type="varchar2" MaxLength="8" />
+          <Property Name="COD_SRV_S_ANT" Type="varchar2" MaxLength="2" />
+          <Property Name="NOM_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="PRENOM_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="NOM_ARAB_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="PRENOM_ARAB_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="ANC_ADM" Type="date" />
+          <Property Name="CIN_A_AG" Type="varchar2" MaxLength="2" />
+          <Property Name="CIN_N_AG" Type="number" Precision="6" Scale="0" />
+          <Property Name="JOU_N_AG" Type="number" Precision="2" Scale="0" />
+          <Property Name="MOI_N_AG" Type="number" Precision="2" Scale="0" />
+          <Property Name="ANN_N_AG" Type="number" Precision="4" Scale="0" />
+          <Property Name="SEX_AG" Type="varchar2" MaxLength="1" />
+          <Property Name="DAT_REC" Type="date" />
+          <Property Name="ETAPE" Type="number" Precision="1" Scale="0" />
+          <Property Name="LOT" Type="number" Precision="5" Scale="0" />
+          <Property Name="ADRESSE" Type="varchar2" MaxLength="90" />
+          <Property Name="COD_ELO_REC" Type="number" Precision="2" Scale="0" />
+          <Property Name="ANC_ELO_REC" Type="date" />
+          <Property Name="NOTE_AV" Type="number" Precision="4" Scale="0" />
+          <Property Name="DAT_S_AF" Type="date" />
+          <Property Name="DAT_POS" Type="date" />
+          <Property Name="DAT_SS_TYP_MVT" Type="date" />
+          <Property Name="DAT_S_AF_FTF" Type="date" />
+          <Property Name="COD_LIEU_NAISS" Type="number" Precision="4" Scale="0" />
+          <Property Name="ADRESSE_ARAB" Type="varchar2" MaxLength="90" />
+          <Property Name="COD_S_ORD" Type="varchar2" MaxLength="10" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.MVT_SIT_ADM' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="MVT_SIT_ADM">
+          <Key>
+            <PropertyRef Name="M_NUM_ID" />
+          </Key>
+          <Property Name="M_NUM_ID" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="M_TYP_MVT" Type="varchar2" MaxLength="2" />
+          <Property Name="M_SS_TYP_MVT" Type="number" Precision="2" Scale="0" />
+          <Property Name="M_DAT_EFF_MVT" Type="date" />
+          <Property Name="M_REF_ARRETE" Type="number" Precision="6" Scale="0" />
+          <Property Name="M_ANN_VISA" Type="number" Precision="2" Scale="0" />
+          <Property Name="M_COD_AG" Type="number" Precision="7" Scale="0" />
+          <Property Name="M_REP_SAL" Type="varchar2" MaxLength="1" />
+          <Property Name="M_COD_USR" Type="number" Precision="5" Scale="0" />
+          <Property Name="AGT_COD_S_AF" Type="varchar2" MaxLength="8" />
+          <Property Name="AGT_COD_POS" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_COD_NIV" Type="number" Precision="2" Scale="0" />
+          <Property Name="AGT_COD_LOC" Type="number" Precision="4" Scale="0" />
+          <Property Name="AGT_COD_DEP" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_COD_ART" Type="varchar2" MaxLength="4" />
+          <Property Name="AGT_COD_SRV" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_COD_NAT" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_SIT_F_AG" Type="varchar2" MaxLength="1" />
+          <Property Name="AGT_TYP_MVT" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_SS_TYP_MVT" Type="number" Precision="2" Scale="0" />
+          <Property Name="AGT_COD_PAYS" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_NUM_PB" Type="number" Precision="10" Scale="0" />
+          <Property Name="AGT_COD_S_AF_FTF" Type="varchar2" MaxLength="8" />
+          <Property Name="AGT_COD_SRV_S_ANT" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_NOM_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="AGT_PRENOM_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="AGT_NOM_ARAB_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="AGT_PRENOM_ARAB_AG" Type="varchar2" MaxLength="50" />
+          <Property Name="AGT_ANC_ADM" Type="date" />
+          <Property Name="AGT_CIN_A_AG" Type="varchar2" MaxLength="2" />
+          <Property Name="AGT_CIN_N_AG" Type="number" Precision="6" Scale="0" />
+          <Property Name="AGT_JOU_N_AG" Type="number" Precision="2" Scale="0" />
+          <Property Name="AGT_MOI_N_AG" Type="number" Precision="2" Scale="0" />
+          <Property Name="AGT_ANN_N_AG" Type="number" Precision="4" Scale="0" />
+          <Property Name="AGT_SEX_AG" Type="varchar2" MaxLength="1" />
+          <Property Name="AGT_DAT_REC" Type="date" />
+          <Property Name="AGT_DAT_S_AF" Type="date" />
+          <Property Name="AGT_DAT_POS" Type="date" />
+          <Property Name="AGT_DAT_SS_TYP_MVT" Type="date" />
+          <Property Name="AGT_DAT_S_AF_FTF" Type="date" />
+          <Property Name="AGT_ADRESSE" Type="varchar2" MaxLength="90" />
+          <Property Name="AGT_COD_ELO_REC" Type="number" Precision="2" Scale="0" />
+          <Property Name="AGT_ANC_ELO_REC" Type="date" />
+          <Property Name="AGT_NOTE_AV" Type="number" Precision="4" Scale="0" />
+          <Property Name="AGT_ADRESSE_ARAB" Type="varchar2" MaxLength="90" />
+          <Property Name="ADM_COD_CATEG" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_CORPS" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_CADRE" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_GRADE" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_ELO" Type="number" Precision="2" Scale="0" />
+          <Property Name="ADM_COD_FCT" Type="number" Precision="5" Scale="0" />
+          <Property Name="ADM_COD_S_ST" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_ORG_DET" Type="number" Precision="2" Scale="0" />
+          <Property Name="ADM_MOD_AV_GRADE" Type="number" Precision="2" Scale="0" />
+          <Property Name="ADM_COD_ECH" Type="number" Precision="2" Scale="0" />
+          <Property Name="ADM_DAT_FIN_C" Type="date" />
+          <Property Name="ADM_TAUX_PRIME" Type="number" Precision="2" Scale="0" />
+          <Property Name="ADM_SPECIALITE" Type="number" Precision="3" Scale="0" />
+          <Property Name="ADM_DAT_EFF_GR" Type="date" />
+          <Property Name="ADM_ANC_GRADE" Type="date" />
+          <Property Name="ADM_DAT_EFF_ELO" Type="date" />
+          <Property Name="ADM_ANC_ELO" Type="date" />
+          <Property Name="ADM_DAT_FCT" Type="date" />
+          <Property Name="ADM_DAT_S_ST" Type="date" />
+          <Property Name="ADM_ANC_CADRE" Type="date" />
+          <Property Name="ADM_COD_CATEG_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_CORPS_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_CADRE_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="ADM_COD_GRADE_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="INT_DAT_DEB" Type="date" />
+          <Property Name="INT_TYP_INT" Type="varchar2" MaxLength="2" />
+          <Property Name="INT_SS_TYP_INT" Type="number" Precision="2" Scale="0" />
+          <Property Name="INT_DAT_FIN" Type="date" />
+          <Property Name="ANT_DAT_DEB" Type="date" />
+          <Property Name="ANT_COD_SRV_S_ANT" Type="varchar2" MaxLength="2" />
+          <Property Name="ANT_COD_CATEG" Type="varchar2" MaxLength="2" />
+          <Property Name="ANT_COD_CORPS" Type="varchar2" MaxLength="2" />
+          <Property Name="ANT_COD_CADRE" Type="varchar2" MaxLength="2" />
+          <Property Name="ANT_COD_GRADE" Type="varchar2" MaxLength="2" />
+          <Property Name="ANT_DAT_FIN" Type="date" />
+          <Property Name="ANT_TYP_DEP_S_ANT" Type="varchar2" MaxLength="30" />
+          <Property Name="CNJ_NUM_CONJ" Type="number" Precision="6" Scale="0" />
+          <Property Name="CNJ_SIT_CONJ" Type="varchar2" MaxLength="1" />
+          <Property Name="CNJ_PRF_CONJ" Type="varchar2" MaxLength="1" />
+          <Property Name="CNJ_NAT_CONJ" Type="varchar2" MaxLength="2" />
+          <Property Name="CNJ_NOM_PR_CONJ" Type="varchar2" MaxLength="90" />
+          <Property Name="CNJ_DOTI_CONJ" Type="number" Precision="7" Scale="0" />
+          <Property Name="CNJ_CIN_A_CONJ" Type="varchar2" MaxLength="2" />
+          <Property Name="CNJ_CIN_N_CONJ" Type="number" Precision="6" Scale="0" />
+          <Property Name="CNJ_DAT_SIT_CONJ" Type="date" />
+          <Property Name="ENF_NUM_PAC" Type="number" Precision="2" Scale="0" />
+          <Property Name="ENF_NUM_CONJ" Type="number" Precision="6" Scale="0" />
+          <Property Name="ENF_PRF_GARDE" Type="varchar2" MaxLength="1" />
+          <Property Name="ENF_SIT_PAC" Type="varchar2" MaxLength="1" />
+          <Property Name="ENF_COD_GARDE" Type="varchar2" MaxLength="1" />
+          <Property Name="ENF_LIEN_PAR" Type="varchar2" MaxLength="1" />
+          <Property Name="ENF_DAT_N_PAC" Type="date" />
+          <Property Name="ENF_NOM_PAC" Type="varchar2" MaxLength="25" />
+          <Property Name="ENF_PRENOM_PAC" Type="varchar2" MaxLength="25" />
+          <Property Name="ENF_ANN_SCOL1" Type="number" Precision="2" Scale="0" />
+          <Property Name="ENF_ANN_SCOL2" Type="number" Precision="2" Scale="0" />
+          <Property Name="ENF_NOM_PR_GARDE" Type="varchar2" MaxLength="80" />
+          <Property Name="ENF_CIN_A_GARDE" Type="varchar2" MaxLength="2" />
+          <Property Name="ENF_CIN_N_GARDE" Type="number" Precision="6" Scale="0" />
+          <Property Name="ENF_DOTI_GARDE" Type="number" Precision="7" Scale="0" />
+          <Property Name="ENF_DAT_SIT_PAC" Type="date" />
+          <Property Name="DIPL_COD_PAYS" Type="varchar2" MaxLength="2" />
+          <Property Name="DIPL_COD_DIP" Type="varchar2" MaxLength="4" />
+          <Property Name="DIPL_DAT_OBT_DIPL" Type="date" />
+          <Property Name="DIPL_REF_ARRETE" Type="number" Precision="6" Scale="0" />
+          <Property Name="DIPL_ANN_VISA" Type="number" Precision="2" Scale="0" />
+          <Property Name="M_INDICE_REC" Type="number" Precision="4" Scale="0" />
+          <Property Name="M_INDICE" Type="number" Precision="4" Scale="0" />
+          <Property Name="M_INDEMNITE" Type="number" Precision="7" Scale="0" />
+          <Property Name="M_IMP_BUDG" Type="number" Precision="20" Scale="0" />
+          <Property Name="M_ZONE_SUD" Type="varchar2" MaxLength="1" />
+          <Property Name="M_PHASE_MVT" Type="varchar2" MaxLength="1" />
+          <Property Name="M_SALAIRE" Type="number" Precision="7" Scale="0" />
+          <Property Name="M_DECISION" Type="varchar2" MaxLength="1" />
+          <Property Name="M_ORDRE_MVT" Type="number" Precision="6" Scale="0" />
+          <Property Name="M_OBSERV" Type="varchar2" MaxLength="180" />
+          <Property Name="M_REMB_SAL" Type="varchar2" MaxLength="1" />
+          <Property Name="M_DEP_GARDE" Type="varchar2" MaxLength="2" />
+          <Property Name="M_DEP_CONJ" Type="varchar2" MaxLength="2" />
+          <Property Name="M_NUM_ORD" Type="number" Precision="8" Scale="0" />
+          <Property Name="M_NUM_MENTION" Type="number" Precision="8" Scale="0" />
+          <Property Name="M_REF_ARRETE_AN" Type="number" Precision="6" Scale="0" />
+          <Property Name="M_ANN_VISA_AN" Type="number" Precision="2" Scale="0" />
+          <Property Name="M_CONDITION" Type="varchar2" MaxLength="30" />
+          <Property Name="M_DAT_LIB_PB" Type="date" />
+          <Property Name="M_LIB_ORG_DET" Type="varchar2" MaxLength="180" />
+          <Property Name="M_IMP_BUD_ACCEUIL" Type="number" Precision="20" Scale="0" />
+          <Property Name="M_COD_SPC" Type="number" Precision="3" Scale="0" />
+          <Property Name="IND_REF_ARRETE" Type="number" Precision="6" Scale="0" />
+          <Property Name="IND_ANN_VISA" Type="number" Precision="2" Scale="0" />
+          <Property Name="IND_DAT_ATTRIB" Type="date" />
+          <Property Name="IND_DAT_FIN" Type="date" />
+          <Property Name="IND_COD_AG" Type="number" Precision="7" Scale="0" />
+          <Property Name="IND_COD_IND" Type="number" Precision="5" Scale="0" />
+          <Property Name="DIPL_COD_SPEC" Type="number" Precision="3" Scale="0" />
+          <Property Name="AGT_COD_S_ORD" Type="varchar2" MaxLength="10" />
+          <Property Name="AGT_LOT" Type="number" Precision="5" Scale="0" />
+          <Property Name="AGT_ETAPE" Type="number" Precision="1" Scale="0" />
+          <Property Name="AGT_COD_LIEU_NAISS" Type="number" Precision="4" Scale="0" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.SIT_ADM' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="SIT_ADM">
+          <Key>
+            <PropertyRef Name="COD_AG" />
+            <PropertyRef Name="COD_CATEG" />
+            <PropertyRef Name="COD_CORPS" />
+            <PropertyRef Name="COD_CADRE" />
+            <PropertyRef Name="COD_GRADE" />
+          </Key>
+          <Property Name="COD_AG" Type="number" Precision="7" Scale="0" Nullable="false" />
+          <Property Name="COD_CATEG" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_CORPS" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_CADRE" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_GRADE" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_ELO" Type="number" Precision="2" Scale="0" />
+          <Property Name="COD_FCT" Type="number" Precision="5" Scale="0" />
+          <Property Name="COD_S_ST" Type="varchar2" MaxLength="2" />
+          <Property Name="COD_ORG_DET" Type="number" Precision="2" Scale="0" />
+          <Property Name="MOD_AV_GRADE" Type="number" Precision="2" Scale="0" />
+          <Property Name="COD_ECH" Type="number" Precision="2" Scale="0" />
+          <Property Name="DAT_FIN_C" Type="date" />
+          <Property Name="TAUX_PRIME" Type="number" Precision="2" Scale="0" />
+          <Property Name="SPECIALITE" Type="number" Precision="3" Scale="0" />
+          <Property Name="DAT_EFF_GR" Type="date" />
+          <Property Name="ANC_GRADE" Type="date" />
+          <Property Name="DAT_EFF_ELO" Type="date" />
+          <Property Name="ANC_ELO" Type="date" />
+          <Property Name="DAT_FCT" Type="date" />
+          <Property Name="DAT_S_ST" Type="date" />
+          <Property Name="COD_CATEG_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="COD_CORPS_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="COD_CADRE_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="COD_GRADE_ASS" Type="varchar2" MaxLength="2" />
+          <Property Name="ANC_CADRE" Type="date" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.TAB_GRADE' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="TAB_GRADE">
+          <Key>
+            <PropertyRef Name="COD_CATEG" />
+            <PropertyRef Name="COD_CORPS" />
+            <PropertyRef Name="COD_CADRE" />
+            <PropertyRef Name="COD_GRADE" />
+          </Key>
+          <Property Name="COD_CATEG" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_CORPS" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_CADRE" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_GRADE" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_ECH" Type="number" Precision="2" Scale="0" />
+          <Property Name="LIB_GRADE" Type="varchar2" MaxLength="180" />
+          <Property Name="LIB_GRADE_A" Type="varchar2" MaxLength="180" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.TAB_LOC' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="TAB_LOC">
+          <Key>
+            <PropertyRef Name="COD_LOC" />
+          </Key>
+          <Property Name="COD_LOC" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="LIB_LOC" Type="varchar2" MaxLength="30" />
+          <Property Name="LIB_LOC_A" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.TAB_SRV' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="TAB_SRV">
+          <Key>
+            <PropertyRef Name="COD_DEP" />
+            <PropertyRef Name="COD_ART" />
+            <PropertyRef Name="COD_SRV" />
+          </Key>
+          <Property Name="COD_DEP" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="COD_ART" Type="varchar2" MaxLength="4" Nullable="false" />
+          <Property Name="COD_SRV" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="LIB_SRV" Type="varchar2" MaxLength="180" />
+          <Property Name="LIB_SRV_A" Type="varchar2" MaxLength="180" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.TAB_SS_TYP_MVT' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="TAB_SS_TYP_MVT">
+          <Key>
+            <PropertyRef Name="TYP_MVT" />
+            <PropertyRef Name="SS_TYP_MVT" />
+          </Key>
+          <Property Name="TYP_MVT" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="SS_TYP_MVT" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="COD_POS" Type="varchar2" MaxLength="2" />
+          <Property Name="LIB_SS_TYP_MVT" Type="varchar2" MaxLength="80" />
+          <Property Name="LIB_ABREGE" Type="varchar2" MaxLength="30" />
+          <Property Name="TYP_INT" Type="number" Precision="1" Scale="0" />
+          <Property Name="TYP_POS" Type="number" Precision="1" Scale="0" />
+          <Property Name="LIB_SS_TYP_MVT_A" Type="varchar2" MaxLength="80" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'GIPEORD.TAB_TYP_MVT' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="TAB_TYP_MVT">
+          <Key>
+            <PropertyRef Name="TYP_MVT" />
+          </Key>
+          <Property Name="TYP_MVT" Type="varchar2" MaxLength="2" Nullable="false" />
+          <Property Name="LIB_TYP_MVT" Type="varchar2" MaxLength="80" />
+          <Property Name="LIB_TYP_MVT_A" Type="varchar2" MaxLength="80" />
+          <Property Name="ORDRE" Type="number" Precision="4" Scale="0" />
+          <Property Name="TYPE" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="GipeOrdModelStoreContainer">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"AGENT"."COD_AG" AS "COD_AG", 
+"AGENT"."COD_S_AF" AS "COD_S_AF", 
+"AGENT"."COD_POS" AS "COD_POS", 
+"AGENT"."COD_NIV" AS "COD_NIV", 
+"AGENT"."COD_LOC" AS "COD_LOC", 
+"AGENT"."COD_DEP" AS "COD_DEP", 
+"AGENT"."COD_ART" AS "COD_ART", 
+"AGENT"."COD_SRV" AS "COD_SRV", 
+"AGENT"."COD_NAT" AS "COD_NAT", 
+"AGENT"."SIT_F_AG" AS "SIT_F_AG", 
+"AGENT"."TYP_MVT" AS "TYP_MVT", 
+"AGENT"."SS_TYP_MVT" AS "SS_TYP_MVT", 
+"AGENT"."COD_USR" AS "COD_USR", 
+"AGENT"."COD_PAYS" AS "COD_PAYS", 
+"AGENT"."NUM_PB" AS "NUM_PB", 
+"AGENT"."DAT_SIT_PB" AS "DAT_SIT_PB", 
+"AGENT"."COD_S_AF_FTF" AS "COD_S_AF_FTF", 
+"AGENT"."COD_SRV_S_ANT" AS "COD_SRV_S_ANT", 
+"AGENT"."NOM_AG" AS "NOM_AG", 
+"AGENT"."PRENOM_AG" AS "PRENOM_AG", 
+"AGENT"."NOM_ARAB_AG" AS "NOM_ARAB_AG", 
+"AGENT"."PRENOM_ARAB_AG" AS "PRENOM_ARAB_AG", 
+"AGENT"."ANC_ADM" AS "ANC_ADM", 
+"AGENT"."CIN_A_AG" AS "CIN_A_AG", 
+"AGENT"."CIN_N_AG" AS "CIN_N_AG", 
+"AGENT"."JOU_N_AG" AS "JOU_N_AG", 
+"AGENT"."MOI_N_AG" AS "MOI_N_AG", 
+"AGENT"."ANN_N_AG" AS "ANN_N_AG", 
+"AGENT"."SEX_AG" AS "SEX_AG", 
+"AGENT"."DAT_REC" AS "DAT_REC", 
+"AGENT"."ETAPE" AS "ETAPE", 
+"AGENT"."LOT" AS "LOT", 
+"AGENT"."ADRESSE" AS "ADRESSE", 
+"AGENT"."COD_ELO_REC" AS "COD_ELO_REC", 
+"AGENT"."ANC_ELO_REC" AS "ANC_ELO_REC", 
+"AGENT"."NOTE_AV" AS "NOTE_AV", 
+"AGENT"."DAT_S_AF" AS "DAT_S_AF", 
+"AGENT"."DAT_POS" AS "DAT_POS", 
+"AGENT"."DAT_SS_TYP_MVT" AS "DAT_SS_TYP_MVT", 
+"AGENT"."DAT_S_AF_FTF" AS "DAT_S_AF_FTF", 
+"AGENT"."COD_LIEU_NAISS" AS "COD_LIEU_NAISS", 
+"AGENT"."ADRESSE_ARAB" AS "ADRESSE_ARAB", 
+"AGENT"."COD_S_ORD" AS "COD_S_ORD"
+FROM "GIPEORD"."AGENT" "AGENT"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MVT_SIT_ADM" EntityType="Self.MVT_SIT_ADM" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"MVT_SIT_ADM"."M_NUM_ID" AS "M_NUM_ID", 
+"MVT_SIT_ADM"."M_TYP_MVT" AS "M_TYP_MVT", 
+"MVT_SIT_ADM"."M_SS_TYP_MVT" AS "M_SS_TYP_MVT", 
+"MVT_SIT_ADM"."M_DAT_EFF_MVT" AS "M_DAT_EFF_MVT", 
+"MVT_SIT_ADM"."M_REF_ARRETE" AS "M_REF_ARRETE", 
+"MVT_SIT_ADM"."M_ANN_VISA" AS "M_ANN_VISA", 
+"MVT_SIT_ADM"."M_COD_AG" AS "M_COD_AG", 
+"MVT_SIT_ADM"."M_REP_SAL" AS "M_REP_SAL", 
+"MVT_SIT_ADM"."M_COD_USR" AS "M_COD_USR", 
+"MVT_SIT_ADM"."AGT_COD_S_AF" AS "AGT_COD_S_AF", 
+"MVT_SIT_ADM"."AGT_COD_POS" AS "AGT_COD_POS", 
+"MVT_SIT_ADM"."AGT_COD_NIV" AS "AGT_COD_NIV", 
+"MVT_SIT_ADM"."AGT_COD_LOC" AS "AGT_COD_LOC", 
+"MVT_SIT_ADM"."AGT_COD_DEP" AS "AGT_COD_DEP", 
+"MVT_SIT_ADM"."AGT_COD_ART" AS "AGT_COD_ART", 
+"MVT_SIT_ADM"."AGT_COD_SRV" AS "AGT_COD_SRV", 
+"MVT_SIT_ADM"."AGT_COD_NAT" AS "AGT_COD_NAT", 
+"MVT_SIT_ADM"."AGT_SIT_F_AG" AS "AGT_SIT_F_AG", 
+"MVT_SIT_ADM"."AGT_TYP_MVT" AS "AGT_TYP_MVT", 
+"MVT_SIT_ADM"."AGT_SS_TYP_MVT" AS "AGT_SS_TYP_MVT", 
+"MVT_SIT_ADM"."AGT_COD_PAYS" AS "AGT_COD_PAYS", 
+"MVT_SIT_ADM"."AGT_NUM_PB" AS "AGT_NUM_PB", 
+"MVT_SIT_ADM"."AGT_COD_S_AF_FTF" AS "AGT_COD_S_AF_FTF", 
+"MVT_SIT_ADM"."AGT_COD_SRV_S_ANT" AS "AGT_COD_SRV_S_ANT", 
+"MVT_SIT_ADM"."AGT_NOM_AG" AS "AGT_NOM_AG", 
+"MVT_SIT_ADM"."AGT_PRENOM_AG" AS "AGT_PRENOM_AG", 
+"MVT_SIT_ADM"."AGT_NOM_ARAB_AG" AS "AGT_NOM_ARAB_AG", 
+"MVT_SIT_ADM"."AGT_PRENOM_ARAB_AG" AS "AGT_PRENOM_ARAB_AG", 
+"MVT_SIT_ADM"."AGT_ANC_ADM" AS "AGT_ANC_ADM", 
+"MVT_SIT_ADM"."AGT_CIN_A_AG" AS "AGT_CIN_A_AG", 
+"MVT_SIT_ADM"."AGT_CIN_N_AG" AS "AGT_CIN_N_AG", 
+"MVT_SIT_ADM"."AGT_JOU_N_AG" AS "AGT_JOU_N_AG", 
+"MVT_SIT_ADM"."AGT_MOI_N_AG" AS "AGT_MOI_N_AG", 
+"MVT_SIT_ADM"."AGT_ANN_N_AG" AS "AGT_ANN_N_AG", 
+"MVT_SIT_ADM"."AGT_SEX_AG" AS "AGT_SEX_AG", 
+"MVT_SIT_ADM"."AGT_DAT_REC" AS "AGT_DAT_REC", 
+"MVT_SIT_ADM"."AGT_DAT_S_AF" AS "AGT_DAT_S_AF", 
+"MVT_SIT_ADM"."AGT_DAT_POS" AS "AGT_DAT_POS", 
+"MVT_SIT_ADM"."AGT_DAT_SS_TYP_MVT" AS "AGT_DAT_SS_TYP_MVT", 
+"MVT_SIT_ADM"."AGT_DAT_S_AF_FTF" AS "AGT_DAT_S_AF_FTF", 
+"MVT_SIT_ADM"."AGT_ADRESSE" AS "AGT_ADRESSE", 
+"MVT_SIT_ADM"."AGT_COD_ELO_REC" AS "AGT_COD_ELO_REC", 
+"MVT_SIT_ADM"."AGT_ANC_ELO_REC" AS "AGT_ANC_ELO_REC", 
+"MVT_SIT_ADM"."AGT_NOTE_AV" AS "AGT_NOTE_AV", 
+"MVT_SIT_ADM"."AGT_ADRESSE_ARAB" AS "AGT_ADRESSE_ARAB", 
+"MVT_SIT_ADM"."ADM_COD_CATEG" AS "ADM_COD_CATEG", 
+"MVT_SIT_ADM"."ADM_COD_CORPS" AS "ADM_COD_CORPS", 
+"MVT_SIT_ADM"."ADM_COD_CADRE" AS "ADM_COD_CADRE", 
+"MVT_SIT_ADM"."ADM_COD_GRADE" AS "ADM_COD_GRADE", 
+"MVT_SIT_ADM"."ADM_COD_ELO" AS "ADM_COD_ELO", 
+"MVT_SIT_ADM"."ADM_COD_FCT" AS "ADM_COD_FCT", 
+"MVT_SIT_ADM"."ADM_COD_S_ST" AS "ADM_COD_S_ST", 
+"MVT_SIT_ADM"."ADM_COD_ORG_DET" AS "ADM_COD_ORG_DET", 
+"MVT_SIT_ADM"."ADM_MOD_AV_GRADE" AS "ADM_MOD_AV_GRADE", 
+"MVT_SIT_ADM"."ADM_COD_ECH" AS "ADM_COD_ECH", 
+"MVT_SIT_ADM"."ADM_DAT_FIN_C" AS "ADM_DAT_FIN_C", 
+"MVT_SIT_ADM"."ADM_TAUX_PRIME" AS "ADM_TAUX_PRIME", 
+"MVT_SIT_ADM"."ADM_SPECIALITE" AS "ADM_SPECIALITE", 
+"MVT_SIT_ADM"."ADM_DAT_EFF_GR" AS "ADM_DAT_EFF_GR", 
+"MVT_SIT_ADM"."ADM_ANC_GRADE" AS "ADM_ANC_GRADE", 
+"MVT_SIT_ADM"."ADM_DAT_EFF_ELO" AS "ADM_DAT_EFF_ELO", 
+"MVT_SIT_ADM"."ADM_ANC_ELO" AS "ADM_ANC_ELO", 
+"MVT_SIT_ADM"."ADM_DAT_FCT" AS "ADM_DAT_FCT", 
+"MVT_SIT_ADM"."ADM_DAT_S_ST" AS "ADM_DAT_S_ST", 
+"MVT_SIT_ADM"."ADM_ANC_CADRE" AS "ADM_ANC_CADRE", 
+"MVT_SIT_ADM"."ADM_COD_CATEG_ASS" AS "ADM_COD_CATEG_ASS", 
+"MVT_SIT_ADM"."ADM_COD_CORPS_ASS" AS "ADM_COD_CORPS_ASS", 
+"MVT_SIT_ADM"."ADM_COD_CADRE_ASS" AS "ADM_COD_CADRE_ASS", 
+"MVT_SIT_ADM"."ADM_COD_GRADE_ASS" AS "ADM_COD_GRADE_ASS", 
+"MVT_SIT_ADM"."INT_DAT_DEB" AS "INT_DAT_DEB", 
+"MVT_SIT_ADM"."INT_TYP_INT" AS "INT_TYP_INT", 
+"MVT_SIT_ADM"."INT_SS_TYP_INT" AS "INT_SS_TYP_INT", 
+"MVT_SIT_ADM"."INT_DAT_FIN" AS "INT_DAT_FIN", 
+"MVT_SIT_ADM"."ANT_DAT_DEB" AS "ANT_DAT_DEB", 
+"MVT_SIT_ADM"."ANT_COD_SRV_S_ANT" AS "ANT_COD_SRV_S_ANT", 
+"MVT_SIT_ADM"."ANT_COD_CATEG" AS "ANT_COD_CATEG", 
+"MVT_SIT_ADM"."ANT_COD_CORPS" AS "ANT_COD_CORPS", 
+"MVT_SIT_ADM"."ANT_COD_CADRE" AS "ANT_COD_CADRE", 
+"MVT_SIT_ADM"."ANT_COD_GRADE" AS "ANT_COD_GRADE", 
+"MVT_SIT_ADM"."ANT_DAT_FIN" AS "ANT_DAT_FIN", 
+"MVT_SIT_ADM"."ANT_TYP_DEP_S_ANT" AS "ANT_TYP_DEP_S_ANT", 
+"MVT_SIT_ADM"."CNJ_NUM_CONJ" AS "CNJ_NUM_CONJ", 
+"MVT_SIT_ADM"."CNJ_SIT_CONJ" AS "CNJ_SIT_CONJ", 
+"MVT_SIT_ADM"."CNJ_PRF_CONJ" AS "CNJ_PRF_CONJ", 
+"MVT_SIT_ADM"."CNJ_NAT_CONJ" AS "CNJ_NAT_CONJ", 
+"MVT_SIT_ADM"."CNJ_NOM_PR_CONJ" AS "CNJ_NOM_PR_CONJ", 
+"MVT_SIT_ADM"."CNJ_DOTI_CONJ" AS "CNJ_DOTI_CONJ", 
+"MVT_SIT_ADM"."CNJ_CIN_A_CONJ" AS "CNJ_CIN_A_CONJ", 
+"MVT_SIT_ADM"."CNJ_CIN_N_CONJ" AS "CNJ_CIN_N_CONJ", 
+"MVT_SIT_ADM"."CNJ_DAT_SIT_CONJ" AS "CNJ_DAT_SIT_CONJ", 
+"MVT_SIT_ADM"."ENF_NUM_PAC" AS "ENF_NUM_PAC", 
+"MVT_SIT_ADM"."ENF_NUM_CONJ" AS "ENF_NUM_CONJ", 
+"MVT_SIT_ADM"."ENF_PRF_GARDE" AS "ENF_PRF_GARDE", 
+"MVT_SIT_ADM"."ENF_SIT_PAC" AS "ENF_SIT_PAC", 
+"MVT_SIT_ADM"."ENF_COD_GARDE" AS "ENF_COD_GARDE", 
+"MVT_SIT_ADM"."ENF_LIEN_PAR" AS "ENF_LIEN_PAR", 
+"MVT_SIT_ADM"."ENF_DAT_N_PAC" AS "ENF_DAT_N_PAC", 
+"MVT_SIT_ADM"."ENF_NOM_PAC" AS "ENF_NOM_PAC", 
+"MVT_SIT_ADM"."ENF_PRENOM_PAC" AS "ENF_PRENOM_PAC", 
+"MVT_SIT_ADM"."ENF_ANN_SCOL1" AS "ENF_ANN_SCOL1", 
+"MVT_SIT_ADM"."ENF_ANN_SCOL2" AS "ENF_ANN_SCOL2", 
+"MVT_SIT_ADM"."ENF_NOM_PR_GARDE" AS "ENF_NOM_PR_GARDE", 
+"MVT_SIT_ADM"."ENF_CIN_A_GARDE" AS "ENF_CIN_A_GARDE", 
+"MVT_SIT_ADM"."ENF_CIN_N_GARDE" AS "ENF_CIN_N_GARDE", 
+"MVT_SIT_ADM"."ENF_DOTI_GARDE" AS "ENF_DOTI_GARDE", 
+"MVT_SIT_ADM"."ENF_DAT_SIT_PAC" AS "ENF_DAT_SIT_PAC", 
+"MVT_SIT_ADM"."DIPL_COD_PAYS" AS "DIPL_COD_PAYS", 
+"MVT_SIT_ADM"."DIPL_COD_DIP" AS "DIPL_COD_DIP", 
+"MVT_SIT_ADM"."DIPL_DAT_OBT_DIPL" AS "DIPL_DAT_OBT_DIPL", 
+"MVT_SIT_ADM"."DIPL_REF_ARRETE" AS "DIPL_REF_ARRETE", 
+"MVT_SIT_ADM"."DIPL_ANN_VISA" AS "DIPL_ANN_VISA", 
+"MVT_SIT_ADM"."M_INDICE_REC" AS "M_INDICE_REC", 
+"MVT_SIT_ADM"."M_INDICE" AS "M_INDICE", 
+"MVT_SIT_ADM"."M_INDEMNITE" AS "M_INDEMNITE", 
+"MVT_SIT_ADM"."M_IMP_BUDG" AS "M_IMP_BUDG", 
+"MVT_SIT_ADM"."M_ZONE_SUD" AS "M_ZONE_SUD", 
+"MVT_SIT_ADM"."M_PHASE_MVT" AS "M_PHASE_MVT", 
+"MVT_SIT_ADM"."M_SALAIRE" AS "M_SALAIRE", 
+"MVT_SIT_ADM"."M_DECISION" AS "M_DECISION", 
+"MVT_SIT_ADM"."M_ORDRE_MVT" AS "M_ORDRE_MVT", 
+"MVT_SIT_ADM"."M_OBSERV" AS "M_OBSERV", 
+"MVT_SIT_ADM"."M_REMB_SAL" AS "M_REMB_SAL", 
+"MVT_SIT_ADM"."M_DEP_GARDE" AS "M_DEP_GARDE", 
+"MVT_SIT_ADM"."M_DEP_CONJ" AS "M_DEP_CONJ", 
+"MVT_SIT_ADM"."M_NUM_ORD" AS "M_NUM_ORD", 
+"MVT_SIT_ADM"."M_NUM_MENTION" AS "M_NUM_MENTION", 
+"MVT_SIT_ADM"."M_REF_ARRETE_AN" AS "M_REF_ARRETE_AN", 
+"MVT_SIT_ADM"."M_ANN_VISA_AN" AS "M_ANN_VISA_AN", 
+"MVT_SIT_ADM"."M_CONDITION" AS "M_CONDITION", 
+"MVT_SIT_ADM"."M_DAT_LIB_PB" AS "M_DAT_LIB_PB", 
+"MVT_SIT_ADM"."M_LIB_ORG_DET" AS "M_LIB_ORG_DET", 
+"MVT_SIT_ADM"."M_IMP_BUD_ACCEUIL" AS "M_IMP_BUD_ACCEUIL", 
+"MVT_SIT_ADM"."M_COD_SPC" AS "M_COD_SPC", 
+"MVT_SIT_ADM"."IND_REF_ARRETE" AS "IND_REF_ARRETE", 
+"MVT_SIT_ADM"."IND_ANN_VISA" AS "IND_ANN_VISA", 
+"MVT_SIT_ADM"."IND_DAT_ATTRIB" AS "IND_DAT_ATTRIB", 
+"MVT_SIT_ADM"."IND_DAT_FIN" AS "IND_DAT_FIN", 
+"MVT_SIT_ADM"."IND_COD_AG" AS "IND_COD_AG", 
+"MVT_SIT_ADM"."IND_COD_IND" AS "IND_COD_IND", 
+"MVT_SIT_ADM"."DIPL_COD_SPEC" AS "DIPL_COD_SPEC", 
+"MVT_SIT_ADM"."AGT_COD_S_ORD" AS "AGT_COD_S_ORD", 
+"MVT_SIT_ADM"."AGT_LOT" AS "AGT_LOT", 
+"MVT_SIT_ADM"."AGT_ETAPE" AS "AGT_ETAPE", 
+"MVT_SIT_ADM"."AGT_COD_LIEU_NAISS" AS "AGT_COD_LIEU_NAISS"
+FROM "GIPEORD"."MVT_SIT_ADM" "MVT_SIT_ADM"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SIT_ADM" EntityType="Self.SIT_ADM" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"SIT_ADM"."COD_AG" AS "COD_AG", 
+"SIT_ADM"."COD_CATEG" AS "COD_CATEG", 
+"SIT_ADM"."COD_CORPS" AS "COD_CORPS", 
+"SIT_ADM"."COD_CADRE" AS "COD_CADRE", 
+"SIT_ADM"."COD_GRADE" AS "COD_GRADE", 
+"SIT_ADM"."COD_ELO" AS "COD_ELO", 
+"SIT_ADM"."COD_FCT" AS "COD_FCT", 
+"SIT_ADM"."COD_S_ST" AS "COD_S_ST", 
+"SIT_ADM"."COD_ORG_DET" AS "COD_ORG_DET", 
+"SIT_ADM"."MOD_AV_GRADE" AS "MOD_AV_GRADE", 
+"SIT_ADM"."COD_ECH" AS "COD_ECH", 
+"SIT_ADM"."DAT_FIN_C" AS "DAT_FIN_C", 
+"SIT_ADM"."TAUX_PRIME" AS "TAUX_PRIME", 
+"SIT_ADM"."SPECIALITE" AS "SPECIALITE", 
+"SIT_ADM"."DAT_EFF_GR" AS "DAT_EFF_GR", 
+"SIT_ADM"."ANC_GRADE" AS "ANC_GRADE", 
+"SIT_ADM"."DAT_EFF_ELO" AS "DAT_EFF_ELO", 
+"SIT_ADM"."ANC_ELO" AS "ANC_ELO", 
+"SIT_ADM"."DAT_FCT" AS "DAT_FCT", 
+"SIT_ADM"."DAT_S_ST" AS "DAT_S_ST", 
+"SIT_ADM"."COD_CATEG_ASS" AS "COD_CATEG_ASS", 
+"SIT_ADM"."COD_CORPS_ASS" AS "COD_CORPS_ASS", 
+"SIT_ADM"."COD_CADRE_ASS" AS "COD_CADRE_ASS", 
+"SIT_ADM"."COD_GRADE_ASS" AS "COD_GRADE_ASS", 
+"SIT_ADM"."ANC_CADRE" AS "ANC_CADRE"
+FROM "GIPEORD"."SIT_ADM" "SIT_ADM"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TAB_GRADE" EntityType="Self.TAB_GRADE" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"TAB_GRADE"."COD_CATEG" AS "COD_CATEG", 
+"TAB_GRADE"."COD_CORPS" AS "COD_CORPS", 
+"TAB_GRADE"."COD_CADRE" AS "COD_CADRE", 
+"TAB_GRADE"."COD_GRADE" AS "COD_GRADE", 
+"TAB_GRADE"."COD_ECH" AS "COD_ECH", 
+"TAB_GRADE"."LIB_GRADE" AS "LIB_GRADE", 
+"TAB_GRADE"."LIB_GRADE_A" AS "LIB_GRADE_A"
+FROM "GIPEORD"."TAB_GRADE" "TAB_GRADE"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TAB_LOC" EntityType="Self.TAB_LOC" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"TAB_LOC"."COD_LOC" AS "COD_LOC", 
+"TAB_LOC"."LIB_LOC" AS "LIB_LOC", 
+"TAB_LOC"."LIB_LOC_A" AS "LIB_LOC_A"
+FROM "GIPEORD"."TAB_LOC" "TAB_LOC"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TAB_SRV" EntityType="Self.TAB_SRV" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"TAB_SRV"."COD_DEP" AS "COD_DEP", 
+"TAB_SRV"."COD_ART" AS "COD_ART", 
+"TAB_SRV"."COD_SRV" AS "COD_SRV", 
+"TAB_SRV"."LIB_SRV" AS "LIB_SRV", 
+"TAB_SRV"."LIB_SRV_A" AS "LIB_SRV_A"
+FROM "GIPEORD"."TAB_SRV" "TAB_SRV"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TAB_SS_TYP_MVT" EntityType="Self.TAB_SS_TYP_MVT" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"TAB_SS_TYP_MVT"."TYP_MVT" AS "TYP_MVT", 
+"TAB_SS_TYP_MVT"."SS_TYP_MVT" AS "SS_TYP_MVT", 
+"TAB_SS_TYP_MVT"."COD_POS" AS "COD_POS", 
+"TAB_SS_TYP_MVT"."LIB_SS_TYP_MVT" AS "LIB_SS_TYP_MVT", 
+"TAB_SS_TYP_MVT"."LIB_ABREGE" AS "LIB_ABREGE", 
+"TAB_SS_TYP_MVT"."TYP_INT" AS "TYP_INT", 
+"TAB_SS_TYP_MVT"."TYP_POS" AS "TYP_POS", 
+"TAB_SS_TYP_MVT"."LIB_SS_TYP_MVT_A" AS "LIB_SS_TYP_MVT_A"
+FROM "GIPEORD"."TAB_SS_TYP_MVT" "TAB_SS_TYP_MVT"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TAB_TYP_MVT" EntityType="Self.TAB_TYP_MVT" store:Type="Tables" store:Schema="GIPEORD">
+            <DefiningQuery>SELECT 
+"TAB_TYP_MVT"."TYP_MVT" AS "TYP_MVT", 
+"TAB_TYP_MVT"."LIB_TYP_MVT" AS "LIB_TYP_MVT", 
+"TAB_TYP_MVT"."LIB_TYP_MVT_A" AS "LIB_TYP_MVT_A", 
+"TAB_TYP_MVT"."ORDRE" AS "ORDRE", 
+"TAB_TYP_MVT"."TYPE" AS "TYPE"
+FROM "GIPEORD"."TAB_TYP_MVT" "TAB_TYP_MVT"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GipeOrdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="COD_AG" />
+          </Key>
+          <Property Name="COD_AG" Type="Int32" Nullable="false" />
+          <Property Name="COD_S_AF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="COD_POS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_NIV" Type="Int16" />
+          <Property Name="COD_LOC" Type="Int16" />
+          <Property Name="COD_DEP" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ART" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="COD_SRV" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_NAT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SIT_F_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TYP_MVT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SS_TYP_MVT" Type="Int16" />
+          <Property Name="COD_USR" Type="Int16" />
+          <Property Name="COD_PAYS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="NUM_PB" Type="Int32" />
+          <Property Name="DAT_SIT_PB" Type="DateTime" />
+          <Property Name="COD_S_AF_FTF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="COD_SRV_S_ANT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PRENOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ANC_ADM" Type="DateTime" />
+          <Property Name="CIN_A_AG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CIN_N_AG" Type="Int32" />
+          <Property Name="JOU_N_AG" Type="Int16" />
+          <Property Name="MOI_N_AG" Type="Int16" />
+          <Property Name="ANN_N_AG" Type="Int16" />
+          <Property Name="SEX_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DAT_REC" Type="DateTime" />
+          <Property Name="ETAPE" Type="Int16" />
+          <Property Name="LOT" Type="Int16" />
+          <Property Name="ADRESSE" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ELO_REC" Type="Int16" />
+          <Property Name="ANC_ELO_REC" Type="DateTime" />
+          <Property Name="NOTE_AV" Type="Int16" />
+          <Property Name="DAT_S_AF" Type="DateTime" />
+          <Property Name="DAT_POS" Type="DateTime" />
+          <Property Name="DAT_SS_TYP_MVT" Type="DateTime" />
+          <Property Name="DAT_S_AF_FTF" Type="DateTime" />
+          <Property Name="COD_LIEU_NAISS" Type="Int16" />
+          <Property Name="ADRESSE_ARAB" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="COD_S_ORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="GipeOrdContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" />
+          <EntitySet Name="TAB_SRV" EntityType="GipeOrdModel.TAB_SRV" />
+          <EntitySet Name="MVT_SIT_ADM" EntityType="GipeOrdModel.MVT_SIT_ADM" />
+          <EntitySet Name="TAB_LOC" EntityType="GipeOrdModel.TAB_LOC" />
+          <EntitySet Name="TAB_TYP_MVT" EntityType="GipeOrdModel.TAB_TYP_MVT" />
+          <EntitySet Name="TAB_GRADE" EntityType="GipeOrdModel.TAB_GRADE" />
+          <EntitySet Name="TAB_SS_TYP_MVT" EntityType="GipeOrdModel.TAB_SS_TYP_MVT" />
+          <EntitySet Name="SIT_ADM" EntityType="GipeOrdModel.SIT_ADM" />
+        </EntityContainer>
+        <EntityType Name="TAB_SRV">
+          <Key>
+            <PropertyRef Name="COD_DEP" />
+            <PropertyRef Name="COD_ART" />
+            <PropertyRef Name="COD_SRV" />
+          </Key>
+          <Property Name="COD_DEP" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ART" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="COD_SRV" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_SRV" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_SRV_A" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MVT_SIT_ADM">
+          <Key>
+            <PropertyRef Name="M_NUM_ID" />
+          </Key>
+          <Property Name="M_NUM_ID" Type="Int32" Nullable="false" />
+          <Property Name="M_TYP_MVT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="M_SS_TYP_MVT" Type="Int16" />
+          <Property Name="M_DAT_EFF_MVT" Type="DateTime" />
+          <Property Name="M_REF_ARRETE" Type="Int32" />
+          <Property Name="M_ANN_VISA" Type="Int16" />
+          <Property Name="M_COD_AG" Type="Int32" />
+          <Property Name="M_REP_SAL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="M_COD_USR" Type="Int16" />
+          <Property Name="AGT_COD_S_AF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_COD_POS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_COD_NIV" Type="Int16" />
+          <Property Name="AGT_COD_LOC" Type="Int16" />
+          <Property Name="AGT_COD_DEP" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_COD_ART" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_COD_SRV" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_COD_NAT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_SIT_F_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_TYP_MVT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_SS_TYP_MVT" Type="Int16" />
+          <Property Name="AGT_COD_PAYS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_NUM_PB" Type="Int32" />
+          <Property Name="AGT_COD_S_AF_FTF" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_COD_SRV_S_ANT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_NOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_PRENOM_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_NOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_PRENOM_ARAB_AG" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_ANC_ADM" Type="DateTime" />
+          <Property Name="AGT_CIN_A_AG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_CIN_N_AG" Type="Int32" />
+          <Property Name="AGT_JOU_N_AG" Type="Int16" />
+          <Property Name="AGT_MOI_N_AG" Type="Int16" />
+          <Property Name="AGT_ANN_N_AG" Type="Int16" />
+          <Property Name="AGT_SEX_AG" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_DAT_REC" Type="DateTime" />
+          <Property Name="AGT_DAT_S_AF" Type="DateTime" />
+          <Property Name="AGT_DAT_POS" Type="DateTime" />
+          <Property Name="AGT_DAT_SS_TYP_MVT" Type="DateTime" />
+          <Property Name="AGT_DAT_S_AF_FTF" Type="DateTime" />
+          <Property Name="AGT_ADRESSE" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_COD_ELO_REC" Type="Int16" />
+          <Property Name="AGT_ANC_ELO_REC" Type="DateTime" />
+          <Property Name="AGT_NOTE_AV" Type="Int16" />
+          <Property Name="AGT_ADRESSE_ARAB" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_CATEG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_CORPS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_CADRE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_GRADE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_ELO" Type="Int16" />
+          <Property Name="ADM_COD_FCT" Type="Int16" />
+          <Property Name="ADM_COD_S_ST" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_ORG_DET" Type="Int16" />
+          <Property Name="ADM_MOD_AV_GRADE" Type="Int16" />
+          <Property Name="ADM_COD_ECH" Type="Int16" />
+          <Property Name="ADM_DAT_FIN_C" Type="DateTime" />
+          <Property Name="ADM_TAUX_PRIME" Type="Int16" />
+          <Property Name="ADM_SPECIALITE" Type="Int16" />
+          <Property Name="ADM_DAT_EFF_GR" Type="DateTime" />
+          <Property Name="ADM_ANC_GRADE" Type="DateTime" />
+          <Property Name="ADM_DAT_EFF_ELO" Type="DateTime" />
+          <Property Name="ADM_ANC_ELO" Type="DateTime" />
+          <Property Name="ADM_DAT_FCT" Type="DateTime" />
+          <Property Name="ADM_DAT_S_ST" Type="DateTime" />
+          <Property Name="ADM_ANC_CADRE" Type="DateTime" />
+          <Property Name="ADM_COD_CATEG_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_CORPS_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_CADRE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ADM_COD_GRADE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="INT_DAT_DEB" Type="DateTime" />
+          <Property Name="INT_TYP_INT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="INT_SS_TYP_INT" Type="Int16" />
+          <Property Name="INT_DAT_FIN" Type="DateTime" />
+          <Property Name="ANT_DAT_DEB" Type="DateTime" />
+          <Property Name="ANT_COD_SRV_S_ANT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ANT_COD_CATEG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ANT_COD_CORPS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ANT_COD_CADRE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ANT_COD_GRADE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ANT_DAT_FIN" Type="DateTime" />
+          <Property Name="ANT_TYP_DEP_S_ANT" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CNJ_NUM_CONJ" Type="Int32" />
+          <Property Name="CNJ_SIT_CONJ" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CNJ_PRF_CONJ" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CNJ_NAT_CONJ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CNJ_NOM_PR_CONJ" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="CNJ_DOTI_CONJ" Type="Int32" />
+          <Property Name="CNJ_CIN_A_CONJ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CNJ_CIN_N_CONJ" Type="Int32" />
+          <Property Name="CNJ_DAT_SIT_CONJ" Type="DateTime" />
+          <Property Name="ENF_NUM_PAC" Type="Int16" />
+          <Property Name="ENF_NUM_CONJ" Type="Int32" />
+          <Property Name="ENF_PRF_GARDE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_SIT_PAC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_COD_GARDE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_LIEN_PAR" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_DAT_N_PAC" Type="DateTime" />
+          <Property Name="ENF_NOM_PAC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_PRENOM_PAC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_ANN_SCOL1" Type="Int16" />
+          <Property Name="ENF_ANN_SCOL2" Type="Int16" />
+          <Property Name="ENF_NOM_PR_GARDE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_CIN_A_GARDE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ENF_CIN_N_GARDE" Type="Int32" />
+          <Property Name="ENF_DOTI_GARDE" Type="Int32" />
+          <Property Name="ENF_DAT_SIT_PAC" Type="DateTime" />
+          <Property Name="DIPL_COD_PAYS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="DIPL_COD_DIP" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DIPL_DAT_OBT_DIPL" Type="DateTime" />
+          <Property Name="DIPL_REF_ARRETE" Type="Int32" />
+          <Property Name="DIPL_ANN_VISA" Type="Int16" />
+          <Property Name="M_INDICE_REC" Type="Int16" />
+          <Property Name="M_INDICE" Type="Int16" />
+          <Property Name="M_INDEMNITE" Type="Int32" />
+          <Property Name="M_IMP_BUDG" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="M_ZONE_SUD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="M_PHASE_MVT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="M_SALAIRE" Type="Int32" />
+          <Property Name="M_DECISION" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="M_ORDRE_MVT" Type="Int32" />
+          <Property Name="M_OBSERV" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="M_REMB_SAL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="M_DEP_GARDE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="M_DEP_CONJ" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="M_NUM_ORD" Type="Int32" />
+          <Property Name="M_NUM_MENTION" Type="Int32" />
+          <Property Name="M_REF_ARRETE_AN" Type="Int32" />
+          <Property Name="M_ANN_VISA_AN" Type="Int16" />
+          <Property Name="M_CONDITION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="M_DAT_LIB_PB" Type="DateTime" />
+          <Property Name="M_LIB_ORG_DET" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="M_IMP_BUD_ACCEUIL" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="M_COD_SPC" Type="Int16" />
+          <Property Name="IND_REF_ARRETE" Type="Int32" />
+          <Property Name="IND_ANN_VISA" Type="Int16" />
+          <Property Name="IND_DAT_ATTRIB" Type="DateTime" />
+          <Property Name="IND_DAT_FIN" Type="DateTime" />
+          <Property Name="IND_COD_AG" Type="Int32" />
+          <Property Name="IND_COD_IND" Type="Int16" />
+          <Property Name="DIPL_COD_SPEC" Type="Int16" />
+          <Property Name="AGT_COD_S_ORD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AGT_LOT" Type="Int16" />
+          <Property Name="AGT_ETAPE" Type="Int16" />
+          <Property Name="AGT_COD_LIEU_NAISS" Type="Int16" />
+        </EntityType>
+        <EntityType Name="TAB_LOC">
+          <Key>
+            <PropertyRef Name="COD_LOC" />
+          </Key>
+          <Property Name="COD_LOC" Type="Int16" Nullable="false" />
+          <Property Name="LIB_LOC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_LOC_A" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TAB_TYP_MVT">
+          <Key>
+            <PropertyRef Name="TYP_MVT" />
+          </Key>
+          <Property Name="TYP_MVT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_TYP_MVT" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_TYP_MVT_A" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="ORDRE" Type="Int16" />
+          <Property Name="TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TAB_GRADE">
+          <Key>
+            <PropertyRef Name="COD_CATEG" />
+            <PropertyRef Name="COD_CORPS" />
+            <PropertyRef Name="COD_CADRE" />
+            <PropertyRef Name="COD_GRADE" />
+          </Key>
+          <Property Name="COD_CATEG" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_CORPS" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_CADRE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_GRADE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ECH" Type="Int16" />
+          <Property Name="LIB_GRADE" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_GRADE_A" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TAB_SS_TYP_MVT">
+          <Key>
+            <PropertyRef Name="TYP_MVT" />
+            <PropertyRef Name="SS_TYP_MVT" />
+          </Key>
+          <Property Name="TYP_MVT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="SS_TYP_MVT" Type="Int16" Nullable="false" />
+          <Property Name="COD_POS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_SS_TYP_MVT" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="LIB_ABREGE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="TYP_INT" Type="Int16" />
+          <Property Name="TYP_POS" Type="Int16" />
+          <Property Name="LIB_SS_TYP_MVT_A" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SIT_ADM">
+          <Key>
+            <PropertyRef Name="COD_AG" />
+            <PropertyRef Name="COD_CATEG" />
+            <PropertyRef Name="COD_CORPS" />
+            <PropertyRef Name="COD_CADRE" />
+            <PropertyRef Name="COD_GRADE" />
+          </Key>
+          <Property Name="COD_AG" Type="Int32" Nullable="false" />
+          <Property Name="COD_CATEG" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_CORPS" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_CADRE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_GRADE" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ELO" Type="Int16" />
+          <Property Name="COD_FCT" Type="Int16" />
+          <Property Name="COD_S_ST" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_ORG_DET" Type="Int16" />
+          <Property Name="MOD_AV_GRADE" Type="Int16" />
+          <Property Name="COD_ECH" Type="Int16" />
+          <Property Name="DAT_FIN_C" Type="DateTime" />
+          <Property Name="TAUX_PRIME" Type="Int16" />
+          <Property Name="SPECIALITE" Type="Int16" />
+          <Property Name="DAT_EFF_GR" Type="DateTime" />
+          <Property Name="ANC_GRADE" Type="DateTime" />
+          <Property Name="DAT_EFF_ELO" Type="DateTime" />
+          <Property Name="ANC_ELO" Type="DateTime" />
+          <Property Name="DAT_FCT" Type="DateTime" />
+          <Property Name="DAT_S_ST" Type="DateTime" />
+          <Property Name="COD_CATEG_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_CORPS_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_CADRE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="COD_GRADE_ASS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ANC_CADRE" Type="DateTime" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GipeOrdModelStoreContainer" CdmEntityContainer="GipeOrdContext">
+          <EntitySetMapping Name="AGENT">
+            <EntityTypeMapping TypeName="GipeOrdModel.AGENT">
+              <MappingFragment StoreEntitySet="AGENT">
+                <ScalarProperty Name="COD_AG" ColumnName="COD_AG" />
+                <ScalarProperty Name="COD_S_AF" ColumnName="COD_S_AF" />
+                <ScalarProperty Name="COD_POS" ColumnName="COD_POS" />
+                <ScalarProperty Name="COD_NIV" ColumnName="COD_NIV" />
+                <ScalarProperty Name="COD_LOC" ColumnName="COD_LOC" />
+                <ScalarProperty Name="COD_DEP" ColumnName="COD_DEP" />
+                <ScalarProperty Name="COD_ART" ColumnName="COD_ART" />
+                <ScalarProperty Name="COD_SRV" ColumnName="COD_SRV" />
+                <ScalarProperty Name="COD_NAT" ColumnName="COD_NAT" />
+                <ScalarProperty Name="SIT_F_AG" ColumnName="SIT_F_AG" />
+                <ScalarProperty Name="TYP_MVT" ColumnName="TYP_MVT" />
+                <ScalarProperty Name="SS_TYP_MVT" ColumnName="SS_TYP_MVT" />
+                <ScalarProperty Name="COD_USR" ColumnName="COD_USR" />
+                <ScalarProperty Name="COD_PAYS" ColumnName="COD_PAYS" />
+                <ScalarProperty Name="NUM_PB" ColumnName="NUM_PB" />
+                <ScalarProperty Name="DAT_SIT_PB" ColumnName="DAT_SIT_PB" />
+                <ScalarProperty Name="COD_S_AF_FTF" ColumnName="COD_S_AF_FTF" />
+                <ScalarProperty Name="COD_SRV_S_ANT" ColumnName="COD_SRV_S_ANT" />
+                <ScalarProperty Name="NOM_AG" ColumnName="NOM_AG" />
+                <ScalarProperty Name="PRENOM_AG" ColumnName="PRENOM_AG" />
+                <ScalarProperty Name="NOM_ARAB_AG" ColumnName="NOM_ARAB_AG" />
+                <ScalarProperty Name="PRENOM_ARAB_AG" ColumnName="PRENOM_ARAB_AG" />
+                <ScalarProperty Name="ANC_ADM" ColumnName="ANC_ADM" />
+                <ScalarProperty Name="CIN_A_AG" ColumnName="CIN_A_AG" />
+                <ScalarProperty Name="CIN_N_AG" ColumnName="CIN_N_AG" />
+                <ScalarProperty Name="JOU_N_AG" ColumnName="JOU_N_AG" />
+                <ScalarProperty Name="MOI_N_AG" ColumnName="MOI_N_AG" />
+                <ScalarProperty Name="ANN_N_AG" ColumnName="ANN_N_AG" />
+                <ScalarProperty Name="SEX_AG" ColumnName="SEX_AG" />
+                <ScalarProperty Name="DAT_REC" ColumnName="DAT_REC" />
+                <ScalarProperty Name="ETAPE" ColumnName="ETAPE" />
+                <ScalarProperty Name="LOT" ColumnName="LOT" />
+                <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+                <ScalarProperty Name="COD_ELO_REC" ColumnName="COD_ELO_REC" />
+                <ScalarProperty Name="ANC_ELO_REC" ColumnName="ANC_ELO_REC" />
+                <ScalarProperty Name="NOTE_AV" ColumnName="NOTE_AV" />
+                <ScalarProperty Name="DAT_S_AF" ColumnName="DAT_S_AF" />
+                <ScalarProperty Name="DAT_POS" ColumnName="DAT_POS" />
+                <ScalarProperty Name="DAT_SS_TYP_MVT" ColumnName="DAT_SS_TYP_MVT" />
+                <ScalarProperty Name="DAT_S_AF_FTF" ColumnName="DAT_S_AF_FTF" />
+                <ScalarProperty Name="COD_LIEU_NAISS" ColumnName="COD_LIEU_NAISS" />
+                <ScalarProperty Name="ADRESSE_ARAB" ColumnName="ADRESSE_ARAB" />
+                <ScalarProperty Name="COD_S_ORD" ColumnName="COD_S_ORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAB_SRV">
+            <EntityTypeMapping TypeName="GipeOrdModel.TAB_SRV">
+              <MappingFragment StoreEntitySet="TAB_SRV">
+                <ScalarProperty Name="LIB_SRV_A" ColumnName="LIB_SRV_A" />
+                <ScalarProperty Name="LIB_SRV" ColumnName="LIB_SRV" />
+                <ScalarProperty Name="COD_SRV" ColumnName="COD_SRV" />
+                <ScalarProperty Name="COD_ART" ColumnName="COD_ART" />
+                <ScalarProperty Name="COD_DEP" ColumnName="COD_DEP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MVT_SIT_ADM">
+            <EntityTypeMapping TypeName="GipeOrdModel.MVT_SIT_ADM">
+              <MappingFragment StoreEntitySet="MVT_SIT_ADM">
+                <ScalarProperty Name="AGT_COD_LIEU_NAISS" ColumnName="AGT_COD_LIEU_NAISS" />
+                <ScalarProperty Name="AGT_ETAPE" ColumnName="AGT_ETAPE" />
+                <ScalarProperty Name="AGT_LOT" ColumnName="AGT_LOT" />
+                <ScalarProperty Name="AGT_COD_S_ORD" ColumnName="AGT_COD_S_ORD" />
+                <ScalarProperty Name="DIPL_COD_SPEC" ColumnName="DIPL_COD_SPEC" />
+                <ScalarProperty Name="IND_COD_IND" ColumnName="IND_COD_IND" />
+                <ScalarProperty Name="IND_COD_AG" ColumnName="IND_COD_AG" />
+                <ScalarProperty Name="IND_DAT_FIN" ColumnName="IND_DAT_FIN" />
+                <ScalarProperty Name="IND_DAT_ATTRIB" ColumnName="IND_DAT_ATTRIB" />
+                <ScalarProperty Name="IND_ANN_VISA" ColumnName="IND_ANN_VISA" />
+                <ScalarProperty Name="IND_REF_ARRETE" ColumnName="IND_REF_ARRETE" />
+                <ScalarProperty Name="M_COD_SPC" ColumnName="M_COD_SPC" />
+                <ScalarProperty Name="M_IMP_BUD_ACCEUIL" ColumnName="M_IMP_BUD_ACCEUIL" />
+                <ScalarProperty Name="M_LIB_ORG_DET" ColumnName="M_LIB_ORG_DET" />
+                <ScalarProperty Name="M_DAT_LIB_PB" ColumnName="M_DAT_LIB_PB" />
+                <ScalarProperty Name="M_CONDITION" ColumnName="M_CONDITION" />
+                <ScalarProperty Name="M_ANN_VISA_AN" ColumnName="M_ANN_VISA_AN" />
+                <ScalarProperty Name="M_REF_ARRETE_AN" ColumnName="M_REF_ARRETE_AN" />
+                <ScalarProperty Name="M_NUM_MENTION" ColumnName="M_NUM_MENTION" />
+                <ScalarProperty Name="M_NUM_ORD" ColumnName="M_NUM_ORD" />
+                <ScalarProperty Name="M_DEP_CONJ" ColumnName="M_DEP_CONJ" />
+                <ScalarProperty Name="M_DEP_GARDE" ColumnName="M_DEP_GARDE" />
+                <ScalarProperty Name="M_REMB_SAL" ColumnName="M_REMB_SAL" />
+                <ScalarProperty Name="M_OBSERV" ColumnName="M_OBSERV" />
+                <ScalarProperty Name="M_ORDRE_MVT" ColumnName="M_ORDRE_MVT" />
+                <ScalarProperty Name="M_DECISION" ColumnName="M_DECISION" />
+                <ScalarProperty Name="M_SALAIRE" ColumnName="M_SALAIRE" />
+                <ScalarProperty Name="M_PHASE_MVT" ColumnName="M_PHASE_MVT" />
+                <ScalarProperty Name="M_ZONE_SUD" ColumnName="M_ZONE_SUD" />
+                <ScalarProperty Name="M_IMP_BUDG" ColumnName="M_IMP_BUDG" />
+                <ScalarProperty Name="M_INDEMNITE" ColumnName="M_INDEMNITE" />
+                <ScalarProperty Name="M_INDICE" ColumnName="M_INDICE" />
+                <ScalarProperty Name="M_INDICE_REC" ColumnName="M_INDICE_REC" />
+                <ScalarProperty Name="DIPL_ANN_VISA" ColumnName="DIPL_ANN_VISA" />
+                <ScalarProperty Name="DIPL_REF_ARRETE" ColumnName="DIPL_REF_ARRETE" />
+                <ScalarProperty Name="DIPL_DAT_OBT_DIPL" ColumnName="DIPL_DAT_OBT_DIPL" />
+                <ScalarProperty Name="DIPL_COD_DIP" ColumnName="DIPL_COD_DIP" />
+                <ScalarProperty Name="DIPL_COD_PAYS" ColumnName="DIPL_COD_PAYS" />
+                <ScalarProperty Name="ENF_DAT_SIT_PAC" ColumnName="ENF_DAT_SIT_PAC" />
+                <ScalarProperty Name="ENF_DOTI_GARDE" ColumnName="ENF_DOTI_GARDE" />
+                <ScalarProperty Name="ENF_CIN_N_GARDE" ColumnName="ENF_CIN_N_GARDE" />
+                <ScalarProperty Name="ENF_CIN_A_GARDE" ColumnName="ENF_CIN_A_GARDE" />
+                <ScalarProperty Name="ENF_NOM_PR_GARDE" ColumnName="ENF_NOM_PR_GARDE" />
+                <ScalarProperty Name="ENF_ANN_SCOL2" ColumnName="ENF_ANN_SCOL2" />
+                <ScalarProperty Name="ENF_ANN_SCOL1" ColumnName="ENF_ANN_SCOL1" />
+                <ScalarProperty Name="ENF_PRENOM_PAC" ColumnName="ENF_PRENOM_PAC" />
+                <ScalarProperty Name="ENF_NOM_PAC" ColumnName="ENF_NOM_PAC" />
+                <ScalarProperty Name="ENF_DAT_N_PAC" ColumnName="ENF_DAT_N_PAC" />
+                <ScalarProperty Name="ENF_LIEN_PAR" ColumnName="ENF_LIEN_PAR" />
+                <ScalarProperty Name="ENF_COD_GARDE" ColumnName="ENF_COD_GARDE" />
+                <ScalarProperty Name="ENF_SIT_PAC" ColumnName="ENF_SIT_PAC" />
+                <ScalarProperty Name="ENF_PRF_GARDE" ColumnName="ENF_PRF_GARDE" />
+                <ScalarProperty Name="ENF_NUM_CONJ" ColumnName="ENF_NUM_CONJ" />
+                <ScalarProperty Name="ENF_NUM_PAC" ColumnName="ENF_NUM_PAC" />
+                <ScalarProperty Name="CNJ_DAT_SIT_CONJ" ColumnName="CNJ_DAT_SIT_CONJ" />
+                <ScalarProperty Name="CNJ_CIN_N_CONJ" ColumnName="CNJ_CIN_N_CONJ" />
+                <ScalarProperty Name="CNJ_CIN_A_CONJ" ColumnName="CNJ_CIN_A_CONJ" />
+                <ScalarProperty Name="CNJ_DOTI_CONJ" ColumnName="CNJ_DOTI_CONJ" />
+                <ScalarProperty Name="CNJ_NOM_PR_CONJ" ColumnName="CNJ_NOM_PR_CONJ" />
+                <ScalarProperty Name="CNJ_NAT_CONJ" ColumnName="CNJ_NAT_CONJ" />
+                <ScalarProperty Name="CNJ_PRF_CONJ" ColumnName="CNJ_PRF_CONJ" />
+                <ScalarProperty Name="CNJ_SIT_CONJ" ColumnName="CNJ_SIT_CONJ" />
+                <ScalarProperty Name="CNJ_NUM_CONJ" ColumnName="CNJ_NUM_CONJ" />
+                <ScalarProperty Name="ANT_TYP_DEP_S_ANT" ColumnName="ANT_TYP_DEP_S_ANT" />
+                <ScalarProperty Name="ANT_DAT_FIN" ColumnName="ANT_DAT_FIN" />
+                <ScalarProperty Name="ANT_COD_GRADE" ColumnName="ANT_COD_GRADE" />
+                <ScalarProperty Name="ANT_COD_CADRE" ColumnName="ANT_COD_CADRE" />
+                <ScalarProperty Name="ANT_COD_CORPS" ColumnName="ANT_COD_CORPS" />
+                <ScalarProperty Name="ANT_COD_CATEG" ColumnName="ANT_COD_CATEG" />
+                <ScalarProperty Name="ANT_COD_SRV_S_ANT" ColumnName="ANT_COD_SRV_S_ANT" />
+                <ScalarProperty Name="ANT_DAT_DEB" ColumnName="ANT_DAT_DEB" />
+                <ScalarProperty Name="INT_DAT_FIN" ColumnName="INT_DAT_FIN" />
+                <ScalarProperty Name="INT_SS_TYP_INT" ColumnName="INT_SS_TYP_INT" />
+                <ScalarProperty Name="INT_TYP_INT" ColumnName="INT_TYP_INT" />
+                <ScalarProperty Name="INT_DAT_DEB" ColumnName="INT_DAT_DEB" />
+                <ScalarProperty Name="ADM_COD_GRADE_ASS" ColumnName="ADM_COD_GRADE_ASS" />
+                <ScalarProperty Name="ADM_COD_CADRE_ASS" ColumnName="ADM_COD_CADRE_ASS" />
+                <ScalarProperty Name="ADM_COD_CORPS_ASS" ColumnName="ADM_COD_CORPS_ASS" />
+                <ScalarProperty Name="ADM_COD_CATEG_ASS" ColumnName="ADM_COD_CATEG_ASS" />
+                <ScalarProperty Name="ADM_ANC_CADRE" ColumnName="ADM_ANC_CADRE" />
+                <ScalarProperty Name="ADM_DAT_S_ST" ColumnName="ADM_DAT_S_ST" />
+                <ScalarProperty Name="ADM_DAT_FCT" ColumnName="ADM_DAT_FCT" />
+                <ScalarProperty Name="ADM_ANC_ELO" ColumnName="ADM_ANC_ELO" />
+                <ScalarProperty Name="ADM_DAT_EFF_ELO" ColumnName="ADM_DAT_EFF_ELO" />
+                <ScalarProperty Name="ADM_ANC_GRADE" ColumnName="ADM_ANC_GRADE" />
+                <ScalarProperty Name="ADM_DAT_EFF_GR" ColumnName="ADM_DAT_EFF_GR" />
+                <ScalarProperty Name="ADM_SPECIALITE" ColumnName="ADM_SPECIALITE" />
+                <ScalarProperty Name="ADM_TAUX_PRIME" ColumnName="ADM_TAUX_PRIME" />
+                <ScalarProperty Name="ADM_DAT_FIN_C" ColumnName="ADM_DAT_FIN_C" />
+                <ScalarProperty Name="ADM_COD_ECH" ColumnName="ADM_COD_ECH" />
+                <ScalarProperty Name="ADM_MOD_AV_GRADE" ColumnName="ADM_MOD_AV_GRADE" />
+                <ScalarProperty Name="ADM_COD_ORG_DET" ColumnName="ADM_COD_ORG_DET" />
+                <ScalarProperty Name="ADM_COD_S_ST" ColumnName="ADM_COD_S_ST" />
+                <ScalarProperty Name="ADM_COD_FCT" ColumnName="ADM_COD_FCT" />
+                <ScalarProperty Name="ADM_COD_ELO" ColumnName="ADM_COD_ELO" />
+                <ScalarProperty Name="ADM_COD_GRADE" ColumnName="ADM_COD_GRADE" />
+                <ScalarProperty Name="ADM_COD_CADRE" ColumnName="ADM_COD_CADRE" />
+                <ScalarProperty Name="ADM_COD_CORPS" ColumnName="ADM_COD_CORPS" />
+                <ScalarProperty Name="ADM_COD_CATEG" ColumnName="ADM_COD_CATEG" />
+                <ScalarProperty Name="AGT_ADRESSE_ARAB" ColumnName="AGT_ADRESSE_ARAB" />
+                <ScalarProperty Name="AGT_NOTE_AV" ColumnName="AGT_NOTE_AV" />
+                <ScalarProperty Name="AGT_ANC_ELO_REC" ColumnName="AGT_ANC_ELO_REC" />
+                <ScalarProperty Name="AGT_COD_ELO_REC" ColumnName="AGT_COD_ELO_REC" />
+                <ScalarProperty Name="AGT_ADRESSE" ColumnName="AGT_ADRESSE" />
+                <ScalarProperty Name="AGT_DAT_S_AF_FTF" ColumnName="AGT_DAT_S_AF_FTF" />
+                <ScalarProperty Name="AGT_DAT_SS_TYP_MVT" ColumnName="AGT_DAT_SS_TYP_MVT" />
+                <ScalarProperty Name="AGT_DAT_POS" ColumnName="AGT_DAT_POS" />
+                <ScalarProperty Name="AGT_DAT_S_AF" ColumnName="AGT_DAT_S_AF" />
+                <ScalarProperty Name="AGT_DAT_REC" ColumnName="AGT_DAT_REC" />
+                <ScalarProperty Name="AGT_SEX_AG" ColumnName="AGT_SEX_AG" />
+                <ScalarProperty Name="AGT_ANN_N_AG" ColumnName="AGT_ANN_N_AG" />
+                <ScalarProperty Name="AGT_MOI_N_AG" ColumnName="AGT_MOI_N_AG" />
+                <ScalarProperty Name="AGT_JOU_N_AG" ColumnName="AGT_JOU_N_AG" />
+                <ScalarProperty Name="AGT_CIN_N_AG" ColumnName="AGT_CIN_N_AG" />
+                <ScalarProperty Name="AGT_CIN_A_AG" ColumnName="AGT_CIN_A_AG" />
+                <ScalarProperty Name="AGT_ANC_ADM" ColumnName="AGT_ANC_ADM" />
+                <ScalarProperty Name="AGT_PRENOM_ARAB_AG" ColumnName="AGT_PRENOM_ARAB_AG" />
+                <ScalarProperty Name="AGT_NOM_ARAB_AG" ColumnName="AGT_NOM_ARAB_AG" />
+                <ScalarProperty Name="AGT_PRENOM_AG" ColumnName="AGT_PRENOM_AG" />
+                <ScalarProperty Name="AGT_NOM_AG" ColumnName="AGT_NOM_AG" />
+                <ScalarProperty Name="AGT_COD_SRV_S_ANT" ColumnName="AGT_COD_SRV_S_ANT" />
+                <ScalarProperty Name="AGT_COD_S_AF_FTF" ColumnName="AGT_COD_S_AF_FTF" />
+                <ScalarProperty Name="AGT_NUM_PB" ColumnName="AGT_NUM_PB" />
+                <ScalarProperty Name="AGT_COD_PAYS" ColumnName="AGT_COD_PAYS" />
+                <ScalarProperty Name="AGT_SS_TYP_MVT" ColumnName="AGT_SS_TYP_MVT" />
+                <ScalarProperty Name="AGT_TYP_MVT" ColumnName="AGT_TYP_MVT" />
+                <ScalarProperty Name="AGT_SIT_F_AG" ColumnName="AGT_SIT_F_AG" />
+                <ScalarProperty Name="AGT_COD_NAT" ColumnName="AGT_COD_NAT" />
+                <ScalarProperty Name="AGT_COD_SRV" ColumnName="AGT_COD_SRV" />
+                <ScalarProperty Name="AGT_COD_ART" ColumnName="AGT_COD_ART" />
+                <ScalarProperty Name="AGT_COD_DEP" ColumnName="AGT_COD_DEP" />
+                <ScalarProperty Name="AGT_COD_LOC" ColumnName="AGT_COD_LOC" />
+                <ScalarProperty Name="AGT_COD_NIV" ColumnName="AGT_COD_NIV" />
+                <ScalarProperty Name="AGT_COD_POS" ColumnName="AGT_COD_POS" />
+                <ScalarProperty Name="AGT_COD_S_AF" ColumnName="AGT_COD_S_AF" />
+                <ScalarProperty Name="M_COD_USR" ColumnName="M_COD_USR" />
+                <ScalarProperty Name="M_REP_SAL" ColumnName="M_REP_SAL" />
+                <ScalarProperty Name="M_COD_AG" ColumnName="M_COD_AG" />
+                <ScalarProperty Name="M_ANN_VISA" ColumnName="M_ANN_VISA" />
+                <ScalarProperty Name="M_REF_ARRETE" ColumnName="M_REF_ARRETE" />
+                <ScalarProperty Name="M_DAT_EFF_MVT" ColumnName="M_DAT_EFF_MVT" />
+                <ScalarProperty Name="M_SS_TYP_MVT" ColumnName="M_SS_TYP_MVT" />
+                <ScalarProperty Name="M_TYP_MVT" ColumnName="M_TYP_MVT" />
+                <ScalarProperty Name="M_NUM_ID" ColumnName="M_NUM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAB_LOC">
+            <EntityTypeMapping TypeName="GipeOrdModel.TAB_LOC">
+              <MappingFragment StoreEntitySet="TAB_LOC">
+                <ScalarProperty Name="LIB_LOC_A" ColumnName="LIB_LOC_A" />
+                <ScalarProperty Name="LIB_LOC" ColumnName="LIB_LOC" />
+                <ScalarProperty Name="COD_LOC" ColumnName="COD_LOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAB_TYP_MVT">
+            <EntityTypeMapping TypeName="GipeOrdModel.TAB_TYP_MVT">
+              <MappingFragment StoreEntitySet="TAB_TYP_MVT">
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="ORDRE" ColumnName="ORDRE" />
+                <ScalarProperty Name="LIB_TYP_MVT_A" ColumnName="LIB_TYP_MVT_A" />
+                <ScalarProperty Name="LIB_TYP_MVT" ColumnName="LIB_TYP_MVT" />
+                <ScalarProperty Name="TYP_MVT" ColumnName="TYP_MVT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAB_GRADE">
+            <EntityTypeMapping TypeName="GipeOrdModel.TAB_GRADE">
+              <MappingFragment StoreEntitySet="TAB_GRADE">
+                <ScalarProperty Name="LIB_GRADE_A" ColumnName="LIB_GRADE_A" />
+                <ScalarProperty Name="LIB_GRADE" ColumnName="LIB_GRADE" />
+                <ScalarProperty Name="COD_ECH" ColumnName="COD_ECH" />
+                <ScalarProperty Name="COD_GRADE" ColumnName="COD_GRADE" />
+                <ScalarProperty Name="COD_CADRE" ColumnName="COD_CADRE" />
+                <ScalarProperty Name="COD_CORPS" ColumnName="COD_CORPS" />
+                <ScalarProperty Name="COD_CATEG" ColumnName="COD_CATEG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAB_SS_TYP_MVT">
+            <EntityTypeMapping TypeName="GipeOrdModel.TAB_SS_TYP_MVT">
+              <MappingFragment StoreEntitySet="TAB_SS_TYP_MVT">
+                <ScalarProperty Name="LIB_SS_TYP_MVT_A" ColumnName="LIB_SS_TYP_MVT_A" />
+                <ScalarProperty Name="TYP_POS" ColumnName="TYP_POS" />
+                <ScalarProperty Name="TYP_INT" ColumnName="TYP_INT" />
+                <ScalarProperty Name="LIB_ABREGE" ColumnName="LIB_ABREGE" />
+                <ScalarProperty Name="LIB_SS_TYP_MVT" ColumnName="LIB_SS_TYP_MVT" />
+                <ScalarProperty Name="COD_POS" ColumnName="COD_POS" />
+                <ScalarProperty Name="SS_TYP_MVT" ColumnName="SS_TYP_MVT" />
+                <ScalarProperty Name="TYP_MVT" ColumnName="TYP_MVT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SIT_ADM">
+            <EntityTypeMapping TypeName="GipeOrdModel.SIT_ADM">
+              <MappingFragment StoreEntitySet="SIT_ADM">
+                <ScalarProperty Name="ANC_CADRE" ColumnName="ANC_CADRE" />
+                <ScalarProperty Name="COD_GRADE_ASS" ColumnName="COD_GRADE_ASS" />
+                <ScalarProperty Name="COD_CADRE_ASS" ColumnName="COD_CADRE_ASS" />
+                <ScalarProperty Name="COD_CORPS_ASS" ColumnName="COD_CORPS_ASS" />
+                <ScalarProperty Name="COD_CATEG_ASS" ColumnName="COD_CATEG_ASS" />
+                <ScalarProperty Name="DAT_S_ST" ColumnName="DAT_S_ST" />
+                <ScalarProperty Name="DAT_FCT" ColumnName="DAT_FCT" />
+                <ScalarProperty Name="ANC_ELO" ColumnName="ANC_ELO" />
+                <ScalarProperty Name="DAT_EFF_ELO" ColumnName="DAT_EFF_ELO" />
+                <ScalarProperty Name="ANC_GRADE" ColumnName="ANC_GRADE" />
+                <ScalarProperty Name="DAT_EFF_GR" ColumnName="DAT_EFF_GR" />
+                <ScalarProperty Name="SPECIALITE" ColumnName="SPECIALITE" />
+                <ScalarProperty Name="TAUX_PRIME" ColumnName="TAUX_PRIME" />
+                <ScalarProperty Name="DAT_FIN_C" ColumnName="DAT_FIN_C" />
+                <ScalarProperty Name="COD_ECH" ColumnName="COD_ECH" />
+                <ScalarProperty Name="MOD_AV_GRADE" ColumnName="MOD_AV_GRADE" />
+                <ScalarProperty Name="COD_ORG_DET" ColumnName="COD_ORG_DET" />
+                <ScalarProperty Name="COD_S_ST" ColumnName="COD_S_ST" />
+                <ScalarProperty Name="COD_FCT" ColumnName="COD_FCT" />
+                <ScalarProperty Name="COD_ELO" ColumnName="COD_ELO" />
+                <ScalarProperty Name="COD_GRADE" ColumnName="COD_GRADE" />
+                <ScalarProperty Name="COD_CADRE" ColumnName="COD_CADRE" />
+                <ScalarProperty Name="COD_CORPS" ColumnName="COD_CORPS" />
+                <ScalarProperty Name="COD_CATEG" ColumnName="COD_CATEG" />
+                <ScalarProperty Name="COD_AG" ColumnName="COD_AG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

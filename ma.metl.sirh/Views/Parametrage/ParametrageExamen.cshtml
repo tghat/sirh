@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Paramétrage";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Paramétrage</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="~/Parametrage/ParametragequotaE">Paramètrage des quotas</a>
+        </li>
+        <li class="active">
+            <a href="~/Parametrage/ParametrageExamen">Paramètrage Examen</a>
+        </li>
+        <li>
+            <a href="~/Parametrage/CentresExamen">Centres Examens</a>
+        </li>
+        <li>
+            <a href="~/Parametrage/ParametrageSpecialite">Paramètrage Spécialités</a>
+        </li>
+        <li>
+            <a href="~/Parametrage/ParametrageMatieres">Paramètrage Matières</a>
+        </li>
+        <li>
+            <a href="~/Parametrage/ParametrageclassementE">Critères de classement</a>
+        </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade  in active" id="manage-integrationFE">
+            @RenderPage("ListExamens.cshtml")
+        </div>
+
+    </div>
+</div>
+
+

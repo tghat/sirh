@@ -1,0 +1,5 @@
+C:\Projets\SIRH\Projets\trunk\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\bin\Debug\ma.metl.sirh.Model.Oracle.dll
+C:\Projets\SIRH\Projets\trunk\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\bin\Debug\ma.metl.sirh.Model.Oracle.pdb
+C:\Projets\SIRH\Projets\trunk\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\obj\Debug\ma.metl.sirh.Model.Oracle.csprojResolveAssemblyReference.cache
+C:\Projets\SIRH\Projets\trunk\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\obj\Debug\ma.metl.sirh.Model.Oracle.dll
+C:\Projets\SIRH\Projets\trunk\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\obj\Debug\ma.metl.sirh.Model.Oracle.pdb

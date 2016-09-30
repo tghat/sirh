@@ -1,0 +1,37 @@
+﻿@model ma.metl.sirh.Model.ViewModel
+@{
+    Layout = null;
+
+}
+
+    <div class="table-responsive">
+        <table class="table table table-bordered table-striped  table-hover">
+            <thead>
+                <tr>
+                    <th><div align="center">Observations</div></th>
+                    <th><div align="center">Décisions prises</div></th>
+                    <th><div align="center">Date Réunion</div></th>
+                    <th>&nbsp;</th>
+                </tr>
+                </thead>
+            <tbody>
+
+                @foreach (var item in Model.ListReunion)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Observation)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Decisions)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateReunion)</td>
+                        <td>
+                            <a class="btn btn-custom btn-xs" href="TelechargerFichier?FileId=@item.Id" title="Télécharger">
+                                <i class="fa fa-download"></i>
+                            </a>
+                        </td>
+</tr> 
+                }
+            <tbody>
+</table>
+      
+    </div>
+
+
