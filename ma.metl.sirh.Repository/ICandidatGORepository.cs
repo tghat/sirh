@@ -10,6 +10,6 @@ namespace ma.metl.sirh.Repository
 {
     public interface ICandidatGORepository : IGenericRepository<AGENT>
     {
-        CandidatGODto GetCandidatFromGipeOrd(string NumDoti);
+        CandidatGODto GetCandidatFromGipeOrd(long NumDoti);
     }
 }

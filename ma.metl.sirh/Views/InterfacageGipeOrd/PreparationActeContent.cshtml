@@ -63,7 +63,7 @@
                 {
                     <tr>
                         <td align="center"><input name="case" type="checkbox" class="chkSelect" /></td>
-                        <td><a href="#">@item.NumDoti</a></td>
+                        <td><a href="javascript:GetSynthese('@item.NumDoti')">@item.NumDoti</a></td>
                         <td>@item.CandidatNom</td>
                         <td>@item.CandidatPrenom</td>
                         <td>@item.Statut</td>
@@ -74,12 +74,16 @@
     </div>
 </fieldset>
 
-<!-- Détail References actes -->
 <fieldset class="col-md-10 col-md-offset-1">
     <legend>Synthèse</legend>
+
+    <div id="SyntheseActeContent">
+
+    </div>
+
     @RenderPage("SyntheseActe.cshtml")
 
-    <div class="b-right" style="margin-top: 10px;">
+    @*<div class="b-right" style="margin-top: 10px;">
         <a class="btn btn-custom" href="#" id="btngenerer">
             <i class="fa fa-legal"></i>
             Générer
@@ -96,35 +100,56 @@
             <i class="fa fa-send"></i>
             Envoyer
         </a>
-    </div>
+    </div>*@
+
 </fieldset>
-<!----->
-@*</div>*@
 
 
 <!-- ******* Popups ****** -->
 
 <script type="text/javascript">
 
-    
 
+    $( document ).ready(function() {
 
-    $("#chkSelectAll").bind("change", function () {
-        $(".chkSelect").prop("checked", $(this).prop("checked"));
+        $('#myTable').DataTable().destroy();
+
+        $('#myTable').DataTable({
+            "columnDefs": [{
+                "targets": [0],
+                "orderable": false
+            }],
+            "stateSave": true
+        });
+
+        var allPages = $('#myTable').DataTable().cells().nodes();
+
+        $("#chkSelectAll").bind("change", function () {
+            $(allPages).find('input.chkSelect[type="checkbox"]').prop('checked', $(this).prop("checked"));
+            //$(".chkSelect").prop("checked", $(this).prop("checked"));
+        });
+
+        $(allPages).find('input.chkSelect[type="checkbox"]').bind("change", function () {
+            if (!$(this).prop("checked"))
+                $("#chkSelectAll").prop("checked", false);
+        });
+
     });
 
-    $(".chkSelect").bind("change", function () {
-        if (!$(this).prop("checked"))
-            $("#chkSelectAll").prop("checked", false);
-    });
-
-    $(".paginate_button").click(function () {
-        if ($('#chkSelectAll').is(":checked")) {
-            $(".chkSelect").prop("checked", "true");
-        }
-        else {
-            $(".chkSelect").removeAttr('checked');
-        }
-    });
+    function GetSynthese(numDotti) {
+        $.ajax({
+            type: "get",
+            url: '@Url.Action("RenderSynthes", "InterfacageGipeOrd")',
+            data: { numDotti: numDotti },
+            datatype: 'json',
+            success: function(d) {
+                /* d is the HTML of the returned response */
+                $("#SyntheseActeContent").html(d); //replaces previous HTML with action
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(textStatus)
+            }
+        });
+    }
 
 </script>

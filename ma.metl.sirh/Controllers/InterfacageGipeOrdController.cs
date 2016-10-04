@@ -1,5 +1,6 @@
 ﻿using ma.metl.sirh.Model;
 using ma.metl.sirh.Model.Dto;
+using ma.metl.sirh.Model.Ora;
 using ma.metl.sirh.Service;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace ma.metl.sirh.Controllers
     {
         readonly ICandidatService _candidatService;
         readonly IGradeService _gradeService;
+        readonly IActeGOService _acteGOService;
 
         public InterfacageGipeOrdController(ICandidatService candidatService, IGradeService gradeService)
         {
@@ -104,6 +106,23 @@ namespace ma.metl.sirh.Controllers
                         candidtats);
 
             return View("PreparationActe", tuple);
+        }
+
+        public ActionResult RenderSynthes(int numDotti) {
+
+            var acte = _acteGOService.GetLastActeByNumDotti(numDotti);
+            var history_list = _acteGOService.GetActeEventsHistory(numDotti);
+
+            Tuple<
+                ACTE,
+                List<ACTE_EVENT_HIST>> tuple = new Tuple<
+                    ACTE,
+                    List<ACTE_EVENT_HIST>>(
+                        acte,
+                        history_list);
+
+            return PartialView("SyntheseActe", tuple);
+
         }
 
         // GET: InterfacageGipeOrd/Rapports

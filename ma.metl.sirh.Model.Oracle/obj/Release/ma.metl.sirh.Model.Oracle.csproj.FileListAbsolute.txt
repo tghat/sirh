@@ -13,3 +13,8 @@ C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma
 C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\obj\Release\ma.metl.sirh.Model.Oracle.csprojResolveAssemblyReference.cache
 C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\obj\Release\ma.metl.sirh.Model.Oracle.dll
 C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma.metl.sirh.Model.Oracle\obj\Release\ma.metl.sirh.Model.Oracle.pdb
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Model.Oracle\bin\Release\ma.metl.sirh.Model.Oracle.dll
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Model.Oracle\bin\Release\ma.metl.sirh.Model.Oracle.pdb
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Model.Oracle\obj\Release\ma.metl.sirh.Model.Oracle.csprojResolveAssemblyReference.cache
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Model.Oracle\obj\Release\ma.metl.sirh.Model.Oracle.dll
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Model.Oracle\obj\Release\ma.metl.sirh.Model.Oracle.pdb

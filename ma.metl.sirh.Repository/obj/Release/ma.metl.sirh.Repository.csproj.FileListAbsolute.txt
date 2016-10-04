@@ -138,3 +138,6 @@ C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma
 C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma.metl.sirh.Repository\obj\Release\ma.metl.sirh.Repository.csprojResolveAssemblyReference.cache
 C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma.metl.sirh.Repository\obj\Release\ma.metl.sirh.Repository.dll
 C:\Users\ZORO\Documents\Visual Studio 2013\Projects\060_Developpement\Sources\ma.metl.sirh.Repository\obj\Release\ma.metl.sirh.Repository.pdb
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Repository\obj\Release\ma.metl.sirh.Repository.csprojResolveAssemblyReference.cache
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Repository\obj\Release\ma.metl.sirh.Repository.dll
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh.Repository\obj\Release\ma.metl.sirh.Repository.pdb

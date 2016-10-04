@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActeGORepository.cs" />
     <Compile Include="CandidatGORepository.cs" />
     <Compile Include="CandidatRepository.cs" />
     <Compile Include="CandidatureRepository.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="FluxRepository.cs" />
     <Compile Include="GradeRepository.cs" />
     <Compile Include="HistoriqueRepository.cs" />
+    <Compile Include="IActeGORepository.cs" />
     <Compile Include="ICandidatGORepository.cs" />
     <Compile Include="ICandidatRepository.cs" />
     <Compile Include="ICandidatureRepository.cs" />

@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActeGOService.cs" />
     <Compile Include="CandidatGOService.cs" />
     <Compile Include="CandidatService.cs" />
     <Compile Include="CandidatureService.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="FluxService.cs" />
     <Compile Include="GradeService.cs" />
     <Compile Include="HistoriqueService.cs" />
+    <Compile Include="IActeGOService.cs" />
     <Compile Include="ICandidatGOService.cs" />
     <Compile Include="ICandidatService.cs" />
     <Compile Include="ICandidatureService.cs" />
