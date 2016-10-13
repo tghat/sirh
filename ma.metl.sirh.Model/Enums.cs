@@ -171,6 +171,25 @@ namespace ma.metl.sirh.Model
 
     }
 
+    public enum EtatActe
+    {
+        [Description("Préparation")]
+        Preparation = 1,
+
+        [Description("Contrôlé")]
+        Controle = 2,
+
+        [Description("Signé")]
+        Signe = 3,
+
+        [Description("Envoyé")]
+        Envoyé = 4,
+
+        [Description("Visé")]
+        Vise = 5,
+
+    }
+
     public enum Annee
     {
      

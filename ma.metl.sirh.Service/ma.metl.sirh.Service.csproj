@@ -93,6 +93,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActeEventHistGOService.cs" />
+    <Compile Include="IActeEventHistGOService.cs" />
+    <Compile Include="IUserGOService.cs" />
+    <Compile Include="UserGOService.cs" />
     <Compile Include="ActeGOService.cs" />
     <Compile Include="CandidatGOService.cs" />
     <Compile Include="CandidatService.cs" />

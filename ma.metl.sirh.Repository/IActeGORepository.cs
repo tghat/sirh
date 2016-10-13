@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 namespace ma.metl.sirh.Repository
 {
-    public interface IActeGORepository : IGenericRepository<ACTE>
+    public interface IActeGORepository : IGenericRepositoryOrd<ACTE>
     {
         ACTE GetLastActeByNumDotti(int NumDoti);
-        List<ACTE_EVENT_HIST> GetActeEventsHistory(int NumDoti);
     }
 }

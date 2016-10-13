@@ -9,19 +9,13 @@ using System.Threading.Tasks;
 
 namespace ma.metl.sirh.Repository
 {
-    public class CandidatGORepository : GenericRepository<AGENT>, ICandidatGORepository
+    public class CandidatGORepository : GenericRepositoryOrd<GipeOrdContext,AGENT>, ICandidatGORepository
     {
-        public CandidatGORepository(GipeOrdContext context)
-            : base(context)
-        {
-
-        }
-
         public CandidatGODto GetCandidatFromGipeOrd(string NumDoti)
         {
             var db1 = new GipeOrdContext();
             int numDoti = Convert.ToInt32(NumDoti);
-            var query = (from ag in db1.AGENT
+            var query = (from ag in db1.AGENTs
                          join sitAdm in db1.SIT_ADM on ag.COD_AG equals sitAdm.COD_AG
                          where ag.COD_AG == numDoti
                          select new CandidatGODto

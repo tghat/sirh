@@ -1,25 +1,39 @@
-﻿@model Tuple<ma.metl.sirh.Model.Ora.ACTE, List<ma.metl.sirh.Model.Ora.ACTE_EVENT_HIST>>
+﻿@model Tuple<ma.metl.sirh.ViewModels.DetailsActeViewModel, List<ma.metl.sirh.ViewModels.HistoriqueViewModel>>
 
 @{
     
 }
 
-<!-- Nav tabs -->
-<ul class="nav nav-tabs">
-    <li class="active">
-        <a href="#situationActe" data-toggle="tab">Détail de l'acte</a>
-    </li>
-    <li>
-        <a href="#historique" data-toggle="tab">Historique</a>
-    </li>
-</ul>
+@if (!Model.Item1.isAvailable)
+{
+    <script type="text/javascript">
 
-<!-- Tab panes -->
-<div class="tab-content">
-    <div class="tab-pane fade in active" id="situationActe">
-        @RenderPage("SyntheseActeSituation.cshtml")
+        alert("Ce candidat n'a pas d'acte.");
+
+    </script>
+}
+else
+{
+<fieldset class="col-md-10 col-md-offset-1">
+    <legend>Synthèse</legend>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#situationActe" data-toggle="tab">Détail de l'acte</a>
+        </li>
+        <li>
+            <a href="#historique" data-toggle="tab">Historique</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="tab-pane fade in active" id="situationActe">
+            @RenderPage("SyntheseActeSituation.cshtml")
+        </div>
+        <div class="tab-pane fade" id="historique">
+            @RenderPage("SyntheseActeHistorique.cshtml")
+        </div>
     </div>
-    <div class="tab-pane fade" id="historique">
-        @RenderPage("SyntheseActeHistorique.cshtml")
-    </div>
-</div>
+</fieldset>
+}

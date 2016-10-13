@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ma.metl.sirh.Repository
 {
-    public interface ICandidatGORepository : IGenericRepository<AGENT>
+    public interface ICandidatGORepository : IGenericRepositoryOrd<AGENT>
     {
-        CandidatGODto GetCandidatFromGipeOrd(long NumDoti);
+        CandidatGODto GetCandidatFromGipeOrd(string NumDoti);
     }
 }

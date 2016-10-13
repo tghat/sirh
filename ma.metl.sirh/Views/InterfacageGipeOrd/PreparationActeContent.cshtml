@@ -45,43 +45,49 @@
 
 <fieldset class="col-md-10 col-md-offset-1">
 
-
     <legend>R&eacute;sultats de Recherche</legend>
-    <div class="table-responsive">
-        <table class="table table table-bordered table-striped  table-hover" id="myTable">
-            <thead>
-                <tr>
-                    <th><input id="chkSelectAll" name="case" type="checkbox" /></th>
-                    <th><div align="center">N°DOTI </div></th>
-                    <th><div align="center">Nom</div></th>
-                    <th><div align="center">Prénom</div></th>
-                    <th><div align="center">Statut</div></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Item2)
-                {
+    @using (Html.BeginForm("GenererFichierPlat", "InterfacageGipeOrd", FormMethod.Post, new { name = "form-generer-fichier-plat", id = "form-generer-fichier-plat", @class = "form-horizontal" }))
+    {
+        <div class="table-responsive">
+            <table class="table table table-bordered table-striped  table-hover" id="myTable">
+                <thead>
                     <tr>
-                        <td align="center"><input name="case" type="checkbox" class="chkSelect" /></td>
-                        <td><a href="javascript:GetSynthese('@item.NumDoti')">@item.NumDoti</a></td>
-                        <td>@item.CandidatNom</td>
-                        <td>@item.CandidatPrenom</td>
-                        <td>@item.Statut</td>
+                        <th><input id="chkSelectAll" name="case" type="checkbox" /></th>
+                        <th><div align="center">N°DOTI </div></th>
+                        <th><div align="center">Nom</div></th>
+                        <th><div align="center">Prénom</div></th>
+                        <th><div align="center">Statut</div></th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Item2)
+                    {
+                        <tr>
+                            @*<td align="center"><input name="case" type="checkbox" class="chkSelect" value="@item.CandidatId" /></td>*@
+                            <td align="center">@Html.CheckBox("selectedItems", new { @Class="chkSelect", value=item.NumDoti })</td>
+                            <td><a href="javascript:GetSynthese('@item.NumDoti')">@item.NumDoti</a></td>
+                            <td>@item.CandidatNom</td>
+                            <td>@item.CandidatPrenom</td>
+                            <td>@item.Statut</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="b-right" style="margin-top: 10px;">
+            <a class="btn btn-custom" href="#" id="btngenerer" onclick="SubmitSelectedCandidats()">
+                <i class="fa fa-legal"></i>
+                Générer
+            </a>
+        </div>
+    }
 </fieldset>
 
-<fieldset class="col-md-10 col-md-offset-1">
-    <legend>Synthèse</legend>
+<div id="SyntheseActeContent"></div>
 
-    <div id="SyntheseActeContent">
 
-    </div>
 
-    @RenderPage("SyntheseActe.cshtml")
+    @*@RenderPage("SyntheseActe.cshtml")*@
 
     @*<div class="b-right" style="margin-top: 10px;">
         <a class="btn btn-custom" href="#" id="btngenerer">
@@ -102,7 +108,7 @@
         </a>
     </div>*@
 
-</fieldset>
+
 
 
 <!-- ******* Popups ****** -->
@@ -150,6 +156,15 @@
                 alert(textStatus)
             }
         });
+    }
+
+    function SubmitSelectedCandidats() {
+        var allPages = $('#myTable').DataTable().cells().nodes();
+        var checkeds = $(allPages).find('input.chkSelect[type="checkbox"]:checked');
+        if (checkeds.length == 0)
+            alert("Merci de sélectionner des candidats!");
+        else
+            $('#form-generer-fichier-plat').submit();
     }
 
 </script>

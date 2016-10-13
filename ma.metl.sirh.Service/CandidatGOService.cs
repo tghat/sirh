@@ -14,10 +14,10 @@ namespace ma.metl.sirh.Service
 {
     public class CandidatGOService : EntityGOService<AGENT>, ICandidatGOService
     {
-        IUnitOfWorkOrd _unitOfWork;
+        IUnitOfWork _unitOfWork;
         ICandidatGORepository _candidatGORepository;
 
-        public CandidatGOService(IUnitOfWorkOrd unitOfWork, ICandidatGORepository candidatGORepository)
+        public CandidatGOService(IUnitOfWork unitOfWork, ICandidatGORepository candidatGORepository)
             : base(unitOfWork, candidatGORepository)
         {
             _unitOfWork = unitOfWork;

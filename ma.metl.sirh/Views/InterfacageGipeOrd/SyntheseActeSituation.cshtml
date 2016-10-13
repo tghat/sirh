@@ -1,37 +1,30 @@
-﻿@model Tuple<ma.metl.sirh.Model.Ora.Ora.ACTE, List<ma.metl.sirh.Model.Ora.ACTE_EVENT_HIST>>
+﻿@model Tuple<ma.metl.sirh.ViewModels.DetailsActeViewModel, List<ma.metl.sirh.ViewModels.HistoriqueViewModel>>
 
 @{
 
 }
 
-<div class="table-responsive">
-        <div class="form-group">
-            <div class="col-md-3">
-                <label>Réference arrêté collectif : </label>
-            </div>
-            <div class="col-md-3">
-                @*@Model.Item1.;*@
-            </div>
-            <div class="col-md-3">
-                <label>Année : </label>
-            </div>
-            <div class="col-md-3">
-                @*@Html.DisplayFor(x => x.Item1.)*@
-            </div>
-        </div>
-
-        <div class="form-group">
-
-            <div class="col-md-3">
-                <label for="statutacte">Statut :</label>
-            </div>
-            <div class="col-md-3">
-                <select class="form-control" name="statutacte" id="statutacte">
-                    <option value="0">---- S&eacute;lectionnez ----</option>
-                    <option value="1">En cours</option>
-                    <option value="2">Envoyé pour visa</option>
-                    <option value="3">Visé</option>
-                </select>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md-4">
+        <label>Réference arrêté collectif : </label>
     </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(item => item.Item1.Ref_arrete)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <label>Année : </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(item => item.Item1.Ann_visa)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <label for="statutacte">Statut : </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(item => item.Item1.Status)
+    </div>
+</div>

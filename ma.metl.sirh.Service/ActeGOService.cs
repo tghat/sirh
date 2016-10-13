@@ -12,12 +12,12 @@ using System.Data.Odbc;
 
 namespace ma.metl.sirh.Service
 {
-    public class ActeGOService : EntityGOService<ACTE>, ma.metl.sirh.Service.IActeGOService
+    public class ActeGOService : EntityGOService<ACTE>, IActeGOService
     {
-        IUnitOfWorkOrd _unitOfWork;
+        IUnitOfWork _unitOfWork;
         IActeGORepository _acteGORepository;
 
-        public ActeGOService(IUnitOfWorkOrd unitOfWork, IActeGORepository acteGORepository)
+        public ActeGOService(IUnitOfWork unitOfWork, IActeGORepository acteGORepository)
             : base(unitOfWork, acteGORepository)
         {
             _unitOfWork = unitOfWork;
@@ -28,10 +28,5 @@ namespace ma.metl.sirh.Service
         {
             return _acteGORepository.GetLastActeByNumDotti(numDoti);
         }
-
-        public List<ACTE_EVENT_HIST> GetActeEventsHistory(int NumDoti)
-        {
-            return _acteGORepository.GetActeEventsHistory(NumDoti);
-        } 
     }
 }

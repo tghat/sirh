@@ -6,6 +6,5 @@ namespace ma.metl.sirh.Service
     public interface IActeGOService : IEntityGOService<ACTE>
     {
         ACTE GetLastActeByNumDotti(int numDoti);
-        List<ACTE_EVENT_HIST> GetActeEventsHistory(int NumDoti);
     }
 }

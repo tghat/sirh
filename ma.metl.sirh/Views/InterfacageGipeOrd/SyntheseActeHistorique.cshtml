@@ -1,42 +1,33 @@
-﻿
+﻿@model Tuple<ma.metl.sirh.ViewModels.DetailsActeViewModel, List<ma.metl.sirh.ViewModels.HistoriqueViewModel>>
+
 @{
     
 }
 
-<form name="form-DetailCandidat" id="form-DetailCandidat" action="" method="post" class="form-horizontal">
+
 
     <div class="table-responsive">
-        <table class="table table table-bordered table-striped  table-hover">
-            <tr>
-                <th><div align="center">Action</div></th>
-                <th><div align="center">Message</div></th>
-                <th><div align="center">Utilisateur</div></th>
-                <th><div align="center">Date action</div></th>
-            </tr>
-            <tr>
-                <td>Création</td>
-                <td></td>
-                <td>System</td>
-                <td>10/02/2015</td>
-
-            </tr>
-            <tr class="">
-                <td>Modification</td>
-                <td></td>
-                <td>Gestionnaire C</td>
-                <td>10/03/2015</td>
-
-            </tr>
-            <tr>
-                <td>Suppression</td>
-                <td></td>
-                <td>Gestionnaire A</td>
-                <td>20/04/2015</td>
-
-            </tr>
-
+        <table class="table table table-bordered table-striped  table-hover" id="historique-acte-table">
+            <thead>
+                <tr>
+                    @*<th><div align="center">Action</div></th>*@
+                    <th><div align="center">Statut</div></th>
+                    <th><div align="center">Utilisateur</div></th>
+                    <th><div align="center">Date action</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Item2)
+                {
+                    <tr>
+                        <td>@item.Status</td>
+                        <td>@item.User</td>
+                        <td>@item.DateAction</td>
+                    </tr>
+                }
+            </tbody>
         </table>
-        <div class="col-md-offset-3">
+        @*<div class="col-md-offset-3">
             <ul class="pagination">
                 <li><a href=""> <i class="fa fa-step-backward"></i> Pr&eacute;c&eacute;dent</a></li>
                 <li><a href="#" class="active">1</a></li>
@@ -48,6 +39,16 @@
                 <li><a href="#">10</a></li>
                 <li><a href="#"><i class="fa fa-step-forward"></i> Suivant</a></li>
             </ul>
-        </div>
+        </div>*@
     </div>
-</form>
+
+<script type="text/javascript">
+
+    $( document ).ready(function() {
+
+        $('#historique-acte-table').DataTable().destroy();
+
+        $('#historique-acte-table').DataTable();
+    });
+
+</script>

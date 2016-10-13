@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ma.metl.sirh.Repository
 {
-    public interface IMvtSitAdmRepository : IGenericRepository<MVT_SIT_ADM>
+    public interface IMvtSitAdmRepository : IGenericRepositoryOrd<MVT_SIT_ADM>
     {
         List<SanctionDto> GetListSanctions(string numDoti);
     }

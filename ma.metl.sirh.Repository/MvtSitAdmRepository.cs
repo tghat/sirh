@@ -8,13 +8,8 @@ using System.Threading.Tasks;
 
 namespace ma.metl.sirh.Repository
 {
-    public class MvtSitAdmRepository : GenericRepository<MVT_SIT_ADM>, IMvtSitAdmRepository
+    public class MvtSitAdmRepository : GenericRepositoryOrd<GipeOrdContext,MVT_SIT_ADM>, IMvtSitAdmRepository
     {
-        public MvtSitAdmRepository(GipeOrdContext context)
-            : base(context)
-        {
-
-        }
         public List<SanctionDto> GetListSanctions(string numDoti)
         {
             var db = new GipeOrdContext();

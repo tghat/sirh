@@ -91,6 +91,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActeEventHistGORepository.cs" />
+    <Compile Include="GradeGORepository.cs" />
+    <Compile Include="IActeEventHistGORepository.cs" />
+    <Compile Include="IGradeGORepository.cs" />
+    <Compile Include="IUserGORepository.cs" />
+    <Compile Include="UserGORepository.cs" />
     <Compile Include="ActeGORepository.cs" />
     <Compile Include="CandidatGORepository.cs" />
     <Compile Include="CandidatRepository.cs" />
@@ -98,6 +104,8 @@
     <Compile Include="CentreExamenRepository.cs" />
     <Compile Include="CommissionMembreRepository.cs" />
     <Compile Include="CommissionRepository.cs" />
+    <Compile Include="Common\GenericRepositoryOrd.cs" />
+    <Compile Include="Common\IGenericRepositoryOrd.cs" />
     <Compile Include="Common\IUnitOfWorkOrd.cs" />
     <Compile Include="Common\UnitOfWorkOrd.cs" />
     <Compile Include="DetailAvancementRepository.cs" />

@@ -20,7 +20,6 @@ namespace ma.metl.sirh.Repository.Common
         /// <param name="context">The object context</param>
         public UnitOfWorkOrd(GipeOrdContext context)
         {         
-
             _dbContext = context;
         }
 

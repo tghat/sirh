@@ -12,20 +12,20 @@ namespace ma.metl.sirh.Service
 {
     public class MvtSitAdmService  : EntityGOService<MVT_SIT_ADM>, IMvtSitAdmService
     {
-        IUnitOfWorkOrd _unitOfWork;
-        IMvtSitAdmRepository _MvtSitAdmRepository;
+        IUnitOfWork _unitOfWork;
+        IMvtSitAdmRepository _mvtSitAdmRepository;
 
-        public MvtSitAdmService(IUnitOfWorkOrd unitOfWork, IMvtSitAdmRepository MvtSitAdmRepository)
-            : base(unitOfWork, MvtSitAdmRepository)
+        public MvtSitAdmService(IUnitOfWork unitOfWork, IMvtSitAdmRepository mvtSitAdmRepository)
+            : base(unitOfWork, mvtSitAdmRepository)
         {
             _unitOfWork = unitOfWork;
-            _MvtSitAdmRepository = MvtSitAdmRepository;
+            _mvtSitAdmRepository = mvtSitAdmRepository;
         }
 
 
         public List<SanctionDto> GetListSanctions(string numDoti)
         {
-            return _MvtSitAdmRepository.GetListSanctions(numDoti);
+            return _mvtSitAdmRepository.GetListSanctions(numDoti);
         }
     }
 }

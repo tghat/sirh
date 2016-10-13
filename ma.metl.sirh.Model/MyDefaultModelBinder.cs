@@ -91,6 +91,9 @@ namespace ma.metl.sirh.Model
             if (modelType == typeof(Tuple<InterfacageActeCandidatRechercheVM, List<InterfacageActeCandidatResultatVM>>))
                 return new Tuple<InterfacageActeCandidatRechercheVM, List<InterfacageActeCandidatResultatVM>>(new InterfacageActeCandidatRechercheVM(), new List<InterfacageActeCandidatResultatVM>());
 
+            if (modelType == typeof(Tuple<CritereRapportViewModel, List<RapportViewModel>>))
+                return new Tuple<CritereRapportViewModel, List<RapportViewModel>>(new CritereRapportViewModel(), new List<RapportViewModel>());
+
             return CreateModel(controllerContext, bindingContext, modelType);
         }
     }

@@ -110,6 +110,7 @@
     <Compile Include="Dto\CandidatDto.cs" />
     <Compile Include="Dto\CandidatGODto.cs" />
     <Compile Include="Dto\CandidatResultatDto.cs" />
+    <Compile Include="Dto\CritereRapportViewModel.cs" />
     <Compile Include="Dto\CritereRechercheDto.cs" />
     <Compile Include="Dto\DeliberationRapportDto.cs" />
     <Compile Include="Dto\EventDto.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Dto\ListEnum.cs" />
     <Compile Include="Dto\MatiereDto.cs" />
     <Compile Include="Dto\QuotaDto.cs" />
+    <Compile Include="Dto\RapportViewModel.cs" />
     <Compile Include="Dto\ResultatRapportDto.cs" />
     <Compile Include="Dto\SantionDto.cs" />
     <Compile Include="Email.cs" />
