@@ -1,0 +1,187 @@
+﻿@model Tuple<ma.metl.sirh.Model.ProgrammeModel, IEnumerable<ma.metl.sirh.Model.Flux>>
+
+@{
+Layout = null;
+
+}
+<script type="text/javascript">
+    function popupR(idFlux) {
+        $('#IdFlux').val(idFlux);
+        document.forms['form-recherche'].submit();
+
+    }
+
+    function fermerPopUp()
+    {
+        $('#IdFlux').val("");
+        document.forms['form-recherche'].submit();
+    }
+
+</script>
+<div class="row">
+    <div class="col-md-0 col-md-offset-0">
+
+        @Html.Label("msgInfo", "", new { @class = "form-control" }) @Html.ValidationMessage("msgInfo", new { @style = "color:green" })
+
+    </div>
+</div>
+<form name="form-recherche" id="form-recherche" action="" method="post" class="form-horizontal">
+    <fieldset class="col-md-10 col-md-offset-1">
+
+        <legend>Critères de Recherche</legend>
+        <div class="form-group">
+            @Html.Hidden("IdFlux")
+            <div class="col-md-3">
+                <label for="etat"> État:</label>
+            </div>
+            <div class="col-md-3">
+                @Html.CustomEnumDropDownListFor(x => x.Item1.Etat, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                <label for="type"> Type de flux :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.CustomEnumDropDownListFor(x => x.Item1.TypeFlux, new { @class = "form-control" })
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <!--</div>
+            <div class="form-group">-->
+            <div class="col-md-3">
+                <label for="annee">Année de réception :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(x => x.Item1.Annee, ViewBag.Annee as SelectList, "---- Sélectionnez ----", new { @class = "form-control" })
+            </div>
+            <div class="b-right">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Rechercher" class="btn btn-custom btn-xs" />
+                </div>
+            </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="col-md-10 col-md-offset-1">
+        <legend>R&eacute;sultats de Recherche</legend>
+        <div class="table-responsive">
+            <table class="table table table-bordered table-striped  table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Type de flux</th>
+                        <th>Flux</th>
+                        <th>Année de réception</th>
+                        <th>Etat</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.Item2)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.TypeFlux)</td>
+                            <td>@Html.DisplayFor(modelItem => item.name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.anneeReception)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Etat)</td>
+                            <td>
+                                <a class="btn btn-custom btn-xs" href="TelechargerFichier?FileId=@item.Id" title="Télécharger">
+                                    <i class="fa fa-download"></i>
+                                </a>
+                                <a class="btn btn-custom btn-xs" href="javascript:popupR(@item.Id)" title="Synthèse">
+                                    <i class="fa fa-file-text-o"></i>
+                                </a>
+                                <a class="btn btn-custom btn-xs" href="ValiderFichier?FileId=@item.Id" onclick="return confirm('etes vous sur de vouloir valider?');" title="Valider">
+                                    <i class="fa fa-check"></i>
+                                </a>
+                            </td>
+
+                        </tr> }
+                <tbody>
+            </table>
+        </div>
+    </fieldset>
+</form>
+<!-- ******* Popups ****** -->
+<!-- ************* Synthèse ***************************** -->
+@if(ViewBag.show)
+{ 
+<div id="synthese">
+    <div class="modal-dialog modal-lg" style="position:absolute;left:2%;margin-top:-230px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Synthèse Fichier</h4>
+            </div>
+            <div class="modal-body">
+                <form name="form-synthese" id="form-synthese" action="" method="post" class="form-horizontal" >
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label>Nombre total de lignes :</label>
+                        </div>
+                        <div class="col-md-1">
+                            
+                            @ViewBag.nbrTotalLigne
+                            
+                        </div>
+                        <div class="col-md-3">
+                            <label>Nombre de lignes valides:</label>
+                        </div>
+                        <div class="col-md-1">
+                            
+                            @ViewBag.nbrLigneTraite  
+                            
+                        </div>
+                        <div class="col-md-3">
+                            <label>Nombre de lignes invalides:</label>
+                        </div>
+                        <div class="col-md-1">
+                            
+                            @ViewBag.nbrLigneRejete   
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table table-bordered table-striped  table-hover">
+                            <thead>
+                                <tr>
+                                    <th>N° de ligne</th>
+                                    <th>Code Erreur</th>
+                                    <th>Motif</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    @foreach (var item in Model.Item2)
+                                    {
+                                        if(item.Id== ViewBag.Id && item.LignesRejetees != null)
+                                        { 
+                                            foreach(var it in item.LignesRejetees)
+                                            { 
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => it.Id)</td>
+                                        <td>@Html.DisplayFor(modelItem => it.motifRejet)</td>
+                                        <td>@Html.DisplayFor(modelItem => it.detail)</td>
+                                        
+                                    </tr>
+                                            }
+                                        }
+                                }
+                            <tbody>
+                        </table>
+                      
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-custom btn-xs" href="javascript:fermerPopUp()">
+                    <i class="fa fa-file-text-o"></i>
+                    Fermer
+
+                </a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+}

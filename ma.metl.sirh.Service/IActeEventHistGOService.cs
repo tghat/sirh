@@ -12,5 +12,6 @@ namespace ma.metl.sirh.Service
             string operationId,
             int? refArrete,
             DateTime? dateOperation);
+        List<ACTE_EVENT_HIST> GetAllActeEventHist();
     }
 }

@@ -1,0 +1,54 @@
+﻿@model Tuple<ma.metl.sirh.ViewModels.DetailsActeViewModel, List<ma.metl.sirh.ViewModels.HistoriqueViewModel>>
+
+@{
+    
+}
+
+
+
+    <div class="table-responsive">
+        <table class="table table table-bordered table-striped  table-hover" id="historique-acte-table">
+            <thead>
+                <tr>
+                    @*<th><div align="center">Action</div></th>*@
+                    <th><div align="center">Statut</div></th>
+                    <th><div align="center">Utilisateur</div></th>
+                    <th><div align="center">Date action</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Item2)
+                {
+                    <tr>
+                        <td>@item.Status</td>
+                        <td>@item.User</td>
+                        <td>@item.DateAction</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        @*<div class="col-md-offset-3">
+            <ul class="pagination">
+                <li><a href=""> <i class="fa fa-step-backward"></i> Pr&eacute;c&eacute;dent</a></li>
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">... </a></li>
+                <li><a href="#">8</a></li>
+                <li><a href="#">9</a></li>
+                <li><a href="#">10</a></li>
+                <li><a href="#"><i class="fa fa-step-forward"></i> Suivant</a></li>
+            </ul>
+        </div>*@
+    </div>
+
+<script type="text/javascript">
+
+    $( document ).ready(function() {
+
+        $('#historique-acte-table').DataTable().destroy();
+
+        $('#historique-acte-table').DataTable();
+    });
+
+</script>

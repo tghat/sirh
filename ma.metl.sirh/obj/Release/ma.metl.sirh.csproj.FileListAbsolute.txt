@@ -461,3 +461,4 @@ C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh\obj\Release\RdlCompile.compiled
 C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh\obj\Release\fr-FR\ma.metl.sirh.resources.dll
 C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh\obj\Release\ma.metl.sirh.dll
 C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh\obj\Release\ma.metl.sirh.pdb
+C:\Users\ZORO\Source\Repos\sirh\ma.metl.sirh\bin\Oracle.ManagedDataAccess.dll

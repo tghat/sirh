@@ -1,0 +1,215 @@
+﻿@model Tuple<ma.metl.sirh.Model.ProgrammeModel, ma.metl.sirh.Model.Publication, IEnumerable<ma.metl.sirh.Model.Publication>>
+
+@{
+    Layout = null;
+
+}
+<script type="text/javascript">
+    $(function () {
+        $(".form-control datepicker").datepicker();
+    });
+
+    function popupR(idFlux) {
+        $('#IdFlux').val(idFlux);
+        document.forms['form-recherche'].submit();
+
+    }
+
+    function fermerPopUp() {
+        $('#IdFlux').val("");
+        document.forms['form-recherche'].submit();
+    }
+
+</script>
+
+
+@{var roles = Session["listRoles"] as List<string>;}
+
+
+<div class="row">
+    <div class="col-md-0 col-md-offset-0">
+
+        @Html.Label("msgInfo", "", new { @class = "form-control" }) @Html.ValidationMessage("msgInfo", new { @style = "color:green" })
+        @Html.Label("msgError", "", new { @class = "form-control" }) @Html.ValidationMessage("msgError", new { @style = "color:red" })
+
+    </div>
+</div>
+
+
+<form name="form-recherche" id="form-recherche" action="" method="post" class="form-horizontal">
+    <fieldset class="col-md-10 col-md-offset-1">
+
+        <legend>Critères de Recherche</legend>
+        <div class="form-group">
+            @Html.Hidden("IdFlux")
+            <div class="col-md-3">
+                <label for="etat"> Type publication :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(x => x.Item1.TypePublicationAVC, ViewBag.TypePublicationAVC as SelectList, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                <label for="type"> Statut :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.DropDownListFor(x => x.Item1.EtatPublication, ViewBag.EtatPublication as SelectList, new { @class = "form-control" })
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <!--</div>
+            <div class="form-group">-->
+            <div class="col-md-3">
+                <label for="annee">Date début d'affichage :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(x => x.Item1.DateDebut, string.Empty, new { @class = "form-control datepicker" })
+            </div>
+            <div class="col-md-3">
+                <label for="annee">Date fin d'affichage :</label>
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(x => x.Item1.DateFin, string.Empty, new { @class = "form-control datepicker" })
+            </div>
+        </div>
+        <div class="b-right">
+            <div class="col-md-offset-2 col-md-10">
+                <a class="btn btn-custom" href="javascript:popup('newResultExamen')">
+                    <i class="fa fa-plus"></i>
+                    Nouvelle publication
+                </a>
+                <a class="btn btn-custom ">
+                    <i class="fa fa-search"></i>
+                    <input type="submit" value="Rechercher" class="btn btn-custom btn-xs" />
+                </a>
+            </div>
+        </div>
+
+    </fieldset>
+
+    <fieldset class="col-md-10 col-md-offset-1">
+        <legend>R&eacute;sultats de Recherche</legend>
+        <div class="table-responsive">
+            <table class="table table table-bordered table-striped  table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Type de publication</th>
+                        <th>Objet</th>
+                        <th>Date début d'affichage</th>
+                        <th>Date fin d'affichage</th>
+                        <th>Statut</th>
+                        <th>Pièce jointe</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.Item3)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.TypePublication)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Objet)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DateDebutPub)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DateFinPub)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Statut)</td>
+                            <td>
+                                <a class="btn btn-custom btn-xs" href="TelechargerFichier?FileId=@item.Id" title="Télécharger">
+                                    <i class="fa fa-download"></i>
+                                </a>
+                            </td>
+                        </tr> }
+                <tbody>
+            </table>
+        </div>
+    </fieldset>
+</form>
+<!-- ******* Popups ****** -->
+<!-- **************** Popups **************** -->
+<!-- **** newResult **** -->
+
+<div id="newResultExamen" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Nouvelle publication</h4>
+            </div>
+            <div class="modal-body">
+
+                <form name="form-newCAP" id="form-newCAP" action="CreerPublicationAVC" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label for="annee">Type de publication : </label>
+                        </div>
+                        <div class="col-md-5">
+                            @Html.DropDownListFor(x => x.Item2.TypePublication, ViewBag.TypePublicationAVC as SelectList, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label for="annee">Objet : </label>
+                        </div>
+                        <div class="col-md-5">
+                            @Html.TextAreaFor(x => x.Item2.Objet, new { rows = 2, @class = "form-control" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label for="annee">Date début d'affichage : </label>
+                        </div>
+                        <div class="col-md-5">
+                            @Html.TextBoxFor(x => x.Item2.DateDebutPub, DateTime.Now.ToString("d"), new { @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label for="grade">Date fin d'affichage : </label>
+                        </div>
+                        <div class="col-md-5">
+                            @Html.TextBoxFor(x => x.Item2.DateFinPub, DateTime.Now.ToString("d"), new { @class = "form-control datepicker" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label for="annee">Piéce jointe</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input class="form-control" name="flux" type="file" />
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label for="grade">Statut</label>
+                        </div>
+                        <div class="col-md-5">
+                            @Html.DropDownListFor(x => x.Item2.Statut, ViewBag.EtatPublication as SelectList, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" value="Enregistrer" class="btn btn-custom btn-lg" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </form>
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        jQuery.validator.methods.date = function (value, element) {
+            var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+            if (isChrome) {
+                var d = new Date();
+                return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+            } else {
+                return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+            }
+        };
+    });
+</script>

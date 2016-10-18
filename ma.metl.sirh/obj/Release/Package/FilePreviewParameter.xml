@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="Default Web site/sirh" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ZORO\\Documents\\Visual\ Studio\ 2013\\Projects\\060_Developpement\\Sources\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\ZORO\\Documents\\Visual\ Studio\ 2013\\Projects\\060_Developpement\\Sources\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp$" />
-  </parameter>
-  <parameter name="ma.metl.sirh.Model.Ora.GipeOrdContext-Web.config Connection String" description="" value="ma.metl.sirh.Model.Ora.GipeOrdContext_ConnectionString" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ZORO\\Documents\\Visual\ Studio\ 2013\\Projects\\060_Developpement\\Sources\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ma.metl.sirh.Model.Ora.GipeOrdContext']/@connectionString" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\ZORO\\Source\\Repos\\sirh\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\ZORO\\Source\\Repos\\sirh\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="sirhContext-Web.config Connection String" description="" value="Data Source=localhost;Initial Catalog=sirh;Integrated Security=SSPI;MultipleActiveResultSets=true" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\ZORO\\Documents\\Visual\ Studio\ 2013\\Projects\\060_Developpement\\Sources\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sirhContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ZORO\\Source\\Repos\\sirh\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='sirhContext']/@connectionString" />
+  </parameter>
+  <parameter name="GipeOrdContext-Web.config Connection String" description="GipeOrdContext Connection String used in web.config by the application to access the database." value="metadata=res://*/GipeOrdContext.csdl|res://*/GipeOrdContext.ssdl|res://*/GipeOrdContext.msl;provider=Oracle.ManagedDataAccess.Client;provider connection string=&quot;DATA SOURCE=XE;PASSWORD=GipeOrd;USER ID=GIPEORD&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\ZORO\\Source\\Repos\\sirh\\ma\.metl\.sirh\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GipeOrdContext']/@connectionString" />
   </parameter>
 </parameters>

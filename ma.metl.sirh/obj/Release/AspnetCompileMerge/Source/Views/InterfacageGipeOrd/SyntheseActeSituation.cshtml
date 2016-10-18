@@ -1,0 +1,30 @@
+﻿@model Tuple<ma.metl.sirh.ViewModels.DetailsActeViewModel, List<ma.metl.sirh.ViewModels.HistoriqueViewModel>>
+
+@{
+
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <label>Réference arrêté collectif : </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(item => item.Item1.Ref_arrete)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <label>Année : </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(item => item.Item1.Ann_visa)
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <label for="statutacte">Statut : </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(item => item.Item1.Status)
+    </div>
+</div>

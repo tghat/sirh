@@ -1,0 +1,169 @@
+﻿@model ma.metl.sirh.Model.Users
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+<h1 class="page-header">Administration</h1>
+
+<fieldset class="col-md-10 col-md-offset-1">
+    <legend>Nouvel Utilisateur</legend>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+          
+            @Html.ValidationSummary(true)
+
+            <div class="form-group">
+               @* @Html.LabelFor(model => model.Login, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label>Login</label>  
+                </div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.Login, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Login ,null, new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+               @* @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label>Mot de passe</label>   
+                </div>
+                <div class="col-md-4">
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password, null, new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+              @*  @Html.LabelFor(model => model.Prenom, new { @class = "control-label col-md-2" })*@
+              
+                    <div class="col-md-4">
+                        <label>Confirmation du mot de passe</label>
+</div>
+                    <div class="col-md-4">
+                        @Html.PasswordFor(model => model.ConfirmationPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ConfirmationPassword, null, new { @style = "color:red" })
+                    </div>
+                </div>
+
+            <div class="form-group">
+               @* @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label>Nom</label>
+</div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Name, null, new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Profil, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label>Pr&eacute;nom</label>
+</div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.Prenom, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Prenom, null, new { @style = "color:red" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+              @*  @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label>Email</label>
+</div>
+                <div class="col-md-4">
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, null, new { @style = "color:red" })
+                </div>
+            </div>
+
+            <div class="form-group">
+               @* @Html.LabelFor(model => model.ConfirmationPassword, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label>Profil</label>
+</div>
+                <div class="col-md-4">
+                    @Html.DropDownList("ProfilId", null, "-----------Sélectionnez---------", new { @class = "form-control" })
+                   @* @Html.TextBoxFor(model => model.ProfilId, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.ProfilId, null, new { @style = "color:red" })
+                </div>
+            </div>
+            <div class="form-group">
+                @* @Html.LabelFor(model => model.ConfirmationPassword, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label> Direction</label>
+</div>
+                <div class="col-md-4">
+                    @Html.DropDownList("DirectionId", null, "-----------Sélectionnez---------", new { @class = "form-control" })
+                    @* @Html.TextBoxFor(model => model.ProfilId, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.DirectionId,null, new { @style = "color:red" })
+                </div>
+                </div>
+            <div class="form-group">
+                @* @Html.LabelFor(model => model.ConfirmationPassword, new { @class = "control-label col-md-2" })*@
+                <div class="col-md-4">
+                    <label> Service</label>
+</div>
+                <div class="col-md-4">
+                    @Html.DropDownList("ServiceId",null, "-----------Sélectionnez---------", new { @class = "form-control" })
+                    @* @Html.TextBoxFor(model => model.ProfilId, new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.ServiceId, null, new { @style = "color:red" })
+                </div>
+            </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <label> Statut</label>
+</div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="Statut" id="select2">
+                            <option value="1">Actif</option>
+                            <option value="2">Inactif</option>
+                        </select>
+                    </div> 
+                </div>
+           <p class="b-right">
+    <a class="btn btn-custom" href="~/Users/AdministrationUsers" title="Retour">
+        <i class="fa  fa-arrow-left"></i>
+    </a>
+               
+                       <input type="submit" value="Enregistrer" class="btn btn-custom" />
+                  
+   @*<a class="btn btn-custom btn-xs" href="#" title="Enregistrer">
+               <input type="submit"    title="Enregistrer"/>
+    <i class="fa fa-save"></i>
+   </a>*@
+               
+               
+    </p>
+
+            @*<div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>*@
+        </div>
+    }
+
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+    @*<p class="b-right">
+        <a class="btn btn-custom btn-xs" href="~/Users/Index" title="Retour">
+            <i class="fa  fa-arrow-left"></i>
+        </a>
+     <a class="btn btn-custom btn-xs" href="#" title="Enregistrer">
+        <a type="submit" href="~/Users/Create" class="btn btn-custom btn-xs" />
+            <i class="fa fa-save"></i>
+     </a>
+    </p>*@
+</fieldset>

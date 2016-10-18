@@ -170,11 +170,11 @@ namespace ma.metl.sirh.Controllers
             operations.Add(new SelectListItem { Text = "Envoyé", Value = "4" });
             operations.Add(new SelectListItem { Text = "Visé", Value = "5" });
 
-            ViewBag.Users = new SelectList(_userGOService.GetAll().OrderBy(x => x.LIB_USR), "COD_USR", "LIB_USR");
+            ViewBag.Users = new SelectList(_userGOService.GetAllUsers().OrderBy(x => x.LIB_USR), "COD_USR", "LIB_USR");
             ViewBag.Grades = new SelectList(_gradeService.GetAll().OrderBy(x => x.Description), "Id", "Description");
             ViewBag.Operations = operations;
 
-            var rapportList = (from h in _acteEventHistGOService.GetAll().ToList()
+            var rapportList = (from h in _acteEventHistGOService.GetAllActeEventHist()
                                  select new ma.metl.sirh.Model.Dto.RapportViewModel() { 
                                     Acte = h.ACTE_REF_ARR + "/" + CultureInfo.CurrentCulture.Calendar.ToFourDigitYear(h.ACTE_ANN_VISA).ToString(),
                                     Action = GetStatusById(h.ACTE_STADE),
@@ -205,7 +205,7 @@ namespace ma.metl.sirh.Controllers
             operations.Add(new SelectListItem { Text = "Envoyé", Value = "4" });
             operations.Add(new SelectListItem { Text = "Visé", Value = "5" });
 
-            ViewBag.Users = new SelectList(_userGOService.GetAll().OrderBy(x => x.LIB_USR), "COD_USR", "LIB_USR");
+            ViewBag.Users = new SelectList(_userGOService.GetAllUsers().OrderBy(x => x.LIB_USR), "COD_USR", "LIB_USR");
             ViewBag.Grades = new SelectList(_gradeService.GetAll().OrderBy(x => x.Description), "Id", "Description");
             ViewBag.Operations = operations;
 
@@ -277,7 +277,9 @@ namespace ma.metl.sirh.Controllers
 
         public string GetUserLibByCode(short code)
         {
-            return _userGOService.GetUserByCode(code).LIB_USR;
+            var user = _userGOService.GetUserByCode(code);
+            if (user == null) return "Indéfini";
+            else return user.LIB_USR;
         }
     }
 }
